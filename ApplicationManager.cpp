@@ -18,6 +18,7 @@ ApplicationManager::ApplicationManager()
 void ApplicationManager::Run()
 {
 	ActionType ActType;
+	// Comment
 	do
 	{		
 		//1- Read user action
