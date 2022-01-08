@@ -4,6 +4,9 @@
 #include "..\ApplicationManager.h"
 
 #include "..\GUI\GUI.h"
+#include <iostream>
+
+
 
 ActionAddSquare::ActionAddSquare(ApplicationManager * pApp):Action(pApp)
 {}
@@ -25,18 +28,29 @@ void ActionAddSquare::Execute()
 	SqrGfxInfo.BorderWdth = pGUI->getCrntPenWidth();
 
 
-	//Step 1 - Read Square data from the user
+	// this do while to prevent the user from drawing out side the drawing area
+	do
+	{
+		//Step 1 - Read Square data from the user
+		pGUI->PrintMessage("New Square: Click at first point");
 
-	pGUI->PrintMessage("New Square: Click at first point");	
-	//Read 1st point and store in point P1
-	pGUI->GetPointClicked(P1.x, P1.y);
+		//Read 1st point and store in point P1
+		pGUI->GetPointClicked(P1.x, P1.y);
 
-	pGUI->PrintMessage("New Square: Click at second point");
-	//Read 2nd point and store in point P2
-	pGUI->GetPointClicked(P2.x, P2.y);
+		cout << "y: " << P1.y << endl; 
+	} while (P1.y <= 54 || P1.y >= 649);
+
+	do
+	{
+		pGUI->PrintMessage("New Square: Click at second point");
+		
+		//Read 2nd point and store in point P2
+		pGUI->GetPointClicked(P2.x, P2.y);
+		cout << "y: " << P2.y << endl;
+
+	} while (P2.y <= 54 || P2.y >= 649);
 
 	pGUI->ClearStatusBar();
-
 
 	//Step 2 - prepare square data
 	//User has entered two points P1&P2

@@ -24,6 +24,15 @@ public:
 	void ChngDrawClr(color Dclr);	//changes the figure's drawing color
 	void ChngFillClr(color Fclr);	//changes the figure's filling color
 
+
+	/// <summary>
+	/// a function that a takes a point and determine if it's within the shape area
+	/// </summary>
+	/// <param name="int x"></param>
+	/// <param name="int y"></param>
+	/// <returns>true if the point within the area and false if not</returns>
+	virtual bool isWithinArea(int, int) = 0; 
+
 	///The following functions should be supported by the figure class
 	///It should be overridden by each inherited figure
 
@@ -36,8 +45,13 @@ public:
 
 	//virtual void Save(ofstream &OutFile) = 0;	//Save the figure parameters to the file
 	//virtual void Load(ifstream &Infile) = 0;	//Load the figure parameters to the file
-
+	
+	// 08-01-2022 Output ?????? we don't need this parameter -->>>!!!
 	//virtual void PrintInfo(Output* pOut) = 0;	//print all figure info on the status bar
+	
+
+
+	virtual void PrintInfo(GUI*) = 0;	//print all figure info on the status bar
 };
 
 #endif

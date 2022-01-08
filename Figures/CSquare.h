@@ -11,6 +11,8 @@ private:
 public:
 	CSquare(Point , int, GfxInfo FigureGfxInfo );
 	virtual void DrawMe(GUI* pOut) const;
+	virtual bool isWithinArea(int, int);
+	virtual void PrintInfo(GUI* pGUI);
 };
 
 #endif

@@ -1,5 +1,6 @@
 #include "ApplicationManager.h"
 #include "Actions\ActionAddSquare.h"
+#include "Actions/ActionSelect.h"
 #include <iostream>
 
 
@@ -20,7 +21,8 @@ void ApplicationManager::Run()
 {
 	ActionType ActType;
 	do
-	{		
+	{
+
 		//1- Read user action
 		ActType = pGUI->MapInputToActionType();
 
@@ -28,13 +30,15 @@ void ApplicationManager::Run()
 		cout << ActType << endl;
 
 		//2- Create the corresponding Action
-		Action *pAct = CreateAction(ActType);
-		
+		Action* pAct = CreateAction(ActType);
+
 		//3- Execute the action
 		ExecuteAction(pAct);
 
 		//4- Update the interface
-		UpdateInterface();	
+		UpdateInterface();
+		
+
 
 	}while(ActType != EXIT);
 	
@@ -58,9 +62,10 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 
 		case DRAW_ELPS:
 			///create AddLineAction here
-
 			break;
-
+		case SELECT:
+			newAct =  new ActionSelect(this);
+			break;
 		case EXIT:
 			///create ExitAction here
 			
@@ -100,9 +105,14 @@ CFigure *ApplicationManager::GetFigure(int x, int y) const
 	//If a figure is found return a pointer to it.
 	//if this point (x,y) does not belong to any figure return NULL
 
-
 	///Add your code here to search for a figure given a point x,y	
 
+	// 1- loop in the figlist from the end of the figList
+	for (int i = FigCount - 1; i >= 0; i--)
+	{
+		if (FigList[i]->isWithinArea(x, y))
+			return FigList[i];
+	}
 	return NULL;
 }
 //==================================================================================//
