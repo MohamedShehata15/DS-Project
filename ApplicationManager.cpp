@@ -1,5 +1,6 @@
 #include "ApplicationManager.h"
 #include "Actions\ActionAddSquare.h"
+#include <iostream>
 
 
 //Constructor
@@ -18,11 +19,13 @@ ApplicationManager::ApplicationManager()
 void ApplicationManager::Run()
 {
 	ActionType ActType;
-	// Comment
 	do
 	{		
 		//1- Read user action
 		ActType = pGUI->MapInputToActionType();
+
+		cout << "--- Act Type ---" << endl;
+		cout << ActType << endl;
 
 		//2- Create the corresponding Action
 		Action *pAct = CreateAction(ActType);
