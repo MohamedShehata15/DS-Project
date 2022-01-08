@@ -37,7 +37,6 @@ void ActionAddSquare::Execute()
 		//Read 1st point and store in point P1
 		pGUI->GetPointClicked(P1.x, P1.y);
 
-		cout << "y: " << P1.y << endl; 
 	} while (P1.y <= 54 || P1.y >= 649);
 
 	do
@@ -46,7 +45,6 @@ void ActionAddSquare::Execute()
 		
 		//Read 2nd point and store in point P2
 		pGUI->GetPointClicked(P2.x, P2.y);
-		cout << "y: " << P2.y << endl;
 
 	} while (P2.y <= 54 || P2.y >= 649);
 

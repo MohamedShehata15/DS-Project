@@ -26,9 +26,6 @@ void ApplicationManager::Run()
 		//1- Read user action
 		ActType = pGUI->MapInputToActionType();
 
-		cout << "--- Act Type ---" << endl;
-		cout << ActType << endl;
-
 		//2- Create the corresponding Action
 		Action* pAct = CreateAction(ActType);
 
