@@ -9,7 +9,7 @@ CEllipse::CEllipse(Point P1, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
 
 bool CEllipse::isWithinArea(int x ,int y)
 {
-	return ((((pow((x - center.x), 2)) / (100 * 100)) + ((pow((y - center.y), 2)) / (70 * 70))) <= 1);
+	return ((((pow((x - center.x), 2)) / (100*100)) + ((pow((y - center.y), 2)) / (80 * 80))) <= 1);
 }
 
 
@@ -18,6 +18,7 @@ void CEllipse::PrintInfo(GUI* pGUI)
 	pGUI->PrintMessage(
 		"Ellipse Id: " + to_string(ID) +
 		", center : (" + to_string(center.x) + ", " + to_string(center.y) + ")" +
+		", area: " + to_string(3.14*center.x*center.y) +
 		", border-color: (" + to_string(FigGfxInfo.DrawClr.ucRed) + ", " + to_string(FigGfxInfo.DrawClr.ucGreen) + ", " + to_string(FigGfxInfo.DrawClr.ucBlue) + ")" +
 		", fill-color: (" + to_string(FigGfxInfo.FillClr.ucRed) + ", " + to_string(FigGfxInfo.FillClr.ucGreen) + ", " + to_string(FigGfxInfo.FillClr.ucBlue) + ")" +
 		", Border-Width: " + to_string(FigGfxInfo.BorderWdth));
