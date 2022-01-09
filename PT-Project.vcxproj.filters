@@ -145,6 +145,12 @@
     <ClCompile Include="Actions\ActionSelect.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
+    <ClCompile Include="Actions\ActionAddEllipse.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Figures\CEllipse.cpp">
+      <Filter>Figures Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -231,6 +237,12 @@
     </ClInclude>
     <ClInclude Include="Actions\ActionSelect.h">
       <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionAddEllipse.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Figures\CEllipse.h">
+      <Filter>Figures Classes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

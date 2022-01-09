@@ -235,6 +235,30 @@ void GUI::DrawSquare(Point P1, int length, GfxInfo RectGfxInfo, bool selected) c
 	pWind->DrawLine(P1.x, P1.y, P1.x + length, P1.y + length, style);
 
 }
+void GUI::DrawEllipse(Point P1, GfxInfo EllGfxInfo, bool selected) const
+{
+	color DrawingClr;
+	if (selected)
+		DrawingClr = UI.HighlightColor; //Figure should be drawn highlighted
+	else
+		DrawingClr = EllGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, 1);
+	drawstyle style;
+	if (EllGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(EllGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+
+
+
+	pWind->DrawEllipse(P1.x - 100, P1.y + 70, P1.x + 100, P1.y - 70, style);
+
+}
+
 
 
 //////////////////////////////////////////////////////////////////////////////////////////

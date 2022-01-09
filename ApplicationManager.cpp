@@ -1,5 +1,6 @@
 #include "ApplicationManager.h"
 #include "Actions\ActionAddSquare.h"
+#include "Actions\ActionAddEllipse.h"
 #include "Actions/ActionSelect.h"
 #include <iostream>
 
@@ -58,11 +59,13 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			break;
 
 		case DRAW_ELPS:
-			///create AddLineAction here
+			newAct = new ActionAddEllipse(this);
 			break;
+
 		case SELECT:
 			newAct =  new ActionSelect(this);
 			break;
+
 		case EXIT:
 			///create ExitAction here
 			
