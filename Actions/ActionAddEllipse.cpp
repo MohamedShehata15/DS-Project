@@ -14,7 +14,10 @@ ActionAddEllipse::ActionAddEllipse(ApplicationManager* pApp) :Action(pApp)
 //Execute the action
 void ActionAddEllipse::Execute()
 {
-	Point P1, P2;
+	Point center;
+	Point P1;
+	Point P2;
+
 
 	// Get a Pointer to the Interface
 	GUI* pGUI = pManager->GetGUI();
@@ -32,7 +35,17 @@ void ActionAddEllipse::Execute()
 	do
 	{
 		//Step 1 - Read Ellipse data from the user
-		pGUI->PrintMessage("New Ellipse: Click on the first Point");
+		pGUI->PrintMessage("New Ellipse: Click on the Center");
+
+		//Read the center point of ellipse
+		pGUI->GetPointClicked(center.x, center.y);
+
+	} while (center.y <= 54 || center.y >= 649);
+
+	do
+	{
+		//Step 1 - Read Ellipse data from the user
+		pGUI->PrintMessage("New Ellipse: Click on the horizpntal Point");
 
 		//Read the center point of ellipse
 		pGUI->GetPointClicked(P1.x, P1.y);
@@ -44,7 +57,7 @@ void ActionAddEllipse::Execute()
 	do
 	{
 		//Step 1 - Read Ellipse data from the user
-		pGUI->PrintMessage("New Ellipse: Click on the second Point");
+		pGUI->PrintMessage("New Ellipse: Click on the vertical Point");
 
 		//Read the center point of ellipse
 		pGUI->GetPointClicked(P2.x, P2.y);
@@ -54,8 +67,18 @@ void ActionAddEllipse::Execute()
 
 	pGUI->ClearStatusBar();
 
+	//The yr length
+	//y radius  
+	int yr = max(abs(P1.x - center.x), abs(P1.y - center.y));
+	//x radius
+	int xr = max(abs(P2.x - center.x), abs(P2.y - center.y));
+
+
+
+
+
 	//Step 3 - Create an Ellipse with the parameters read from the user
-	CEllipse *E = new CEllipse(P1, P2, EllipseGfxInfo);
+	CEllipse *E = new CEllipse(center,yr,xr, EllipseGfxInfo);
 
 	//Step 4 - Add the Elipse to the list of figures
 	   pManager->AddFigure(E);

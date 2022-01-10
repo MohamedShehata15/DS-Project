@@ -1,4 +1,5 @@
 #include "GUI.h"
+#include "../Figures/CEllipse.h"
 #
 //constructor make necessary initializations
 GUI::GUI()
@@ -235,7 +236,7 @@ void GUI::DrawSquare(Point P1, int length, GfxInfo RectGfxInfo, bool selected) c
 	pWind->DrawLine(P1.x, P1.y, P1.x + length, P1.y + length, style);
 
 }
-void GUI::DrawEllipse(Point P1, Point P2, GfxInfo EllGfxInfo, bool selected) const
+void GUI::DrawEllipse(Point P1, int yr,int xr, GfxInfo EllGfxInfo, bool selected) const
 {
 	color DrawingClr;
 	if (selected)
@@ -255,7 +256,8 @@ void GUI::DrawEllipse(Point P1, Point P2, GfxInfo EllGfxInfo, bool selected) con
 
 
 							
-	pWind->DrawEllipse(P1.x, P1.y, P2.x, P2.y, style);
+	pWind->DrawEllipse(P1.x - yr, P1.y + xr, P1.x + yr, P1.y - xr, style);
+
 
 }
 
