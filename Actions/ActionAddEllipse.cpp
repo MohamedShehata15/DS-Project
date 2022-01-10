@@ -14,9 +14,9 @@ ActionAddEllipse::ActionAddEllipse(ApplicationManager* pApp) :Action(pApp)
 //Execute the action
 void ActionAddEllipse::Execute()
 {
-	Point P1;
+	Point P1, P2;
 
-	//Get a Pointer to the Interface
+	// Get a Pointer to the Interface
 	GUI* pGUI = pManager->GetGUI();
 
 
@@ -32,17 +32,30 @@ void ActionAddEllipse::Execute()
 	do
 	{
 		//Step 1 - Read Ellipse data from the user
-		pGUI->PrintMessage("New Ellipse: Click at the center");
+		pGUI->PrintMessage("New Ellipse: Click on the first Point");
 
 		//Read the center point of ellipse
 		pGUI->GetPointClicked(P1.x, P1.y);
 
 	} while (P1.y <= 54 || P1.y >= 649);
 
+
+	// this do while to prevent the user from drawing out side the drawing area
+	do
+	{
+		//Step 1 - Read Ellipse data from the user
+		pGUI->PrintMessage("New Ellipse: Click on the second Point");
+
+		//Read the center point of ellipse
+		pGUI->GetPointClicked(P2.x, P2.y);
+
+	} while (P2.y <= 54 || P2.y >= 649);
+
+
 	pGUI->ClearStatusBar();
 
 	//Step 3 - Create an Ellipse with the parameters read from the user
-	CEllipse *E = new CEllipse(P1, EllipseGfxInfo);
+	CEllipse *E = new CEllipse(P1, P2, EllipseGfxInfo);
 
 	//Step 4 - Add the Elipse to the list of figures
 	   pManager->AddFigure(E);

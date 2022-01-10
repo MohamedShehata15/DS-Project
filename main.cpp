@@ -1,6 +1,9 @@
 #include "ApplicationManager.h"
 #include "GUI\GUI.h"
 
+
+
+//void ellipse(int x, int y, int stangle, int endangle, int xradius, int yradius);
 int main()
 {
 	// last edit on 08-01-2022 - 11:03 PM --> ayman/she7ata
@@ -15,7 +18,6 @@ int main()
 	
 	ApplicationManager AppManager;
 	AppManager.Run();	
-	
 	return 0;
 }
 

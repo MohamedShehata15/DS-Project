@@ -6,9 +6,11 @@
 class CEllipse : public CFigure
 {
 private:
-	Point center;
+	Point topLeftCorner;
+	Point bottomRightCorner;
+
 public:
-	CEllipse(Point, GfxInfo FigureGfxInfo);
+	CEllipse(Point, Point, GfxInfo FigureGfxInfo);
 	virtual void DrawMe(GUI* pOut) const;
 	virtual bool isWithinArea(int, int);
 	virtual void PrintInfo(GUI* pGUI);
