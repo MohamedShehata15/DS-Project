@@ -2,7 +2,7 @@
 #include "Actions\ActionAddSquare.h"
 #include "Actions\ActionAddEllipse.h"
 #include "Actions/ActionSelect.h"
-#include "Actions\PickAndHide.h"
+#include "Actions/ActionChngDrawClr.h"
 #include <iostream>
 
 
@@ -61,6 +61,11 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 
 		case DRAW_ELPS:
 			newAct = new ActionAddEllipse(this);
+			break;
+
+
+		case CHNG_DRAW_CLR:
+			newAct = new ActionChngDrawClr(this);
 			break;
 
 		case SELECT:

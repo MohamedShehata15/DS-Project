@@ -87,6 +87,8 @@ ActionType GUI::MapInputToActionType() const
 			{
 			case ITM_SQUR: return DRAW_SQUARE;
 			case ITM_ELPS: return DRAW_ELPS;
+			case ITM_DRAW_CLR: return CHNG_DRAW_CLR;
+			case ITM_FILL_CLR: return CHNG_FILL_CLR;
 			case ITM_EXIT: return EXIT;	
 			case ITM_SELECT: return SELECT;
 			
@@ -153,6 +155,8 @@ void GUI::CreateDrawToolBar() const
 	string MenuItemImages[DRAW_ITM_COUNT];
 	MenuItemImages[ITM_SQUR] = "images\\MenuItems\\Menu_Sqr.jpg";
 	MenuItemImages[ITM_ELPS] = "images\\MenuItems\\Menu_Elps.jpg";
+	MenuItemImages[ITM_DRAW_CLR] = "images\\MenuItems\\brush.jpg";
+	MenuItemImages[ITM_FILL_CLR] = "images\\MenuItems\\fill.JPG";
 	MenuItemImages[ITM_SELECT] = "images\\MenuItems\\Menu_Select.JPG";
 	MenuItemImages[ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
 
@@ -257,6 +261,9 @@ void GUI::DrawEllipse(Point P1, int yr,int xr, GfxInfo EllGfxInfo, bool selected
 
 							
 	pWind->DrawEllipse(P1.x - yr, P1.y + xr, P1.x + yr, P1.y - xr, style);
+
+
+
 
 
 }
