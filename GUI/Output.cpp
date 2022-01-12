@@ -82,6 +82,7 @@ void Output::CreateDrawToolBar() const
 	string MenuItemImages[DRAW_ITM_COUNT];
 	MenuItemImages[ITM_SQUR] = "images\\MenuItems\\Menu_Sqr.jpg";
 	MenuItemImages[ITM_ELPS] = "images\\MenuItems\\Menu_Elps.jpg";
+	MenuItemImages[PLAY] = "images\\MenuItems\\playMode.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
 
 	//TODO: Prepare images for each menu item and add it to the list

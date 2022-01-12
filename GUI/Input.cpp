@@ -52,6 +52,7 @@ ActionType Input::GetUserAction() const
 			{
 			case ITM_SQUR: return DRAW_SQUARE;
 			case ITM_ELPS: return DRAW_ELPS;
+			case MODE_PLAY: return MODE_PLAY;
 			case ITM_EXIT: return EXIT;	
 			
 			default: return EMPTY;	//A click on empty place in desgin toolbar

@@ -2,6 +2,7 @@
 #include "Actions\ActionAddSquare.h"
 #include "Actions\ActionAddEllipse.h"
 #include "Actions/ActionSelect.h"
+#include "Actions\PickAndHide.h"
 #include <iostream>
 
 
@@ -64,6 +65,10 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 
 		case SELECT:
 			newAct =  new ActionSelect(this);
+			break;
+
+		case TO_PLAY:
+			newAct = new PickAndHide(this);
 			break;
 
 		case EXIT:

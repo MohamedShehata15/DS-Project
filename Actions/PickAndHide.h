@@ -1,16 +1,18 @@
+#pragma once
+
 #include <vector>
 #include "Action.h"
 #include "..\ApplicationManager.h"
 #include "..\Figures\CFigure.h"
 #include "..\Figures\CSquare.h"
+#include "..\Figures\CEllipse.h"
 
 //TODO: add the remaining cfigures.h files
 
 class PickAndHide :public Action {
 protected:
 	vector<CFigure*>FigureList;
-	Output* pOut; //check why is not green
-	Input* pIn; //check why is not green
+	GUI* pGUI;
 	int score, correct, uncorrect;
 	ActionType actType;
 	Point P;
