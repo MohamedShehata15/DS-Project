@@ -45,9 +45,8 @@ void ActionAddEllipse::Execute()
 	do
 	{
 		//Step 1 - Read Ellipse data from the user
-		pGUI->PrintMessage("New Ellipse: Click on the horizpntal Point");
+		pGUI->PrintMessage("New Ellipse: Click on the horizontal Point");
 
-		//Read the center point of ellipse
 		pGUI->GetPointClicked(P1.x, P1.y);
 
 	} while (P1.y <= 54 || P1.y >= 649);
@@ -59,10 +58,9 @@ void ActionAddEllipse::Execute()
 		//Step 1 - Read Ellipse data from the user
 		pGUI->PrintMessage("New Ellipse: Click on the vertical Point");
 
-		//Read the center point of ellipse
 		pGUI->GetPointClicked(P2.x, P2.y);
 
-	} while (P2.y <= 54 || P2.y >= 649);
+	} while (P2.y*2 <= 54 || P2.y*2 >= 649);
 
 
 	pGUI->ClearStatusBar();
