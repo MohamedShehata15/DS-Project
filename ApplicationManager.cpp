@@ -3,6 +3,7 @@
 #include "Actions\ActionAddEllipse.h"
 #include "Actions/ActionSelect.h"
 #include "Actions/ActionChngDrawClr.h"
+#include "Actions/PickAndHide.h"
 #include <iostream>
 
 

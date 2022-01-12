@@ -24,7 +24,7 @@ enum DrawMenuItem //The items of the Draw menu (you should add more items)
 	//TODO: Add more items names here
 	ITM_SELECT,
 
-	PLAY,
+	PLAY,           //Switch to play mode
 	ITM_EXIT,		//Exit item
 	
 	DRAW_ITM_COUNT		//no. of menu items ==> This should be the last line in this enum
@@ -37,7 +37,11 @@ enum PlayMenuItem //The items of the Play menu (you should add more items)
 	//If you want to change the menu items order, change the order here
 	
 	//TODO: Add more items names here
-
+	PICK_FIGURE,
+	PICK_COLOR,
+	PICK_FILLED,
+	DRAW,
+	END,
 	PLAY_ITM_COUNT		//no. of menu items ==> This should be the last line in this enum
 	
 };

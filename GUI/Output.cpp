@@ -72,7 +72,9 @@ void Output::ClearStatusBar() const
 void Output::CreateDrawToolBar() const
 {
 	UI.InterfaceMode = MODE_DRAW;
-
+	//TODO: add clearToolBar()
+	// 
+	// 
 	//You can draw the tool bar icons in any way you want.
 	//Below is one possible way
 	
@@ -82,7 +84,7 @@ void Output::CreateDrawToolBar() const
 	string MenuItemImages[DRAW_ITM_COUNT];
 	MenuItemImages[ITM_SQUR] = "images\\MenuItems\\Menu_Sqr.jpg";
 	MenuItemImages[ITM_ELPS] = "images\\MenuItems\\Menu_Elps.jpg";
-	MenuItemImages[PLAY] = "images\\MenuItems\\playMode.jpg";
+	MenuItemImages[PLAY] = "images\\MenuItems\\Mode_Play.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
 
 	//TODO: Prepare images for each menu item and add it to the list
@@ -103,7 +105,16 @@ void Output::CreateDrawToolBar() const
 void Output::CreatePlayToolBar() const
 {
 	UI.InterfaceMode = MODE_PLAY;
+	//clearToolBar()
 	///TODO: write code to create Play mode menu
+
+	string MenuItemImages[PLAY_ITM_COUNT];
+	MenuItemImages[PICK_FIGURE] = "images\\MenuItems\\Pick_Figure.jpg";
+	MenuItemImages[PICK_COLOR] = "images\\MenuItems\\Pick_Color.jpg";
+	MenuItemImages[PICK_FILLED] = "images\\MenuItems\\Pick_Filled.jpg";
+	MenuItemImages[DRAW] = "images\\MenuItems\\Mode_Draw.jpg";
+	MenuItemImages[END] = "images\\MenuItems\\Menu_Exit.jpg";
+
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 

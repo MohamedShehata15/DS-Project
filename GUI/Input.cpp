@@ -52,7 +52,7 @@ ActionType Input::GetUserAction() const
 			{
 			case ITM_SQUR: return DRAW_SQUARE;
 			case ITM_ELPS: return DRAW_ELPS;
-			case MODE_PLAY: return MODE_PLAY;
+			case PLAY: return TO_PLAY;
 			case ITM_EXIT: return EXIT;	
 			
 			default: return EMPTY;	//A click on empty place in desgin toolbar
@@ -68,12 +68,38 @@ ActionType Input::GetUserAction() const
 		//[3] User clicks on the status bar
 		return STATUS;
 	}
-	else	//GUI is in PLAY mode
+	//TODO: it may be converted to else if - else to include setcolors
+	else if (UI.InterfaceMode == MODE_PLAY)	//GUI is in PLAY mode
 	{
-		///TODO:
 		//perform checks similar to Draw mode checks above
 		//and return the correspoding action
-		return TO_PLAY;	//just for now. This should be updated
+		if (y >= 0 && y < UI.ToolBarHeight) {
+			int ClickedItemOrder = (x / UI.MenuItemWidth);
+
+			switch (ClickedItemOrder)
+			{
+			case PICK_FIGURE: return PICK_FIG;
+			case PICK_COLOR: return PICK_COL;
+			case PICK_FILLED: return PICK_FILL;
+			case DRAW: return TO_DRAW;
+			case END: return EXIT;
+
+			default: return EMPTY;
+			
+			}
+		}
+
+		//[2] User clicks on the drawing area
+		if (y >= UI.ToolBarHeight && y < UI.height - UI.StatusBarHeight)
+		{
+			return DRAWING_AREA;
+		}
+
+		//[3] User clicks on the status bar
+
+		return STATUS;
+
+		//return TO_PLAY;	//just for now. This should be updated
 	}	
 
 }
