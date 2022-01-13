@@ -18,28 +18,27 @@ void ActionChngBgClr::Execute()
 	pGUI->PrintMessage("Select A color for Your backGround ,Please");
 
 	newColor = pManager->GetUserAction();
-	pGUI->setIsFilled(true);
 
 	switch (newColor)
 	{
 	case CLR_BLUE:
-		pGUI->setnewFillColor(BLUE);
+		pGUI->setnewBackgroundColor(BLUE);
 		break;
 
 	case CLR_BLACK:
-		pGUI->setnewFillColor(BLACK);
+		pGUI->setnewBackgroundColor(BLACK);
 		break;
 
 	case CLR_GREEN:
-		pGUI->setnewFillColor(GREEN);
+		pGUI->setnewBackgroundColor(GREEN);
 		break;
 
 	case CLR_YELLOW:
-		pGUI->setnewFillColor(YELLOW);
+		pGUI->setnewBackgroundColor(YELLOW);
 		break;
 
 	case CLR_RED:
-		pGUI->setnewFillColor(RED);
+		pGUI->setnewBackgroundColor(RED);
 		break;
 
 	default:

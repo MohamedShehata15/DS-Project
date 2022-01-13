@@ -229,7 +229,7 @@ void GUI::setnewBackgroundColor(color bg) const //set new bg color
 {
 	UI.BkGrndColor = bg;
 }
-void GUI::setnewFillColor(color bg) const {
+void GUI::setnewFillColor(color bg) const {  //set new fill color
 	UI.FillColor = bg;
 }
 
