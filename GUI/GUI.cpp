@@ -228,6 +228,7 @@ void GUI::setnewDrawColor(color c) const  //set new draw color
 void GUI::setnewBackgroundColor(color bg) const //set new bg color
 {
 	UI.BkGrndColor = bg;
+	ClearDrawArea();
 }
 void GUI::setnewFillColor(color bg) const {  //set new fill color
 	UI.FillColor = bg;
