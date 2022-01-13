@@ -42,8 +42,12 @@ public:
 	color getCrntDrawColor() const;	//get current drwawing color
 	void GUI::setnewDrawColor(color c) const; //set new drawing color
 	void GUI::setnewBackgroundColor(color bg) const;//set new bg color
+	void GUI::setnewFillColor(color bg) const; // set new fill color
+	void setIsFilled(bool s);
 	color getCrntFillColor() const;	//get current filling color
 	int getCrntPenWidth() const;		//get current pen width
+
+	bool getIsFilled() const;
 
 
 };

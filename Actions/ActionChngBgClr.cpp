@@ -18,12 +18,13 @@ void ActionChngBgClr::Execute()
 	pGUI->PrintMessage("Select A color for Your backGround ,Please");
 
 	newColor = pManager->GetUserAction();
+	pGUI->setIsFilled(true);
+	pGUI->setnewFillColor(BLUE); // [Change it] Set filled Color
 
 	switch (newColor)
 	{
 	case CLR_BLUE:
 		UI.MsgColor = BLUE;
-		UI.BkGrndColor = BLUE;
 		pGUI->PrintMessage("Now Your backGround color changed to blue");
 		break;
 

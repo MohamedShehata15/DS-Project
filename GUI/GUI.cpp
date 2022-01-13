@@ -25,6 +25,8 @@ GUI::GUI()
 	UI.StatusBarColor = TURQUOISE;
 	UI.PenWidth = 4;	//width of the figures frames
 
+	UI.isFilled = false;
+
 	
 	//Create the output window
 	pWind = CreateWind(UI.width, UI.height, UI.wx, UI.wy);
@@ -33,7 +35,6 @@ GUI::GUI()
 	
 	CreateDrawToolBar();
 	CreateStatusBar();
-	
 }
 
 
@@ -228,6 +229,13 @@ void GUI::setnewBackgroundColor(color bg) const //set new bg color
 {
 	UI.BkGrndColor = bg;
 }
+void GUI::setnewFillColor(color bg) const {
+	UI.FillColor = bg;
+}
+
+void GUI::setIsFilled(bool s) {
+	UI.isFilled = s;
+}
 
 color GUI::getCrntFillColor() const	//get current filling color
 {	return UI.FillColor;	}
@@ -236,6 +244,9 @@ color GUI::getCrntFillColor() const	//get current filling color
 int GUI::getCrntPenWidth() const		//get current pen width
 {	return UI.PenWidth;	}
 
+//////////////////////////////////////////////////////////////////////////////////////////
+bool GUI::getIsFilled()const {
+	return UI.isFilled;}
 //======================================================================================//
 //								Figures Drawing Functions								//
 //======================================================================================//
@@ -258,7 +269,6 @@ void GUI::DrawSquare(Point P1, int length, GfxInfo RectGfxInfo, bool selected) c
 	}
 	else	
 		style = FRAME;
-
 	
 	pWind->DrawRectangle(P1.x, P1.y, P1.x +length, P1.y+length, style);
 	pWind->DrawLine(P1.x, P1.y, P1.x + length, P1.y + length, style);

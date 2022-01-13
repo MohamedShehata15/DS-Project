@@ -72,6 +72,7 @@ struct UI_Info	//User Interface Info.
 	int PenWidth;			//width of the pen that draws shapes
 
 	/// Add more members if needed
+	bool isFilled;
 	
 }UI;	//create a global object UI
 
