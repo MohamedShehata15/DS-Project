@@ -154,6 +154,9 @@
     <ClCompile Include="Actions\ActionChngDrawClr.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
+    <ClCompile Include="Actions\ActionChngBgClr.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -248,6 +251,9 @@
       <Filter>Figures Classes</Filter>
     </ClInclude>
     <ClInclude Include="Actions\ActionChngDrawClr.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionChngBgClr.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
   </ItemGroup>

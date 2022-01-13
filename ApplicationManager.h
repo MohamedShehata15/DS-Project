@@ -27,6 +27,7 @@ public:
 	void Run();		//to run the application
 	
 	// -- Action-Related Functions
+	ActionType ApplicationManager::GetUserAction() const;
 	Action* CreateAction(ActionType);
 	void ExecuteAction(Action*&) ; //Execute an action
 	

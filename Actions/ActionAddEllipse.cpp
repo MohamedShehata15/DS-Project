@@ -60,7 +60,7 @@ void ActionAddEllipse::Execute()
 
 		pGUI->GetPointClicked(P2.x, P2.y);
 
-	} while (P2.y*2 <= 54 || P2.y*2 >= 649);
+	} while (P2.y <= 54 || P2.y >= 649);
 
 
 	pGUI->ClearStatusBar();

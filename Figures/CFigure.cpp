@@ -6,6 +6,7 @@ CFigure::CFigure(GfxInfo FigureGfxInfo)
 	Selected = false;
 }
 
+
 void CFigure::SetSelected(bool s)
 {	Selected = s; }
 

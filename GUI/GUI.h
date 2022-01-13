@@ -40,6 +40,8 @@ public:
 	void PrintMessage(string msg) const;	//Print a message on Status bar
 
 	color getCrntDrawColor() const;	//get current drwawing color
+	void GUI::setnewDrawColor(color c) const; //set new drawing color
+	void GUI::setnewBackgroundColor(color bg) const;//set new bg color
 	color getCrntFillColor() const;	//get current filling color
 	int getCrntPenWidth() const;		//get current pen width
 

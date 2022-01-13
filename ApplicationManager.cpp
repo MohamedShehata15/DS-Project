@@ -3,6 +3,7 @@
 #include "Actions\ActionAddEllipse.h"
 #include "Actions/ActionSelect.h"
 #include "Actions/ActionChngDrawClr.h"
+#include "Actions/ActionChngBgClr.h""
 #include <iostream>
 
 
@@ -47,6 +48,13 @@ void ApplicationManager::Run()
 //==================================================================================//
 //								Actions Related Functions							//
 //==================================================================================//
+
+ActionType ApplicationManager::GetUserAction() const
+{
+	//Ask the input to get the action from the user.
+	return pGUI->MapInputToActionType();
+}
+
 //Creates an action
 Action* ApplicationManager::CreateAction(ActionType ActType) 
 {
@@ -66,6 +74,10 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 
 		case CHNG_DRAW_CLR:
 			newAct = new ActionChngDrawClr(this);
+			break;
+
+		case CHNG_BK_CLR:
+			newAct = new ActionChngBgClr(this);
 			break;
 
 		case SELECT:
@@ -121,6 +133,7 @@ CFigure *ApplicationManager::GetFigure(int x, int y) const
 	}
 	return NULL;
 }
+
 //==================================================================================//
 //							Interface Management Functions							//
 //==================================================================================//
