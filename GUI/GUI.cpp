@@ -17,13 +17,15 @@ GUI::GUI()
 	UI.ToolBarHeight = 50;
 	UI.MenuItemWidth = 80;
 	
-	UI.DrawColor = BLUE;	//Drawing color
+	UI.DrawColor = BLACK;	//Drawing color
 	UI.FillColor = GREEN;	//Filling color
 	UI.MsgColor = RED;		//Messages color
 	UI.BkGrndColor = LIGHTGOLDENRODYELLOW;	//Background color
 	UI.HighlightColor = MAGENTA;	//This color should NOT be used to draw figures. use if for highlight only
 	UI.StatusBarColor = TURQUOISE;
-	UI.PenWidth = 3;	//width of the figures frames
+	UI.PenWidth = 4;	//width of the figures frames
+
+	UI.isFilled = false;
 
 	
 	//Create the output window
@@ -33,13 +35,13 @@ GUI::GUI()
 	
 	CreateDrawToolBar();
 	CreateStatusBar();
-	
 }
 
 
 //======================================================================================//
 //								Input Functions										    //
 //======================================================================================//
+
 
 
 void GUI::GetPointClicked(int &x, int &y) const
@@ -88,7 +90,14 @@ ActionType GUI::MapInputToActionType() const
 			case ITM_SQUR: return DRAW_SQUARE;
 			case ITM_ELPS: return DRAW_ELPS;
 			case ITM_DRAW_CLR: return CHNG_DRAW_CLR;
-			case ITM_FILL_CLR: return CHNG_FILL_CLR;
+			case ITM_Bg_CLR: return CHNG_BK_CLR;
+			case ITM_BLUE: return CLR_BLUE;
+			case ITM_BLACK: return CLR_BLACK;
+			case ITM_GREEN: return CLR_GREEN;
+			case ITM_YELLOW: return CLR_YELLOW;
+			case ITM_RED: return  CLR_RED;
+
+
 			case ITM_EXIT: return EXIT;	
 			case ITM_SELECT: return SELECT;
 			
@@ -156,7 +165,13 @@ void GUI::CreateDrawToolBar() const
 	MenuItemImages[ITM_SQUR] = "images\\MenuItems\\Menu_Sqr.jpg";
 	MenuItemImages[ITM_ELPS] = "images\\MenuItems\\Menu_Elps.jpg";
 	MenuItemImages[ITM_DRAW_CLR] = "images\\MenuItems\\brush.jpg";
-	MenuItemImages[ITM_FILL_CLR] = "images\\MenuItems\\fill.JPG";
+	MenuItemImages[ITM_Bg_CLR] = "images\\MenuItems\\bg.JPG";
+	MenuItemImages[ITM_BLUE] = "images\\MenuItems\\blue.jpg";
+	MenuItemImages[ITM_BLACK] = "images\\MenuItems\\black.jpg";
+	MenuItemImages[ITM_GREEN] = "images\\MenuItems\\green.jpg";
+	MenuItemImages[ITM_YELLOW] = "images\\MenuItems\\yellow.jpg";
+	MenuItemImages[ITM_RED] = "images\\MenuItems\\red.jpg";
+
 	MenuItemImages[ITM_SELECT] = "images\\MenuItems\\Menu_Select.JPG";
 	MenuItemImages[ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
 
@@ -205,6 +220,24 @@ color GUI::getCrntDrawColor() const	//get current drwawing color
 {	return UI.DrawColor;	}
 //////////////////////////////////////////////////////////////////////////////////////////
 
+void GUI::setnewDrawColor(color c) const  //set new draw color
+{
+	UI.DrawColor = c;
+}
+
+void GUI::setnewBackgroundColor(color bg) const //set new bg color
+{
+	UI.BkGrndColor = bg;
+	ClearDrawArea();
+}
+void GUI::setnewFillColor(color bg) const {  //set new fill color
+	UI.FillColor = bg;
+}
+
+void GUI::setIsFilled(bool s) {
+	UI.isFilled = s;
+}
+
 color GUI::getCrntFillColor() const	//get current filling color
 {	return UI.FillColor;	}
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -212,6 +245,9 @@ color GUI::getCrntFillColor() const	//get current filling color
 int GUI::getCrntPenWidth() const		//get current pen width
 {	return UI.PenWidth;	}
 
+//////////////////////////////////////////////////////////////////////////////////////////
+bool GUI::getIsFilled()const {
+	return UI.isFilled;}
 //======================================================================================//
 //								Figures Drawing Functions								//
 //======================================================================================//
@@ -234,7 +270,6 @@ void GUI::DrawSquare(Point P1, int length, GfxInfo RectGfxInfo, bool selected) c
 	}
 	else	
 		style = FRAME;
-
 	
 	pWind->DrawRectangle(P1.x, P1.y, P1.x +length, P1.y+length, style);
 	pWind->DrawLine(P1.x, P1.y, P1.x + length, P1.y + length, style);

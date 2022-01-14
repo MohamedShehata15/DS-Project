@@ -20,11 +20,15 @@ enum DrawMenuItem //The items of the Draw menu (you should add more items)
 	ITM_SQUR,		//Square item in menu
 	ITM_ELPS,		//Ellipse item in menu
 	ITM_DRAW_CLR,
-	ITM_FILL_CLR,
+	ITM_Bg_CLR,
+	ITM_BLUE,
+	ITM_BLACK,
+	ITM_GREEN,
+	ITM_YELLOW,
+	ITM_RED,
 	//TODO: Add more items names here
 	ITM_SELECT,
 
-	PLAY,           //Switch to play mode
 	ITM_EXIT,		//Exit item
 	
 	DRAW_ITM_COUNT		//no. of menu items ==> This should be the last line in this enum
@@ -37,11 +41,7 @@ enum PlayMenuItem //The items of the Play menu (you should add more items)
 	//If you want to change the menu items order, change the order here
 	
 	//TODO: Add more items names here
-	PICK_FIGURE,
-	PICK_COLOR,
-	PICK_FILLED,
-	DRAW,
-	END,
+
 	PLAY_ITM_COUNT		//no. of menu items ==> This should be the last line in this enum
 	
 };
@@ -72,6 +72,7 @@ struct UI_Info	//User Interface Info.
 	int PenWidth;			//width of the pen that draws shapes
 
 	/// Add more members if needed
+	bool isFilled;
 	
 }UI;	//create a global object UI
 

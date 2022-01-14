@@ -9,9 +9,8 @@
 //Add Ellipse Action class
 class ActionChngDrawClr : public Action
 {
-
 private:
-	color CurrentColor;
+		ActionType newColor;
 
 public:
 	ActionChngDrawClr(ApplicationManager* pApp);

@@ -9,7 +9,7 @@ PickAndHide::PickAndHide(ApplicationManager* pApp) :Action(pApp)
 
 void PickAndHide::ReadActionParameters()
 {
-	//for loop related to GetCount() .. not implemented yet in pManager 
+	//for loop
 
 }
 

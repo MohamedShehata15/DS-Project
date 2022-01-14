@@ -6,14 +6,14 @@
 #include "..\ApplicationManager.h"
 #include "..\Figures\CFigure.h"
 #include "..\Figures\CSquare.h"
-#include "..\Figures\CEllipse.h"
 
 //TODO: add the remaining cfigures.h files
 
 class PickAndHide :public Action {
 protected:
 	vector<CFigure*>FigureList;
-	GUI* pGUI;
+	Output* pOut; //check why is not green
+	Input* pIn; //check why is not green
 	int score, correct, uncorrect;
 	ActionType actType;
 	Point P;

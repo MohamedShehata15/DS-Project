@@ -1,15 +1,8 @@
 #ifndef APPLICATION_MANAGER_H
 #define APPLICATION_MANAGER_H
 
-#include <vector>
 #include "DEFS.h"
-#include "GUI/Input.h"
-#include "GUI/Output.h"
-#include "Figures/CFigure.h"
-#include "Actions/ActionAddEllipse.h"
-#include "Actions/ActionAddSquare.h"
-#include "Actions/ActionSelect.h"
-#include "Actions/PickAndHide.h"
+#include "Figures\CFigure.h"
 
 class Action;	//Forward Declaration
 
@@ -34,6 +27,7 @@ public:
 	void Run();		//to run the application
 	
 	// -- Action-Related Functions
+	ActionType ApplicationManager::GetUserAction() const;
 	Action* CreateAction(ActionType);
 	void ExecuteAction(Action*&) ; //Execute an action
 	
