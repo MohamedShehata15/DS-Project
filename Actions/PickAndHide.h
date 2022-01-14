@@ -1,4 +1,5 @@
-#pragma once
+#ifndef PICKANDHIDE_H
+#define PICKANDHIDE_H
 
 #include <vector>
 #include "Action.h"
@@ -36,3 +37,4 @@ public:
 
 	~PickAndHide(void);
 };
+#endif
