@@ -150,6 +150,57 @@ void ApplicationManager::UpdateInterface() const
 GUI *ApplicationManager::GetGUI() const
 {	return pGUI; }
 ////////////////////////////////////////////////////////////////////////////////////
+int ApplicationManager::GetCount()const
+{
+	return FigCount;
+}
+/// ///////////////////////////////////////////////////////////////////////////////
+CFigure* ApplicationManager::GetCopyFromFigureList(int i)const
+{
+	return FigList[i];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Destructor
 ApplicationManager::~ApplicationManager()
 {

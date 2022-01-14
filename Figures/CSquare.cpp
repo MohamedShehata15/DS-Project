@@ -31,3 +31,9 @@ void CSquare::DrawMe(GUI* pGUI) const
 	
 
 }
+
+CFigure* CSquare::GetCopy()
+{
+	CFigure* Copy = new CSquare(*this);
+	return Copy;
+}

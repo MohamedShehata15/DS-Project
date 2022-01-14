@@ -13,6 +13,7 @@ public:
 	virtual void DrawMe(GUI* pOut) const;
 	virtual bool isWithinArea(int, int);
 	virtual void PrintInfo(GUI* pGUI);
+	virtual CFigure* GetCopy();
 };
 
 #endif
