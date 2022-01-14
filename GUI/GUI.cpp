@@ -97,7 +97,7 @@ ActionType GUI::MapInputToActionType() const
 			case ITM_YELLOW: return CLR_YELLOW;
 			case ITM_RED: return  CLR_RED;
 
-
+			case PLAY: return TO_PLAY;
 			case ITM_EXIT: return EXIT;	
 			case ITM_SELECT: return SELECT;
 			
@@ -171,8 +171,8 @@ void GUI::CreateDrawToolBar() const
 	MenuItemImages[ITM_GREEN] = "images\\MenuItems\\green.jpg";
 	MenuItemImages[ITM_YELLOW] = "images\\MenuItems\\yellow.jpg";
 	MenuItemImages[ITM_RED] = "images\\MenuItems\\red.jpg";
-
 	MenuItemImages[ITM_SELECT] = "images\\MenuItems\\Menu_Select.JPG";
+	MenuItemImages[PLAY] = "images\\MenuItems\\Mode_Play.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
 
 	//TODO: Prepare images for each menu item and add it to the list
@@ -194,6 +194,20 @@ void GUI::CreatePlayToolBar() const
 {
 	UI.InterfaceMode = MODE_PLAY;
 	///TODO: write code to create Play mode menu
+	string MenuItemImages[PLAY_ITM_COUNT];
+	MenuItemImages[PICK_FIGURE] = "images\\MenuItems\\Pick_Figure.jpg";
+	MenuItemImages[PICK_COLOR] = "images\\MenuItems\\Pick_Color.jpg";
+	MenuItemImages[PICK_FILLED] = "images\\MenuItems\\PickFilled.jpg";
+	MenuItemImages[DRAW] = "images\\MenuItems\\Mode_Draw.jpg";
+	MenuItemImages[END] = "images\\MenuItems\\Menu_Exit.jpg";
+
+	//Draw menu item one image at a time
+	for (int i = 0; i < PLAY_ITM_COUNT; i++)
+		pWind->DrawImage(MenuItemImages[i], i * UI.MenuItemWidth, 0, UI.MenuItemWidth, UI.ToolBarHeight);
+
+	//Draw a line under the toolbar
+	pWind->SetPen(RED, 3);
+	pWind->DrawLine(0, UI.ToolBarHeight, UI.width, UI.ToolBarHeight);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
