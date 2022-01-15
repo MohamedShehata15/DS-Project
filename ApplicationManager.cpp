@@ -75,7 +75,7 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			break;
 
 		case DRAW_HEX:
-			newAct = new ActionAddHexagone(this);
+			//newAct = new ActionAddHexagone(this);
 			break;
 
 
