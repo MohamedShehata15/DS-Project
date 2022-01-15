@@ -133,6 +133,7 @@
     <ClCompile Include="Actions\ActionBringToFront.cpp" />
     <ClCompile Include="Actions\ActionChngBgClr.cpp" />
     <ClCompile Include="Actions\ActionDeleteFigure.cpp" />
+    <ClCompile Include="Actions\ActionChngFillClr.cpp" />
     <ClCompile Include="Actions\ActionSelect.cpp" />
     <ClCompile Include="Actions\ActionChngDrawClr.cpp" />
     <ClCompile Include="Actions\ActionSendToBack.cpp" />
@@ -186,6 +187,7 @@
     <ClInclude Include="Actions\ActionBringToFront.h" />
     <ClInclude Include="Actions\ActionChngBgClr.h" />
     <ClInclude Include="Actions\ActionDeleteFigure.h" />
+    <ClInclude Include="Actions\ActionChngFillClr.h" />
     <ClInclude Include="Actions\ActionSelect.h" />
     <ClInclude Include="Actions\ActionChngDrawClr.h" />
     <ClInclude Include="Actions\ActionSendToBack.h" />

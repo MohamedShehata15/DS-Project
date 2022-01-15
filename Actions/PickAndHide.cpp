@@ -52,8 +52,10 @@ int PickAndHide::GetType(CFigure* fig) const
 	//waiting for Hex
 }
 
-/*bool PickAndHide::checkColor_Figure(int f, color c, CFigure* rand) const
-{}*/
+//bool PickAndHide::checkColor_Figure(int f, color c, CFigure* rand) const
+//{
+//
+//}
 
 bool PickAndHide::CheckFigure(CFigure* fig, int m) const
 {

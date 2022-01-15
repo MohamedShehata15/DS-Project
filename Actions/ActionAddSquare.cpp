@@ -21,7 +21,7 @@ void ActionAddSquare::Execute()
 
 
 	GfxInfo SqrGfxInfo;
-	SqrGfxInfo.isFilled = false;	//default is not filled
+	SqrGfxInfo.isFilled = UI.isFilled; 	//default is not filled
 
 	//get drawing, filling colors and pen width from the interface
 	SqrGfxInfo.DrawClr = pGUI->getCrntDrawColor();

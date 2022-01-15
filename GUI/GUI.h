@@ -28,6 +28,9 @@ public:
 	void CreateDrawToolBar() const;	//creates Draw mode toolbar & menu
 	void CreatePlayToolBar() const;	//creates Play mode toolbar & menu
 	void CreateStatusBar() const;	//create the status bar
+	/******shop*******/
+	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo, bool selected) const;
+	void ClearToolBar() const;
 
 	void ClearStatusBar() const;	//Clears the status bar
 	void ClearDrawArea() const;	//Clears the drawing area

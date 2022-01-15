@@ -16,6 +16,7 @@ enum ActionType //The actions supported (you can add more if needed)
 	CLR_GREEN,
 	CLR_YELLOW,
 	CLR_RED,
+	default_setting,
 	CHNG_FILL_CLR,	//Change the filling color
 	DEL,			//Delete a figure(s)
 	MOVE,			//Move a figure(s)

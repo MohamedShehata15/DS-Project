@@ -4,9 +4,11 @@
 #include "Actions/ActionSelect.h"
 #include "Actions/ActionChngDrawClr.h"
 #include "Actions/ActionChngBgClr.h"
+#include "Actions/ActionChngFillClr.h"
 #include "Actions/PickAndHide.h"
 #include "Actions/ActionUploadFile.h"
 #include <iostream>
+#include "GUI/GUI.h"
 
 #include "Actions/ActionBringToFront.h"
 #include "Actions/ActionDeleteFigure.h"
@@ -78,9 +80,6 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 		newAct = new ActionAddEllipse(this);
 		break;
 
-	case DRAW_HEX:
-		// newAct = new ActionAddHexagone(this);
-		break;
 
 	case CHNG_DRAW_CLR:
 		newAct = new ActionChngDrawClr(this);
@@ -93,6 +92,13 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 	case LOAD:
 		newAct = new ActionUploadFile(this);
 		break;
+		case CHNG_FILL_CLR:
+			newAct = new ActionChngFillClr(this);
+			break;
+
+		case LOAD:
+			newAct = new ActionUploadFile(this);
+			break;
 
 	case SEND_BACK:
 		newAct = new ActionSendToBack(this);
@@ -114,6 +120,31 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 	case STATUS:	//a click on the status bar ==> no action
 		return NULL;
 		break;
+
+		case SELECT:
+			newAct =  new ActionSelect(this);
+			break;
+
+		case TO_PLAY:
+			cout << "welcome to play mode!\n";
+			newAct = new PickAndHide(this);
+			break;
+
+		case TO_DRAW:
+			cout << "welcome to draw mode again!\n";
+			/***********redirect to draw mode************/
+			break;
+
+		case EXIT:
+			///create ExitAction here
+			
+			break;
+
+
+		
+		case STATUS:	//a click on the status bar ==> no action
+			return NULL;
+			break;
 	}	
 	return newAct;
 }
@@ -229,16 +260,6 @@ CFigure* ApplicationManager::GetCopyFromFigureList(int i)const
 {
 	return FigList[i];
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
