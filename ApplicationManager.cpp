@@ -3,7 +3,8 @@
 #include "Actions\ActionAddEllipse.h"
 #include "Actions/ActionSelect.h"
 #include "Actions/ActionChngDrawClr.h"
-#include "Actions/ActionChngBgClr.h""
+#include "Actions/ActionChngBgClr.h"
+#include "Actions/PickAndHide.h"
 #include <iostream>
 
 
@@ -149,6 +150,57 @@ void ApplicationManager::UpdateInterface() const
 GUI *ApplicationManager::GetGUI() const
 {	return pGUI; }
 ////////////////////////////////////////////////////////////////////////////////////
+int ApplicationManager::GetCount()const
+{
+	return FigCount;
+}
+/// ///////////////////////////////////////////////////////////////////////////////
+CFigure* ApplicationManager::GetCopyFromFigureList(int i)const
+{
+	return FigList[i];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Destructor
 ApplicationManager::~ApplicationManager()
 {

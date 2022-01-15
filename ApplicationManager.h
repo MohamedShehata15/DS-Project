@@ -26,6 +26,9 @@ public:
 
 	void Run();		//to run the application
 	
+	int GetCount()const;
+	CFigure* GetCopyFromFigureList(int) const;
+
 	// -- Action-Related Functions
 	ActionType ApplicationManager::GetUserAction() const;
 	Action* CreateAction(ActionType);

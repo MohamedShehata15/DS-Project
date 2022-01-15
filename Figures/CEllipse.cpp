@@ -36,3 +36,9 @@ void CEllipse::DrawMe(GUI* pGUI) const
 
 
 }
+
+CFigure* CEllipse::GetCopy()
+{
+	CFigure* Copy = new CEllipse(*this);
+	return Copy;
+}
