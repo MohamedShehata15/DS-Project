@@ -20,6 +20,7 @@ int main()
 	AppManager.Run();	
 	return 0;
 	// shopaky
+	// test test
 }
 
 
