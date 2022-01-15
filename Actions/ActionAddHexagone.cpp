@@ -19,7 +19,6 @@ void ActionAddHexagone::Execute()
 
 
 	GfxInfo SqrGfxInfo;
-	SqrGfxInfo.isFilled = pGUI->getFillState();
 
 	SqrGfxInfo.DrawClr = pGUI->getCrntDrawColor();
 	SqrGfxInfo.FillClr = pGUI->getCrntFillColor();
@@ -29,7 +28,7 @@ void ActionAddHexagone::Execute()
 
 	for (int i = 0; i < 6; i++) {
 		pGUI->PrintMessage("New Hexagon: Click at point: " + to_string(i));
-		pGUI->getPointInsideDrawArea(points[i].x, points[i].y);
+		pGUI->GetPointClicked(points[i].x, points[i].y);
 	}
 	pGUI->ClearStatusBar();
 

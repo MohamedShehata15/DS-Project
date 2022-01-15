@@ -1,5 +1,6 @@
 #include "CHexagone.h"
 #include <iostream>
+#include "Helpers.h"
 
 CHexagone::CHexagone(Point _points[], GfxInfo FigureGfxInfo) :CFigure(FigureGfxInfo)
 {
@@ -11,7 +12,7 @@ CHexagone::CHexagone(Point _points[], GfxInfo FigureGfxInfo) :CFigure(FigureGfxI
 void CHexagone::DrawMe(GUI* pGUI)
 {
     //Call Output::DrawRect to draw a Square on the screen	
-    pGUI->DrawHexagon(points, FigGfxInfo, Selected);
+    pGUI->DrawHexagone(points, FigGfxInfo, Selected);
 }
 bool CHexagone::PointInFigure(int x, int y)
 {
