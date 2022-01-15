@@ -1,6 +1,7 @@
 #include "ApplicationManager.h"
 #include "Actions\ActionAddSquare.h"
 #include "Actions\ActionAddEllipse.h"
+#include "Actions\ActionAddHexagone.h"
 #include "Actions/ActionSelect.h"
 #include "Actions/ActionChngDrawClr.h"
 #include "Actions/ActionChngBgClr.h"

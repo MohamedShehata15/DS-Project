@@ -10,7 +10,7 @@ ActionAddHexagone::ActionAddHexagone(ApplicationManager* pApp) :Action(pApp)
 {}
 
 //Execute the action
-void ActionAddHexagon::Execute()
+void ActionAddHexagone::Execute()
 {
 	Point points[6];
 
