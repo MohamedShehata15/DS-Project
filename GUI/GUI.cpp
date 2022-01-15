@@ -91,6 +91,7 @@ ActionType GUI::MapInputToActionType() const
 			{
 			case ITM_SQUR: return DRAW_SQUARE;
 			case ITM_ELPS: return DRAW_ELPS;
+			case ITM_HEX: return DRAW_HEX;
 			case ITM_DRAW_CLR: return CHNG_DRAW_CLR;
 			case ITM_Bg_CLR: return CHNG_BK_CLR;
 			case ITM_BLUE: return CLR_BLUE;
@@ -196,6 +197,7 @@ void GUI::CreateDrawToolBar() const
 	string MenuItemImages[DRAW_ITM_COUNT];
 	MenuItemImages[ITM_SQUR] = "images\\MenuItems\\Menu_Sqr.jpg";
 	MenuItemImages[ITM_ELPS] = "images\\MenuItems\\Menu_Elps.jpg";
+	MenuItemImages[ITM_HEX] = "images\\MenuItems\\Menu_Hex.jpg";
 	MenuItemImages[ITM_DRAW_CLR] = "images\\MenuItems\\brush.jpg";
 	MenuItemImages[ITM_Bg_CLR] = "images\\MenuItems\\bg.JPG";
 	MenuItemImages[ITM_BLUE] = "images\\MenuItems\\blue.jpg";

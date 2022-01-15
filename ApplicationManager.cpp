@@ -72,6 +72,11 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			newAct = new ActionAddEllipse(this);
 			break;
 
+		case DRAW_HEX:
+			newAct = new ActionAddHexagone(this);
+			break;
+
+
 
 		case CHNG_DRAW_CLR:
 			newAct = new ActionChngDrawClr(this);
