@@ -188,7 +188,8 @@ void GUI::ClearStatusBar() const
 void GUI::CreateDrawToolBar() const
 {
 	UI.InterfaceMode = MODE_DRAW;
-
+	// ***clear play mode tool bar***
+	ClearToolBar();
 	//You can draw the tool bar icons in any way you want.
 	//Below is one possible way
 	
@@ -229,17 +230,19 @@ void GUI::CreateDrawToolBar() const
 void GUI::CreatePlayToolBar() const
 {
 	UI.InterfaceMode = MODE_PLAY;
+	// ***clear draw mode tool bar***
+	ClearToolBar();
 	///TODO: write code to create Play mode menu
-	string MenuItemImages[PLAY_ITM_COUNT];
-	MenuItemImages[PICK_FIGURE] = "images\\MenuItems\\Pick_Figure.jpg";
-	MenuItemImages[PICK_COLOR] = "images\\MenuItems\\Pick_Color.jpg";
-	MenuItemImages[PICK_FILLED] = "images\\MenuItems\\PickFilled.jpg";
-	MenuItemImages[DRAW] = "images\\MenuItems\\Mode_Draw.jpg";
-	MenuItemImages[END] = "images\\MenuItems\\Menu_Exit.jpg";
+	string MenuItemImagesPlayMode[PLAY_ITM_COUNT];
+	MenuItemImagesPlayMode[PICK_FIGURE] = "images\\MenuItems\\Pick_Figure.jpg";
+	MenuItemImagesPlayMode[PICK_COLOR] = "images\\MenuItems\\Pick_Color.jpg";
+	MenuItemImagesPlayMode[PICK_FILLED] = "images\\MenuItems\\Pick_Filled.jpg";
+	MenuItemImagesPlayMode[DRAW] = "images\\MenuItems\\Mode_Draw.jpg";
+	MenuItemImagesPlayMode[END] = "images\\MenuItems\\Menu_Exit.jpg";
 
 	//Draw menu item one image at a time
 	for (int i = 0; i < PLAY_ITM_COUNT; i++)
-		pWind->DrawImage(MenuItemImages[i], i * UI.MenuItemWidth, 0, UI.MenuItemWidth, UI.ToolBarHeight);
+		pWind->DrawImage(MenuItemImagesPlayMode[i], i * UI.MenuItemWidth, 0, UI.MenuItemWidth, UI.ToolBarHeight);
 
 	//Draw a line under the toolbar
 	pWind->SetPen(RED, 3);
@@ -254,6 +257,47 @@ void GUI::ClearDrawArea() const
 	pWind->DrawRectangle(0, UI.ToolBarHeight, UI.width, UI.height - UI.StatusBarHeight);	
 	
 }
+/****************************************************************************************/
+/******** Play Mode:  
+	DrawRect -> Draw Rectangle as a Tool Bar Background
+	ClearToolBar -> Clear Tool Bar Items and Call DrawRect Function
+							*********/
+void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo, bool selected) const
+{
+	color DrawingClr;
+	if (selected)
+		DrawingClr = UI.HighlightColor; //Figure should be drawn highlighted
+	else
+		DrawingClr = RectGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, 1);
+	drawstyle style;
+	if (RectGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(RectGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+
+
+	pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
+
+}
+
+void GUI::ClearToolBar()const
+{
+	GfxInfo gfxInfo;
+	Point P1, P2;
+	P1.x = 0; P1.y = 0;
+	P2.x = UI.width; P2.y = UI.ToolBarHeight + 3;
+	gfxInfo.DrawClr = WHITE;	//any color for border
+	gfxInfo.FillClr = WHITE;	//any color for filling
+	gfxInfo.isFilled = true;	//Figure is filled
+
+	DrawRect(P1, P2, gfxInfo, false);
+}
+/****************************************************************************************/
 //////////////////////////////////////////////////////////////////////////////////////////
 
 void GUI::PrintMessage(string msg) const	//Prints a message on status bar

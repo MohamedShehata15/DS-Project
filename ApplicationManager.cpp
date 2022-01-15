@@ -8,6 +8,7 @@
 #include "Actions/PickAndHide.h"
 #include "Actions/ActionUploadFile.h"
 #include <iostream>
+#include "GUI/GUI.h"
 
 
 //Constructor
@@ -74,9 +75,9 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			newAct = new ActionAddEllipse(this);
 			break;
 
-		case DRAW_HEX:
-			newAct = new ActionAddHexagone(this);
-			break;
+		//case DRAW_HEX:
+		//	newAct = new ActionAddHexagone(this);
+		//	break;
 
 
 
@@ -97,10 +98,22 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			newAct =  new ActionSelect(this);
 			break;
 
+		case TO_PLAY:
+			cout << "welcome to play mode!\n";
+			newAct = new PickAndHide(this);
+			break;
+
+		case TO_DRAW:
+			cout << "welcome to draw mode again!\n";
+			/***********redirect to draw mode************/
+			break;
+
 		case EXIT:
 			///create ExitAction here
 			
 			break;
+
+
 		
 		case STATUS:	//a click on the status bar ==> no action
 			return NULL;
@@ -171,16 +184,6 @@ CFigure* ApplicationManager::GetCopyFromFigureList(int i)const
 {
 	return FigList[i];
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
