@@ -99,6 +99,7 @@ ActionType GUI::MapInputToActionType() const
 			case ITM_GREEN: return CLR_GREEN;
 			case ITM_YELLOW: return CLR_YELLOW;
 			case ITM_RED: return  CLR_RED;
+			case ITM_UPLOAD: return LOAD;
 
 			case PLAY: return TO_PLAY;
 			case ITM_EXIT: return EXIT;	
@@ -206,6 +207,7 @@ void GUI::CreateDrawToolBar() const
 	MenuItemImages[ITM_YELLOW] = "images\\MenuItems\\yellow.jpg";
 	MenuItemImages[ITM_RED] = "images\\MenuItems\\red.jpg";
 	MenuItemImages[ITM_SELECT] = "images\\MenuItems\\Menu_Select.JPG";
+	MenuItemImages[ITM_UPLOAD]= "images\\MenuItems\\upload.JPG";
 	MenuItemImages[PLAY] = "images\\MenuItems\\Mode_Play.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
 
@@ -331,7 +333,7 @@ void GUI::DrawEllipse(Point P1, int yr,int xr, GfxInfo EllGfxInfo, bool selected
 	else
 		DrawingClr = EllGfxInfo.DrawClr;
 
-	pWind->SetPen(DrawingClr, 1);
+	pWind->SetPen(DrawingClr, 3);
 	drawstyle style;
 	if (EllGfxInfo.isFilled)
 	{
