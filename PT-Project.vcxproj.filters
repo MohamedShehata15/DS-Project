@@ -163,6 +163,9 @@
     <ClCompile Include="Actions\ActionUploadFile.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
+    <ClCompile Include="Actions\ActionChngFillClr.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -266,6 +269,9 @@
       <Filter>Action Classes</Filter>
     </ClInclude>
     <ClInclude Include="Actions\ActionUploadFile.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionChngFillClr.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
   </ItemGroup>

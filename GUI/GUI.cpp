@@ -94,11 +94,13 @@ ActionType GUI::MapInputToActionType() const
 			case ITM_HEX: return DRAW_HEX;
 			case ITM_DRAW_CLR: return CHNG_DRAW_CLR;
 			case ITM_Bg_CLR: return CHNG_BK_CLR;
+			case ITM_FILL_CLR:return CHNG_FILL_CLR;
 			case ITM_BLUE: return CLR_BLUE;
 			case ITM_BLACK: return CLR_BLACK;
 			case ITM_GREEN: return CLR_GREEN;
 			case ITM_YELLOW: return CLR_YELLOW;
 			case ITM_RED: return  CLR_RED;
+			case ITM_DEFALT: return  default_setting;
 			case ITM_UPLOAD: return LOAD;
 
 			case PLAY: return TO_PLAY;
@@ -201,12 +203,14 @@ void GUI::CreateDrawToolBar() const
 	MenuItemImages[ITM_HEX] = "images\\MenuItems\\Menu_Hex.jpg";
 	MenuItemImages[ITM_DRAW_CLR] = "images\\MenuItems\\brush.jpg";
 	MenuItemImages[ITM_Bg_CLR] = "images\\MenuItems\\bg.JPG";
+	MenuItemImages[ITM_FILL_CLR] = "images\\MenuItems\\fill.JPG";
 	MenuItemImages[ITM_BLUE] = "images\\MenuItems\\blue.jpg";
 	MenuItemImages[ITM_BLACK] = "images\\MenuItems\\black.jpg";
 	MenuItemImages[ITM_GREEN] = "images\\MenuItems\\green.jpg";
 	MenuItemImages[ITM_YELLOW] = "images\\MenuItems\\yellow.jpg";
 	MenuItemImages[ITM_RED] = "images\\MenuItems\\red.jpg";
 	MenuItemImages[ITM_SELECT] = "images\\MenuItems\\Menu_Select.JPG";
+	MenuItemImages[ITM_DEFALT]= "images\\MenuItems\\restore.JPG";
 	MenuItemImages[ITM_UPLOAD]= "images\\MenuItems\\upload.JPG";
 	MenuItemImages[PLAY] = "images\\MenuItems\\Mode_Play.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";

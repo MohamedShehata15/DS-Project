@@ -131,6 +131,7 @@
   <ItemGroup>
     <ClCompile Include="Actions\ActionAddEllipse.cpp" />
     <ClCompile Include="Actions\ActionChngBgClr.cpp" />
+    <ClCompile Include="Actions\ActionChngFillClr.cpp" />
     <ClCompile Include="Actions\ActionSelect.cpp" />
     <ClCompile Include="Actions\ActionChngDrawClr.cpp" />
     <ClCompile Include="Actions\ActionUploadFile.cpp" />
@@ -181,6 +182,7 @@
   <ItemGroup>
     <ClInclude Include="Actions\ActionAddEllipse.h" />
     <ClInclude Include="Actions\ActionChngBgClr.h" />
+    <ClInclude Include="Actions\ActionChngFillClr.h" />
     <ClInclude Include="Actions\ActionSelect.h" />
     <ClInclude Include="Actions\ActionChngDrawClr.h" />
     <ClInclude Include="Actions\ActionUploadFile.h" />
