@@ -1,13 +1,16 @@
 #include "ApplicationManager.h"
 #include "Actions\ActionAddSquare.h"
 #include "Actions\ActionAddEllipse.h"
-#include "Actions\ActionAddHexagone.h"
 #include "Actions/ActionSelect.h"
 #include "Actions/ActionChngDrawClr.h"
 #include "Actions/ActionChngBgClr.h"
 #include "Actions/PickAndHide.h"
 #include "Actions/ActionUploadFile.h"
 #include <iostream>
+
+#include "Actions/ActionBringToFront.h"
+#include "Actions/ActionDeleteFigure.h"
+#include "Actions/ActionSendToBack.h"
 
 
 //Constructor
@@ -58,6 +61,7 @@ ActionType ApplicationManager::GetUserAction() const
 	return pGUI->MapInputToActionType();
 }
 
+
 //Creates an action
 Action* ApplicationManager::CreateAction(ActionType ActType) 
 {
@@ -66,45 +70,50 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 	//According to Action Type, create the corresponding action object
 	switch (ActType)
 	{
-		case DRAW_SQUARE:
-			newAct = new ActionAddSquare(this);
-			break;
+	case DRAW_SQUARE:
+		newAct = new ActionAddSquare(this);
+		break;
 
-		case DRAW_ELPS:
-			newAct = new ActionAddEllipse(this);
-			break;
+	case DRAW_ELPS:
+		newAct = new ActionAddEllipse(this);
+		break;
 
-		case DRAW_HEX:
-			newAct = new ActionAddHexagone(this);
-			break;
+	case DRAW_HEX:
+		// newAct = new ActionAddHexagone(this);
+		break;
 
+	case CHNG_DRAW_CLR:
+		newAct = new ActionChngDrawClr(this);
+		break;
 
+	case CHNG_BK_CLR:
+		newAct = new ActionChngBgClr(this);
+		break;
 
-		case CHNG_DRAW_CLR:
-			newAct = new ActionChngDrawClr(this);
-			break;
+	case LOAD:
+		newAct = new ActionUploadFile(this);
+		break;
 
-		case CHNG_BK_CLR:
-			newAct = new ActionChngBgClr(this);
-			break;
-
-		case LOAD:
-			newAct = new ActionUploadFile(this);
-			break;
-
-
-		case SELECT:
-			newAct =  new ActionSelect(this);
-			break;
-
-		case EXIT:
-			///create ExitAction here
-			
-			break;
+	case SEND_BACK:
+		newAct = new ActionSendToBack(this);
+		break;
+	case BRNG_FRNT:
+		newAct = new ActionBringToFront(this);
+		break;
+	case SELECT:
+		newAct =  new ActionSelect(this);
+		break;
+	case DEL:
+		newAct = new ActionDeleteFigure(this);
+		break;
+	case EXIT:
+		///create ExitAction here
 		
-		case STATUS:	//a click on the status bar ==> no action
-			return NULL;
-			break;
+		break;
+	
+	case STATUS:	//a click on the status bar ==> no action
+		return NULL;
+		break;
 	}	
 	return newAct;
 }
@@ -131,6 +140,9 @@ void ApplicationManager::AddFigure(CFigure* pFig)
 		FigList[FigCount++] = pFig;	
 }
 ////////////////////////////////////////////////////////////////////////////////////
+int ApplicationManager::getFigCount() { return FigCount; }
+
+////////////////////////////////////////////////////////////////////////////////////
 CFigure *ApplicationManager::GetFigure(int x, int y) const
 {
 	//If a figure is found return a pointer to it.
@@ -145,6 +157,52 @@ CFigure *ApplicationManager::GetFigure(int x, int y) const
 			return FigList[i];
 	}
 	return NULL;
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+void ApplicationManager::deSelectAllFigures()
+{
+	for (int i = 0; i < FigCount; i++)
+	{
+		FigList[i]->SetSelected(false);
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////
+void ApplicationManager::deleteFigure(int figPosition) 
+{
+	cout << "delete figure action: ##" << figPosition << endl;
+	moveFigureThenShift(figPosition, FigCount - 1);
+	delete FigList[FigCount - 1];
+	FigList[--FigCount] = NULL;
+}
+////////////////////////////////////////////////////////////////////////////////////
+int ApplicationManager::getIndexOfSelectedFigure()
+{
+	for (int i = FigCount - 1; i >= 0; i--)
+	{
+		if (FigList[i]->IsSelected())
+			return i;
+	}
+	return -1;
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+
+// a function that takes two parameters the first parameter is the current figure index
+// the second parameter is the required index that you want to  move it to
+// and then shift the rest of the elements
+void ApplicationManager::moveFigureThenShift(int oldPosition, int newPosition)
+{
+	CFigure* movingFigure = FigList[oldPosition];
+	for (int i = oldPosition; oldPosition >= newPosition? i > newPosition : i < newPosition; oldPosition >= newPosition ? i--: i++)
+	{
+		if (oldPosition >= newPosition)
+			FigList[i] = FigList[i - 1];
+		else
+			FigList[i] = FigList[i + 1];
+
+	}
+	FigList[newPosition] = movingFigure;
 }
 
 //==================================================================================//
@@ -221,3 +279,5 @@ ApplicationManager::~ApplicationManager()
 	delete pGUI;
 	
 }
+
+

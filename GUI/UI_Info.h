@@ -31,6 +31,9 @@ enum DrawMenuItem //The items of the Draw menu (you should add more items)
 	//TODO: Add more items names here
 	ITM_SELECT,
 	ITM_UPLOAD,
+	ITM_SEND_BACK,		//Send a figure to the back of all figures
+	ITM_BRNG_FRNT,
+	ITM_DEL,
 
 
 	PLAY,			//Switch to playmode

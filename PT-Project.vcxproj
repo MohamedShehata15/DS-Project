@@ -130,9 +130,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Actions\ActionAddEllipse.cpp" />
+    <ClCompile Include="Actions\ActionBringToFront.cpp" />
     <ClCompile Include="Actions\ActionChngBgClr.cpp" />
+    <ClCompile Include="Actions\ActionDeleteFigure.cpp" />
     <ClCompile Include="Actions\ActionSelect.cpp" />
     <ClCompile Include="Actions\ActionChngDrawClr.cpp" />
+    <ClCompile Include="Actions\ActionSendToBack.cpp" />
     <ClCompile Include="Actions\ActionUploadFile.cpp" />
     <ClCompile Include="Actions\PickAndHide.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp" />
@@ -180,9 +183,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actions\ActionAddEllipse.h" />
+    <ClInclude Include="Actions\ActionBringToFront.h" />
     <ClInclude Include="Actions\ActionChngBgClr.h" />
+    <ClInclude Include="Actions\ActionDeleteFigure.h" />
     <ClInclude Include="Actions\ActionSelect.h" />
     <ClInclude Include="Actions\ActionChngDrawClr.h" />
+    <ClInclude Include="Actions\ActionSendToBack.h" />
     <ClInclude Include="Actions\ActionUploadFile.h" />
     <ClInclude Include="Actions\PickAndHide.h" />
     <ClInclude Include="CMUgraphicsLib\auxil.h" />

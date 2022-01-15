@@ -28,19 +28,33 @@ public:
 	
 	int GetCount()const;
 	CFigure* GetCopyFromFigureList(int) const;
+	int getFigCount();
 
 	// -- Action-Related Functions
-	ActionType ApplicationManager::GetUserAction() const;
+	ActionType GetUserAction() const;
 	Action* CreateAction(ActionType);
 	void ExecuteAction(Action*&) ; //Execute an action
+
 	
 	// -- Figures Management Functions
 	void AddFigure(CFigure* pFig); //Adds a new figure to the FigList
 	CFigure *GetFigure(int x, int y) const; //Search for a figure given a point inside the figure
-		
+
+	void deSelectAllFigures();
+	// send to front and bring to back functions
+	int getIndexOfSelectedFigure();
+	void moveFigureThenShift(int oldPosition, int newPosition);
+	// delete Figure
+	void deleteFigure(int figPosition);
+
 	// -- Interface Management Functions	
 	GUI *GetGUI() const; //Return pointer to the interface
-	void UpdateInterface() const;	//Redraws all the drawing window	
+	void UpdateInterface() const;	//Redraws all the drawing window
+
+
+
+
+
 };
 
 #endif
