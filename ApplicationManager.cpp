@@ -1,7 +1,6 @@
 #include "ApplicationManager.h"
 #include "Actions\ActionAddSquare.h"
 #include "Actions\ActionAddEllipse.h"
-#include "Actions\ActionAddHexagone.h"
 #include "Actions/ActionSelect.h"
 #include "Actions/ActionChngDrawClr.h"
 #include "Actions/ActionChngBgClr.h"
@@ -74,9 +73,6 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			newAct = new ActionAddEllipse(this);
 			break;
 
-		case DRAW_HEX:
-			newAct = new ActionAddHexagone(this);
-			break;
 
 
 
