@@ -14,6 +14,8 @@ void ActionUploadFile::Execute()
 
 	//Get a Pointer to the Interface
 	GUI* pGUI = pManager->GetGUI();
+	pGUI->PrintMessage("Type file name to upload");
+
 
 
 

@@ -9,7 +9,6 @@ class ActionUploadFile : public Action
 public:
 	ActionUploadFile(ApplicationManager* pApp);
 
-	//Add Ellipse to the ApplicationManager
 	virtual void Execute();
 
 };

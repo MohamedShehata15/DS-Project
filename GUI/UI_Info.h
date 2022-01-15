@@ -26,10 +26,13 @@ enum DrawMenuItem //The items of the Draw menu (you should add more items)
 	ITM_GREEN,
 	ITM_YELLOW,
 	ITM_RED,
-	ITM_UPLOAD,
 	//TODO: Add more items names here
 	ITM_SELECT,
+	ITM_UPLOAD,
+
+
 	PLAY,			//Switch to playmode
+
 	ITM_EXIT,		//Exit item
 	
 	DRAW_ITM_COUNT		//no. of menu items ==> This should be the last line in this enum

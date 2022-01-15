@@ -84,6 +84,8 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 
 		case LOAD:
 			newAct = new ActionUploadFile(this);
+			break;
+
 
 		case SELECT:
 			newAct =  new ActionSelect(this);
