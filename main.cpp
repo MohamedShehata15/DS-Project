@@ -19,6 +19,7 @@ int main()
 	ApplicationManager AppManager;
 	AppManager.Run();	
 	return 0;
+	// shopaky
 }
 
 
