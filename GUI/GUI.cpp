@@ -1,5 +1,6 @@
 #include "GUI.h"
 #include "../Figures/CEllipse.h"
+#include <iostream>
 #
 //constructor make necessary initializations
 GUI::GUI()
@@ -30,6 +31,7 @@ GUI::GUI()
 	
 	//Create the output window
 	pWind = CreateWind(UI.width, UI.height, UI.wx, UI.wy);
+	UI.BkGrndColor = RED;
 	//Change the title
 	pWind->ChangeTitle("Paint for Kids - Programming Techniques Project");
 	
@@ -272,7 +274,7 @@ void GUI::DrawSquare(Point P1, int length, GfxInfo RectGfxInfo, bool selected) c
 		style = FRAME;
 	
 	pWind->DrawRectangle(P1.x, P1.y, P1.x +length, P1.y+length, style);
-	pWind->DrawLine(P1.x, P1.y, P1.x + length, P1.y + length, style);
+	//pWind->DrawLine(P1.x, P1.y, P1.x + length, P1.y + length, style);
 
 }
 void GUI::DrawEllipse(Point P1, int yr,int xr, GfxInfo EllGfxInfo, bool selected) const
