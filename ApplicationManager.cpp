@@ -1,10 +1,12 @@
 #include "ApplicationManager.h"
 #include "Actions\ActionAddSquare.h"
 #include "Actions\ActionAddEllipse.h"
+#include "Actions\ActionAddHexagone.h"
 #include "Actions/ActionSelect.h"
 #include "Actions/ActionChngDrawClr.h"
 #include "Actions/ActionChngBgClr.h"
 #include "Actions/PickAndHide.h"
+#include "Actions/ActionUploadFile.h"
 #include <iostream>
 
 
@@ -72,6 +74,11 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			newAct = new ActionAddEllipse(this);
 			break;
 
+		case DRAW_HEX:
+			newAct = new ActionAddHexagone(this);
+			break;
+
+
 
 		case CHNG_DRAW_CLR:
 			newAct = new ActionChngDrawClr(this);
@@ -80,6 +87,11 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 		case CHNG_BK_CLR:
 			newAct = new ActionChngBgClr(this);
 			break;
+
+		case LOAD:
+			newAct = new ActionUploadFile(this);
+			break;
+
 
 		case SELECT:
 			newAct =  new ActionSelect(this);
