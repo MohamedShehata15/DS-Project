@@ -26,6 +26,7 @@ enum DrawMenuItem //The items of the Draw menu (you should add more items)
 	ITM_GREEN,
 	ITM_YELLOW,
 	ITM_RED,
+	ITM_UPLOAD,
 	//TODO: Add more items names here
 	ITM_SELECT,
 	PLAY,			//Switch to playmode

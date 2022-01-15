@@ -5,6 +5,7 @@
 #include "Actions/ActionChngDrawClr.h"
 #include "Actions/ActionChngBgClr.h"
 #include "Actions/PickAndHide.h"
+#include "Actions/ActionUploadFile.h"
 #include <iostream>
 
 
@@ -80,6 +81,9 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 		case CHNG_BK_CLR:
 			newAct = new ActionChngBgClr(this);
 			break;
+
+		case LOAD:
+			newAct = new ActionUploadFile(this);
 
 		case SELECT:
 			newAct =  new ActionSelect(this);
