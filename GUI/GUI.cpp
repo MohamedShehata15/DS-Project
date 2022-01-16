@@ -200,6 +200,7 @@ void GUI::CreateDrawToolBar() const
 	//To control the order of these images in the menu, 
 	//reoder them in UI_Info.h ==> enum DrawMenuItem
 	string MenuItemImages[DRAW_ITM_COUNT];
+	MenuItemImages[PLAY] = "images\\MenuItems\\Mode_Play.jpg";
 	MenuItemImages[ITM_SQUR] = "images\\MenuItems\\Menu_Sqr.jpg";
 	MenuItemImages[ITM_ELPS] = "images\\MenuItems\\Menu_Elps.jpg";
 	MenuItemImages[ITM_HEX] = "images\\MenuItems\\Menu_Hex.jpg";
@@ -218,7 +219,7 @@ void GUI::CreateDrawToolBar() const
 	MenuItemImages[ITM_UPLOAD] = "images\\MenuItems\\upload.JPG";
 	MenuItemImages[ITM_DEFALT]= "images\\MenuItems\\restore.JPG";
 	MenuItemImages[ITM_UPLOAD]= "images\\MenuItems\\upload.JPG";
-	MenuItemImages[PLAY] = "images\\MenuItems\\Mode_Play.jpg";
+	
 	MenuItemImages[ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
 
 	//TODO: Prepare images for each menu item and add it to the list
