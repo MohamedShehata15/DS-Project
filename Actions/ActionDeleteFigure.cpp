@@ -24,6 +24,7 @@ void ActionDeleteFigure::Execute()
 		pGUI->PrintMessage("Please Select the Shape first!!!");
 	else
 		pManager->deleteFigure(selectedFigureIndex);
+	pGUI->ClearDrawArea();
 
 
 }

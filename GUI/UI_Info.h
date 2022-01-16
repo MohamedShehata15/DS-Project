@@ -20,7 +20,6 @@ enum DrawMenuItem //The items of the Draw menu (you should add more items)
 	ITM_SQUR,		//Square item in menu
 	ITM_ELPS,		//Ellipse item in menu
 	ITM_HEX,        //Hexagone item in menu
-
 	ITM_DRAW_CLR,
 	ITM_Bg_CLR,
 	ITM_FILL_CLR,
@@ -30,12 +29,12 @@ enum DrawMenuItem //The items of the Draw menu (you should add more items)
 	ITM_YELLOW,
 	ITM_RED,
 	ITM_DEFALT,
-	//TODO: Add more items names here
 	ITM_SELECT,
-	ITM_UPLOAD,
 	ITM_SEND_BACK,		//Send a figure to the back of all figures
 	ITM_BRNG_FRNT,
 	ITM_DEL,
+	ITM_UPLOAD,
+	//TODO: Add more items names here
 
 
 	PLAY,			//Switch to playmode

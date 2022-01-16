@@ -44,12 +44,11 @@ void ActionSelect::Execute()
 	
 	// Step 2 - get the selected figure from GetFigure Function 
 	CFigure* selectedFigure = pManager->GetFigure(P1.x, P1.y);
-
-	bool isSelectedFigureSelcted = selectedFigure->IsSelected();
-	pManager->deSelectAllFigures();
-	selectedFigure->SetSelected(isSelectedFigureSelcted);
-	if (selectedFigure != NULL)
+	if (selectedFigure != nullptr)
 	{
+		bool isSelectedFigureSelcted = selectedFigure->IsSelected();
+		pManager->deSelectAllFigures();
+		selectedFigure->SetSelected(isSelectedFigureSelcted);
 		// Step 3 - modify the selected field
 		if (selectedFigure->IsSelected())
 			selectedFigure->SetSelected(false);

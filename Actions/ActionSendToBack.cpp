@@ -21,14 +21,11 @@ void ActionSendToBack::Execute()
 
 
 	// Step 2 - get the selected figure from GetFigure Function
-	cout << "send to back Action" << endl;
-
 	int selectedFigureIndex = pManager->getIndexOfSelectedFigure();
 	if (selectedFigureIndex == -1)
 		pGUI->PrintMessage("Please Select the Shape first!!!");
 	else
 		pManager->moveFigureThenShift(selectedFigureIndex, 0);
-	cout << "end of send to back Action" << endl;
 
 }
 
