@@ -14,7 +14,7 @@ ActionChngBgClr::ActionChngBgClr(ApplicationManager* pApp) :Action(pApp)
 void ActionChngBgClr::Execute()
 {
 	GUI* pGUI = pManager->GetGUI();
-	pGUI->PrintMessage("Select A color for Your backGround ,Please");
+	pGUI->PrintMessage("Select A color for Your backGround  and for selecting the default click restore icon ");
 
 	newColor = pManager->GetUserAction();
 
@@ -38,6 +38,11 @@ void ActionChngBgClr::Execute()
 
 	case CLR_RED:
 		pGUI->setnewBackgroundColor(RED);
+		break;
+
+	case default_setting:
+		pGUI->PrintMessage("Now Your background color set to default");
+		pGUI->setnewBackgroundColor(LIGHTGOLDENRODYELLOW);
 		break;
 
 	default:

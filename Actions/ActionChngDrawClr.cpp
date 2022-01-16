@@ -13,7 +13,7 @@ ActionChngDrawClr::ActionChngDrawClr(ApplicationManager* pApp) :Action(pApp)
 void ActionChngDrawClr::Execute()
 {
 	GUI* pGUI = pManager->GetGUI();
-	pGUI->PrintMessage("Select A color for drawing ,Please");
+	pGUI->PrintMessage("Select A color for drawing and for selecting the default click restore icon ");
 
 	newColor = pManager->GetUserAction();
 
@@ -42,6 +42,11 @@ void ActionChngDrawClr::Execute()
 	case CLR_RED:
 		pGUI->PrintMessage("Now You can draw with red");
 		pGUI->setnewDrawColor(RED);
+		break;
+
+	case default_setting:
+		pGUI->PrintMessage("Now You can draw with default color");
+		pGUI->setnewDrawColor(BLACK);
 		break;
 
 	default:
