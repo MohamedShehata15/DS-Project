@@ -102,6 +102,17 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 		case SELECT:
 			newAct =  new ActionSelect(this);
 			break;
+		case DEL:
+			newAct = new ActionDeleteFigure(this);
+			break;
+		case TO_PLAY:
+			cout << "welcome to play mode!\n";
+			newAct = new PickAndHide(this);
+			break;
+		case TO_DRAW:
+			cout << "welcome to draw mode again!\n";
+			/***********redirect to draw mode************/
+			break;
 
 		case EXIT:
 			///create ExitAction here
@@ -111,50 +122,9 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 		case STATUS:	//a click on the status bar ==> no action
 			return NULL;
 			break;
-	case DRAW_SQUARE:
-		newAct = new ActionAddSquare(this);
-		break;
-	case DRAW_ELPS:
-		newAct = new ActionAddEllipse(this);
-		break;
-	case CHNG_DRAW_CLR:
-		newAct = new ActionChngDrawClr(this);
-		break;
-	case CHNG_BK_CLR:
-		newAct = new ActionChngBgClr(this);
-		break;
-	case LOAD:
-		newAct = new ActionUploadFile(this);
-		break;
-	case CHNG_FILL_CLR:
-		newAct = new ActionChngFillClr(this);
-		break;
-	case SEND_BACK:
-		newAct = new ActionSendToBack(this);
-		break;
-	case BRNG_FRNT:
-		newAct = new ActionBringToFront(this);
-		break;
-	case SELECT:
-		newAct =  new ActionSelect(this);
-		break;
-	case DEL:
-		newAct = new ActionDeleteFigure(this);
-		break;
-	case TO_PLAY:
-		cout << "welcome to play mode!\n";
-		newAct = new PickAndHide(this);
-		break;
-	case TO_DRAW:
-		cout << "welcome to draw mode again!\n";
-		/***********redirect to draw mode************/
-		break;
-	case EXIT:
-		///create ExitAction here
-		break;
-	case STATUS:	//a click on the status bar ==> no action
-		return NULL;
-		break;
+		case EMPTY:
+			cout << "Hello, Test"; 
+			break;
 	}	
 	return newAct;
 }
