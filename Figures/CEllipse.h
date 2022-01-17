@@ -17,6 +17,9 @@ public:
 	virtual void PrintInfo(GUI* pGUI);
 	virtual void Resize(float);
 	virtual CFigure* GetCopy();
+	virtual void increase();
+	virtual void decrease();
+	virtual int GetNumber()const; //to know how many shapes are drawn
 };
 
 #endif

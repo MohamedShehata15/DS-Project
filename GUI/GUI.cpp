@@ -432,6 +432,20 @@ void GUI::PrintMessage(string msg) const	//Prints a message on status bar
 	pWind->SetFont(20, BOLD , BY_NAME, "Arial");   
 	pWind->DrawString(10, UI.height - (int)(UI.StatusBarHeight/1.5), msg);
 }
+
+void GUI::PlayModeMessage(string msg1, int msg) const //new style for status bar in playmode
+{
+	int x = 10, y = UI.height - (int)(UI.StatusBarHeight / 1.5);
+	ClearStatusBar();
+	PrintMessage(msg1);
+	pWind->GetStringSize(x, y, msg1);
+
+	pWind->SetPen(UI.MsgColor, 50);
+	pWind->SetFont(20, BOLD, BY_NAME, "Arial");
+
+
+	pWind->DrawInteger(x, UI.height - (int)(UI.StatusBarHeight / 1.5), msg);
+}
 //////////////////////////////////////////////////////////////////////////////////////////
 
 color GUI::getCrntDrawColor() const	//get current drwawing color

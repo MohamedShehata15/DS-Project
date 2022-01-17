@@ -6,6 +6,9 @@ CFigure::CFigure(GfxInfo FigureGfxInfo)
 	Selected = false;
 }
 
+int CFigure::squareNum = 0;
+int CFigure::ellipseNum = 0;
+int CFigure::hexNum = 0;
 
 void CFigure::SetSelected(bool s)
 {	Selected = s; }
@@ -20,5 +23,30 @@ void CFigure::ChngFillClr(color Fclr)
 {	
 	FigGfxInfo.isFilled = true;
 	FigGfxInfo.FillClr = Fclr; 
+}
+
+color CFigure::GetCurrentColor()const
+{
+	return FigGfxInfo.FillClr;
+}
+
+bool CFigure::IsFilled()const
+{
+	return FigGfxInfo.isFilled;
+}
+
+int CFigure::GetNumOfSquares() const
+{
+	return squareNum;
+}
+
+int CFigure::GetNumOfEllipses() const
+{
+	return ellipseNum;
+}
+
+int CFigure::GetNumOfHexagons() const
+{
+	return hexNum;
 }
 

@@ -40,3 +40,16 @@ CFigure* CSquare::GetCopy()
 	CFigure* Copy = new CSquare(*this);
 	return Copy;
 }
+
+int CSquare::GetNumber()const
+{
+	return squareNum;
+}
+void CSquare::increase()
+{
+	squareNum++;
+}
+void CSquare::decrease()
+{
+	squareNum--;
+}
