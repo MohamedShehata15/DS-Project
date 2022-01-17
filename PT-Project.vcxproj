@@ -132,6 +132,7 @@
     <ClCompile Include="Actions\ActionAddEllipse.cpp" />
     <ClCompile Include="Actions\ActionBringToFront.cpp" />
     <ClCompile Include="Actions\ActionChngBgClr.cpp" />
+    <ClCompile Include="Actions\ActionDefaultDrawing.cpp" />
     <ClCompile Include="Actions\ActionDeleteFigure.cpp" />
     <ClCompile Include="Actions\ActionChngFillClr.cpp" />
     <ClCompile Include="Actions\ActionSelect.cpp" />
@@ -187,6 +188,7 @@
     <ClInclude Include="Actions\ActionAddEllipse.h" />
     <ClInclude Include="Actions\ActionBringToFront.h" />
     <ClInclude Include="Actions\ActionChngBgClr.h" />
+    <ClInclude Include="Actions\ActionDefaultDrawing.h" />
     <ClInclude Include="Actions\ActionDeleteFigure.h" />
     <ClInclude Include="Actions\ActionChngFillClr.h" />
     <ClInclude Include="Actions\ActionSelect.h" />

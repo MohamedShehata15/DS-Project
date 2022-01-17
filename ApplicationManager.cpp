@@ -15,6 +15,7 @@
 #include "Actions/ActionSendToBack.h"
 
 #include "Actions\SwitchToColorsMode.h";
+#include "Actions\ActionDefaultDrawing.h";
 
 
 //Constructor
@@ -94,7 +95,7 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			break;
 
 		case default_setting:
-			// Hanlde it later.
+			newAct = new ActionDefaultDrawing(this);
 			break;
 
 		case LOAD:
@@ -150,7 +151,7 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 	return newAct;
 }
 //////////////////////////////////////////////////////////////////////
-// Responsible for colors
+// Responsible for Drawing colors
 Action* ApplicationManager::handleDrawingColorAction(color c) {
 	pGUI->setAppliedColor(c);
 

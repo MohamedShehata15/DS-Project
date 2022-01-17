@@ -18,7 +18,6 @@ void ActionBringToFront::Execute()
 
 	GUI* pGUI = pManager->GetGUI();
 
-
 	int selectedFigureIndex = pManager->getIndexOfSelectedFigure();
 	if (selectedFigureIndex == -1)
 		pGUI->PrintMessage("Please Select the Shape first!!!");
