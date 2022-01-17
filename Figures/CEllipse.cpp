@@ -14,8 +14,10 @@ bool CEllipse::isWithinArea(int x ,int y)
 
 	return ((((pow((x - center.x), 2)) / (yradius * yradius)) + ((pow((y - center.y), 2)) / (xradius * xradius))) <= 1);
 }
-
-
+void CEllipse::Resize(float resizeFactor)
+{
+	//todo;
+}
 void CEllipse::PrintInfo(GUI* pGUI)
 {
 	pGUI->PrintMessage(

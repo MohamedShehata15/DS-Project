@@ -33,6 +33,7 @@ public:
 	/// <returns>true if the point within the area and false if not</returns>
 	virtual bool isWithinArea(int, int) = 0; 
 
+	virtual void Resize(float) = 0;	//Resize the figure
 
 	virtual CFigure* GetCopy() = 0;
 	///The following functions should be supported by the figure class
@@ -42,7 +43,7 @@ public:
 
 
 	//virtual void Rotate() = 0;	//Rotate the figure
-	//virtual void Resize() = 0;	//Resize the figure
+
 	//virtual void Move() = 0;		//Move the figure
 
 	//virtual void Save(ofstream &OutFile) = 0;	//Save the figure parameters to the file

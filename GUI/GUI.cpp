@@ -45,7 +45,10 @@ GUI::GUI()
 //								Input Functions										    //
 //======================================================================================//
 
-
+bool GUI::isWithinDrawingArea(int y)
+{
+	return y >= UI.StatusBarHeight && y <= UI.height - UI.StatusBarHeight;
+}
 
 void GUI::GetPointClicked(int &x, int &y) const
 {
@@ -102,6 +105,7 @@ ActionType GUI::MapInputToActionType() const
 			case ITM_SEND_BACK: return 	SEND_BACK;		
 			case ITM_BRNG_FRNT: return BRNG_FRNT;
 			case ITM_DEL: return DEL;
+			case ITM_RESIZE: return RESIZE;
 			case ITM_SELECT: return SELECT;
 			case ITM_CLEAR: return CLEAR;
 			case ITM_EXIT: return EXIT;	
@@ -138,6 +142,7 @@ ActionType GUI::MapInputToActionType() const
 			case PICK_COLOR: return PICK_CLR;
 			case PICK_FILLED: return PICK_FILL;
 			case DRAW: return TO_DRAW;
+			case PLAY_BACK: return BACK;
 			case END: return EXIT;
 
 			default: return EMPTY;
@@ -155,9 +160,44 @@ ActionType GUI::MapInputToActionType() const
 
 		return STATUS;
 	}
-	else {
+	else if (UI.InterfaceMode == RESIZE_MODE)	
+	{
+		if (y >= 0 && y < UI.ToolBarHeight)
+		{
+			//Check which Menu item was clicked
+			//==> This assumes that menu items are lined up horizontally <==
+			int ClickedItemOrder = (x / UI.MenuItemWidth);
+			//Divide x coord of the point clicked by the menu item width (int division)
+			//if division result is 0 ==> first item is clicked, if 1 ==> 2nd item and so on
+
+			switch (ClickedItemOrder)
+			{
+			case FACTOR_QUARTER		: return	QUARTER_FACTOR;
+			case FACTOR_HALF		: return	HALF_FACTOR;
+			case FACTOR_DOUBLE		: return	DOUBLE_FACTOR;
+			case FACTOR_QUADRUPLE	: return	QUADRUPLE_FACTOR;
+			case ITEM_SELECT		: return	SELECT;
+			case ITEM_BACK			: return	BACK;
+
+			default: return EMPTY;
+			}
+		}
+
+		//[2] User clicks on the drawing area
+		if (y >= UI.ToolBarHeight && y < UI.height - UI.StatusBarHeight)
+		{
+			return DRAWING_AREA;
+		}
+
+		//[3] User clicks on the status bar
+
+		return STATUS;
+	}
 
 
+
+	else 
+	{
 		if (y >= 0 && y < UI.ToolBarHeight)
 		{
 			//Check which Menu item was clicked
@@ -235,7 +275,6 @@ void GUI::CreateDrawToolBar() const
 	//To control the order of these images in the menu, 
 	//reoder them in UI_Info.h ==> enum DrawMenuItem
 	string MenuItemImages[DRAW_ITM_COUNT];
-	MenuItemImages[PLAY] = "images\\MenuItems\\Mode_Play.jpg";
 	MenuItemImages[ITM_SQUR] = "images\\MenuItems\\Menu_Sqr.jpg";
 	MenuItemImages[ITM_ELPS] = "images\\MenuItems\\Menu_Elps.jpg";
 	MenuItemImages[ITM_HEX] = "images\\MenuItems\\Menu_Hex.jpg";
@@ -243,13 +282,14 @@ void GUI::CreateDrawToolBar() const
 	MenuItemImages[ITM_Bg_CLR] = "images\\MenuItems\\bg.JPG";
 	MenuItemImages[ITM_FILL_CLR] = "images\\MenuItems\\fill.JPG";
 	MenuItemImages[ITM_SELECT] = "images\\MenuItems\\Menu_Select.JPG";
+	MenuItemImages[ITM_RESIZE] = "images\\MenuItems\\resize.jpg";
 	MenuItemImages[ITM_DEL] = "images\\MenuItems\\delete.jpg";
 	MenuItemImages[ITM_SEND_BACK] = "images\\MenuItems\\send_to_back.jpg";
 	MenuItemImages[ITM_BRNG_FRNT]= "images\\MenuItems\\bring_to_front.jpg";
 	MenuItemImages[ITM_UPLOAD] = "images\\MenuItems\\upload.JPG";
 	MenuItemImages[ITM_DEFALT]= "images\\MenuItems\\restore.JPG";
 	MenuItemImages[ITM_CLEAR]= "images\\MenuItems\\clear_all.jpg";
-	
+	MenuItemImages[PLAY] = "images\\MenuItems\\Mode_Play.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
 
 	//TODO: Prepare images for each menu item and add it to the list
@@ -278,6 +318,7 @@ void GUI::CreatePlayToolBar() const
 	MenuItemImagesPlayMode[PICK_COLOR] = "images\\MenuItems\\Pick_Color.jpg";
 	MenuItemImagesPlayMode[PICK_FILLED] = "images\\MenuItems\\Pick_Filled.jpg";
 	MenuItemImagesPlayMode[DRAW] = "images\\MenuItems\\Mode_Draw.jpg";
+	MenuItemImagesPlayMode[PLAY_BACK] = "images\\MenuItems\\right_arrow.jpg";
 	MenuItemImagesPlayMode[END] = "images\\MenuItems\\Menu_Exit.jpg";
 
 	//Draw menu item one image at a time
@@ -312,6 +353,27 @@ void GUI::CreateColorToolBar() const {
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
+void GUI::CreateResizeToolBar()
+{
+	UI.InterfaceMode = RESIZE_MODE;
+	ClearToolBar();	
+	string MenuItemResizeIcons[FACTOR_ITM_COUNT];
+	MenuItemResizeIcons[FACTOR_QUARTER] = "images\\MenuItems\\quarter_icon.jpg";
+	MenuItemResizeIcons[FACTOR_HALF] = "images\\MenuItems\\half_icon.jpg";
+	MenuItemResizeIcons[FACTOR_DOUBLE] = "images\\MenuItems\\double_icon.jpg";
+	MenuItemResizeIcons[FACTOR_QUADRUPLE] = "images\\MenuItems\\quadritic_icon.jpg";
+	MenuItemResizeIcons[ITEM_SELECT] = "images\\MenuItems\\Menu_Select.JPG";
+	MenuItemResizeIcons[ITEM_BACK] = "images\\MenuItems\\right_arrow.jpg";
+
+	//Draw menu item one image at a time
+	for (int i = 0; i < FACTOR_ITM_COUNT; i++)
+		pWind->DrawImage(MenuItemResizeIcons[i], i * UI.MenuItemWidth, 0, UI.MenuItemWidth, UI.ToolBarHeight);
+
+	//Draw a line under the toolbar
+	pWind->SetPen(RED, 3);
+	pWind->DrawLine(0, UI.ToolBarHeight, UI.width, UI.ToolBarHeight);
+}
+//////////////////////////////////////////////////////////////////////////////////////////
 void GUI::ClearDrawArea() const
 {
 	pWind->SetPen(UI.BkGrndColor, 1);

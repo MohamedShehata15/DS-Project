@@ -42,8 +42,12 @@ enum ActionType //The actions supported (you can add more if needed)
 	SELECT,
 	BACK,
 	CLEAR,
-	
-
+	/* for Resize Menu */
+	QUARTER_FACTOR,
+	HALF_FACTOR,
+	DOUBLE_FACTOR,
+	QUADRUPLE_FACTOR
+	/* end of resize menu */ 
 };
 
 struct Point	//To be used for figures points

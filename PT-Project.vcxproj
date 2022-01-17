@@ -135,6 +135,8 @@
     <ClCompile Include="Actions\ActionDefaultDrawing.cpp" />
     <ClCompile Include="Actions\ActionDeleteFigure.cpp" />
     <ClCompile Include="Actions\ActionChngFillClr.cpp" />
+    <ClCompile Include="Actions\ActionResizeFigure.cpp" />
+    <ClCompile Include="Actions\ActionSwitchToResizeMode.cpp" />
     <ClCompile Include="Actions\ActionSelect.cpp" />
     <ClCompile Include="Actions\ActionChngDrawClr.cpp" />
     <ClCompile Include="Actions\ActionSendToBack.cpp" />
@@ -192,6 +194,8 @@
     <ClInclude Include="Actions\ActionDefaultDrawing.h" />
     <ClInclude Include="Actions\ActionDeleteFigure.h" />
     <ClInclude Include="Actions\ActionChngFillClr.h" />
+    <ClInclude Include="Actions\ActionResizeFigure.h" />
+    <ClInclude Include="Actions\ActionSwitchToResizeMode.h" />
     <ClInclude Include="Actions\ActionSelect.h" />
     <ClInclude Include="Actions\ActionChngDrawClr.h" />
     <ClInclude Include="Actions\ActionSendToBack.h" />

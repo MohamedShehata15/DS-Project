@@ -7,11 +7,13 @@
 #include "Actions/ActionChngFillClr.h"
 #include "Actions/PickAndHide.h"
 #include "Actions/ActionUploadFile.h"
+#include "Actions/ActionSwitchToResizeMode.h"
 #include <iostream>
 #include "GUI/GUI.h"
 
 #include "Actions/ActionBringToFront.h"
 #include "Actions/ActionDeleteFigure.h"
+#include "Actions/ActionResizeFigure.h"
 #include "Actions/ActionSendToBack.h"
 
 #include "Actions\SwitchToColorsMode.h";
@@ -96,6 +98,13 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			newAct = new SwitchToColorsMode(this);
 			break;
 
+		case SEND_BACK:
+			newAct = new ActionSendToBack(this);
+			break;
+		case BRNG_FRNT:
+			newAct = new ActionBringToFront(this);
+			break;
+
 		case default_setting:
 			newAct = new ActionDefaultDrawing(this);
 			break;
@@ -103,7 +112,6 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 		case LOAD:
 			newAct = new ActionUploadFile(this);
 			break;
-
 
 		case SELECT:
 			newAct =  new ActionSelect(this);
@@ -135,6 +143,9 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 		case CLR_RED: 
 			newAct = handleDrawingColorAction(RED);
 			break;
+		case RESIZE:
+			newAct = new ActionSwitchToResizeMode(this);
+			break;
 		case BACK: 
 			//newAct = handleDrawingColorAction();
 			pGUI->CreateDrawToolBar(); // Remove this later.
@@ -143,6 +154,13 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			newAct = new ActionclearAllFigures(this);
 			break;
 
+
+		case QUARTER_FACTOR:
+		case HALF_FACTOR:
+		case DOUBLE_FACTOR:
+		case QUADRUPLE_FACTOR:
+			newAct = new ActionResizeFigure(this, ActType);
+			break;
 		case EXIT:
 			///create ExitAction here
 			

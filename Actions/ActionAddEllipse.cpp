@@ -30,7 +30,7 @@ void ActionAddEllipse::Execute()
 	EllipseGfxInfo.FillClr = pGUI->getCrntFillColor();
 	EllipseGfxInfo.BorderWdth = pGUI->getCrntPenWidth();
 
-	
+
 
 	// this do while to prevent the user from drawing out side the drawing area
 	do
@@ -44,7 +44,7 @@ void ActionAddEllipse::Execute()
 			pGUI->GetPointClicked(center.x, center.y);
 
 
-		} while (center.y <= 54 || center.y >= 649);
+		} while (!pGUI->isWithinDrawingArea(center.y));
 		do
 		{
 
@@ -54,7 +54,7 @@ void ActionAddEllipse::Execute()
 			pGUI->GetPointClicked(P1.x, P1.y);
 
 
-		} while (P1.y <= 54 || P1.y >= 649);
+		} while (!pGUI->isWithinDrawingArea(P1.y));
 		do
 		{
 			pGUI->PrintMessage("New Ellipse: Click on the vertical Point and please consider the canvas area");
@@ -62,15 +62,15 @@ void ActionAddEllipse::Execute()
 			pGUI->GetPointClicked(P2.x, P2.y);
 
 
-		} while (P2.y <= 54 || P2.y >= 649);
-		
+		} while (!pGUI->isWithinDrawingArea(P2.y));
+
 		//The yr length
 		//y radius  
 		xr = max(abs(P1.x - center.x), abs(P1.y - center.y));
 		//x radius
 		yr = max(abs(P2.x - center.x), abs(P2.y - center.y));
 
-	} while (!(center.y + yr <= 650 && center.y - yr >= 50 && center.x + xr <= 1285 && center.x - xr >= 0));
+	} while (!(center.y + yr <= (UI.height - UI.StatusBarHeight) && center.y - yr >= UI.StatusBarHeight && center.x + xr <= UI.width && center.x - xr >= 0));
 
 	pGUI->ClearStatusBar();
 
@@ -80,8 +80,8 @@ void ActionAddEllipse::Execute()
 
 
 	//Step 3 - Create an Ellipse with the parameters read from the user
-	CEllipse *E = new CEllipse(center,xr,yr, EllipseGfxInfo);
+	CEllipse* E = new CEllipse(center, xr, yr, EllipseGfxInfo);
 
 	//Step 4 - Add the Elipse to the list of figures
-	   pManager->AddFigure(E);
+	pManager->AddFigure(E);
 }

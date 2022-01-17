@@ -11,7 +11,10 @@ bool CSquare::isWithinArea(int x, int y)
 {
 	return (x >= TopLeftCorner.x && x <= TopLeftCorner.x + length && y >= TopLeftCorner.y && y <= TopLeftCorner.y + length);
 }
-
+void CSquare::Resize(float resizeFactor)
+{
+	//todo;
+}
 void CSquare::PrintInfo(GUI* pGUI)
 {
 	pGUI->PrintMessage(

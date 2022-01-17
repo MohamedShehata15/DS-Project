@@ -29,14 +29,17 @@ public:
 	void CreateDrawToolBar() const;	//creates Draw mode toolbar & menu
 	void CreatePlayToolBar() const;	//creates Play mode toolbar & menu
 	void CreateStatusBar() const;	//create the status bar
-	void GUI::CreateColorToolBar() const // creates Color Mode toolbar & menu
+	void CreateColorToolBar() const; // creates Color Mode toolbar & menu
+	void CreateResizeToolBar();
 	/******shop*******/;
 	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo, bool selected) const;
 	void ClearToolBar() const;
 
 	void ClearStatusBar() const;	//Clears the status bar
 	void ClearDrawArea() const;	//Clears the drawing area
-	
+
+	bool isWithinDrawingArea(int y);
+
 	// -- Figures Drawing functions
 	void DrawSquare(Point P1, int length, GfxInfo RectGfxInfo, bool selected=false) const;  //Draw a Square
 	void DrawEllipse(Point P1, int yr,int xr, GfxInfo EllGfxInfo, bool selected) const; //Draw Ellipse

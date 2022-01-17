@@ -11,14 +11,15 @@ enum GUI_MODE	//Graphical user interface mode
 {
 	MODE_DRAW,	//Drawing mode (startup mode)
 	MODE_PLAY,	//Playing mode
-	COLORS_MODE
+	COLORS_MODE,
+	RESIZE_MODE
 };
 
 enum DrawMenuItem //The items of the Draw menu (you should add more items)
 {
 	//Note: Items are ordered here as they appear in menu
 	//If you want to change the menu items order, change the order here
-	PLAY,			//Switch to playmode
+	
 
 	
 	ITM_SQUR,		//Square item in menu
@@ -27,24 +28,16 @@ enum DrawMenuItem //The items of the Draw menu (you should add more items)
 	ITM_DRAW_CLR,
 	ITM_Bg_CLR,
 	ITM_FILL_CLR,
-	ITM_DEL,
-	//ITM_BLUE,
-	//ITM_BLACK,
-	//ITM_GREEN,
-	//ITM_YELLOW,
-	//ITM_RED,
 	ITM_DEFALT,
 	ITM_SELECT,
+	ITM_RESIZE,
 	ITM_SEND_BACK,		//Send a figure to the back of all figures
 	ITM_BRNG_FRNT,
-	
-	ITM_UPLOAD,
-	//TODO: Add more items names here
+	ITM_DEL,
 	ITM_CLEAR,
-
-
-	
-	ITM_EXIT,		//Exit item
+	ITM_UPLOAD,
+	PLAY,				//Switch to playmode
+	ITM_EXIT,			//Exit item
 	
 	DRAW_ITM_COUNT		//no. of menu items ==> This should be the last line in this enum
 	
@@ -60,6 +53,7 @@ enum PlayMenuItem //The items of the Play menu (you should add more items)
 	PICK_COLOR,
 	PICK_FILLED,
 	DRAW,
+	PLAY_BACK,
 	END,
 	PLAY_ITM_COUNT		//no. of menu items ==> This should be the last line in this enum
 	
@@ -76,6 +70,17 @@ enum ColorsMenuItem
 
 	COLORS_ITM_COUNT,
 };
+enum ResizeMenuItem
+{
+	FACTOR_QUARTER,
+	FACTOR_HALF,
+	FACTOR_DOUBLE,
+	FACTOR_QUADRUPLE,
+	ITEM_SELECT,
+	ITEM_BACK,
+	FACTOR_ITM_COUNT
+};
+
 
 
 
