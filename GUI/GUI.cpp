@@ -28,6 +28,8 @@ GUI::GUI()
 
 	UI.isFilled = false;
 
+	DrawingColor = RED;
+
 	
 	//Create the output window
 	pWind = CreateWind(UI.width, UI.height, UI.wx, UI.wy);
@@ -94,11 +96,6 @@ ActionType GUI::MapInputToActionType() const
 			case ITM_DRAW_CLR: return CHNG_DRAW_CLR;
 			case ITM_Bg_CLR: return CHNG_BK_CLR;
 			case ITM_FILL_CLR:return CHNG_FILL_CLR;
-			case ITM_BLUE: return CLR_BLUE;
-			case ITM_BLACK: return CLR_BLACK;
-			case ITM_GREEN: return CLR_GREEN;
-			case ITM_YELLOW: return CLR_YELLOW;
-			case ITM_RED: return  CLR_RED;
 			case ITM_DEFALT: return  default_setting;
 			case ITM_UPLOAD: return LOAD;
 			case PLAY: return TO_PLAY;
@@ -121,7 +118,7 @@ ActionType GUI::MapInputToActionType() const
 		//[3] User clicks on the status bar
 		return STATUS;
 	}
-	else	//GUI is in PLAY mode
+	else if(UI.InterfaceMode == MODE_PLAY)	//GUI is in PLAY mode
 	{
 		///TODO:
 		//perform checks similar to Draw mode checks above
@@ -156,6 +153,43 @@ ActionType GUI::MapInputToActionType() const
 		//[3] User clicks on the status bar
 
 		return STATUS;
+	}
+	else {
+
+
+		if (y >= 0 && y < UI.ToolBarHeight)
+		{
+			//Check which Menu item was clicked
+			//==> This assumes that menu items are lined up horizontally <==
+			int ClickedItemOrder = (x / UI.MenuItemWidth);
+			//Divide x coord of the point clicked by the menu item width (int division)
+			//if division result is 0 ==> first item is clicked, if 1 ==> 2nd item and so on
+
+			switch (ClickedItemOrder)
+			{
+			case ITM_BLUE: return CLR_BLUE;
+			case ITM_BLACK: return CLR_BLACK;
+			case ITM_GREEN: return CLR_GREEN;
+			case ITM_YELLOW: return CLR_YELLOW;
+			case ITM_RED: return  CLR_RED;
+			case ITM_BACK: return  BACK;
+
+			default: return EMPTY;
+
+			}
+		}
+
+		//[2] User clicks on the drawing area
+		if (y >= UI.ToolBarHeight && y < UI.height - UI.StatusBarHeight)
+		{
+			return DRAWING_AREA;
+		}
+
+		//[3] User clicks on the status bar
+
+		return STATUS;
+
+
 	}
 }	
 
@@ -207,11 +241,6 @@ void GUI::CreateDrawToolBar() const
 	MenuItemImages[ITM_DRAW_CLR] = "images\\MenuItems\\brush.jpg";
 	MenuItemImages[ITM_Bg_CLR] = "images\\MenuItems\\bg.JPG";
 	MenuItemImages[ITM_FILL_CLR] = "images\\MenuItems\\fill.JPG";
-	MenuItemImages[ITM_BLUE] = "images\\MenuItems\\blue.jpg";
-	MenuItemImages[ITM_BLACK] = "images\\MenuItems\\black.jpg";
-	MenuItemImages[ITM_GREEN] = "images\\MenuItems\\green.jpg";
-	MenuItemImages[ITM_YELLOW] = "images\\MenuItems\\yellow.jpg";
-	MenuItemImages[ITM_RED] = "images\\MenuItems\\red.jpg";
 	MenuItemImages[ITM_SELECT] = "images\\MenuItems\\Menu_Select.JPG";
 	MenuItemImages[ITM_DEL] = "images\\MenuItems\\delete.jpg";
 	MenuItemImages[ITM_SEND_BACK] = "images\\MenuItems\\send_to_back.jpg";
@@ -253,6 +282,28 @@ void GUI::CreatePlayToolBar() const
 	//Draw menu item one image at a time
 	for (int i = 0; i < PLAY_ITM_COUNT; i++)
 		pWind->DrawImage(MenuItemImagesPlayMode[i], i * UI.MenuItemWidth, 0, UI.MenuItemWidth, UI.ToolBarHeight);
+
+	//Draw a line under the toolbar
+	pWind->SetPen(RED, 3);
+	pWind->DrawLine(0, UI.ToolBarHeight, UI.width, UI.ToolBarHeight);
+}
+//////////////////////////////////////////////////////////////////////////////////////////
+
+void GUI::CreateColorToolBar() const {
+	UI.InterfaceMode = COLORS_MODE;
+	// ***clear play mode tool bar***
+	ClearToolBar();
+	string MenuItemColorsIcons[COLORS_ITM_COUNT];
+	MenuItemColorsIcons[ITM_BLUE] = "images\\MenuItems\\blue.jpg";
+	MenuItemColorsIcons[ITM_BLACK] = "images\\MenuItems\\black.jpg";
+	MenuItemColorsIcons[ITM_GREEN] = "images\\MenuItems\\green.jpg";
+	MenuItemColorsIcons[ITM_YELLOW] = "images\\MenuItems\\yellow.jpg";
+	MenuItemColorsIcons[ITM_RED] = "images\\MenuItems\\red.jpg";
+	MenuItemColorsIcons[ITM_BACK] = "images\\MenuItems\\right_arrow.jpg";
+
+	//Draw menu item one image at a time
+	for (int i = 0; i < COLORS_ITM_COUNT; i++)
+		pWind->DrawImage(MenuItemColorsIcons[i], i * UI.MenuItemWidth, 0, UI.MenuItemWidth, UI.ToolBarHeight);
 
 	//Draw a line under the toolbar
 	pWind->SetPen(RED, 3);
@@ -352,6 +403,15 @@ int GUI::getCrntPenWidth() const		//get current pen width
 //////////////////////////////////////////////////////////////////////////////////////////
 bool GUI::getIsFilled()const {
 	return UI.isFilled;}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+color GUI::getAppliedColor() {
+	return DrawingColor;
+}
+void GUI::setAppliedColor(color c) {
+	DrawingColor = c;
+}
+// //////////////////////////////////////////////////////////////////////////////////////////
 //======================================================================================//
 //								Figures Drawing Functions								//
 //======================================================================================//

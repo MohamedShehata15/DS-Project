@@ -14,6 +14,8 @@
 #include "Actions/ActionDeleteFigure.h"
 #include "Actions/ActionSendToBack.h"
 
+#include "Actions\SwitchToColorsMode.h";
+
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -22,6 +24,7 @@ ApplicationManager::ApplicationManager()
 	pGUI = new GUI;	
 	
 	FigCount = 0;
+	DrawingActionType = EMPTY;
 		
 	//Create an array of figure pointers and set them to NULL		
 	for(int i=0; i<MaxFigCount; i++)
@@ -85,11 +88,13 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			break;
 
 		case CHNG_DRAW_CLR:
-			newAct = new ActionChngDrawClr(this);
+		case CHNG_BK_CLR:
+			DrawingActionType = ActType;
+			newAct = new SwitchToColorsMode(this);
 			break;
 
-		case CHNG_BK_CLR:
-			newAct = new ActionChngBgClr(this);
+		case default_setting:
+			// Hanlde it later.
 			break;
 
 		case LOAD:
@@ -112,6 +117,27 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			/***********redirect to draw mode************/
 			break;
 
+		case CLR_BLUE: 
+			newAct = handleDrawingColorAction(BLUE);
+			break;
+		case CLR_BLACK: 
+			newAct = handleDrawingColorAction(BLACK);
+			break;
+		case CLR_GREEN: 
+			newAct = handleDrawingColorAction(GREEN);
+			break;
+		case CLR_YELLOW: 
+			newAct = handleDrawingColorAction(YELLOW);
+			break;
+		case CLR_RED: 
+			newAct = handleDrawingColorAction(RED);
+			break;
+		case BACK: 
+			//newAct = handleDrawingColorAction();
+			pGUI->CreateDrawToolBar(); // Remove this later.
+			break;
+
+
 		case EXIT:
 			///create ExitAction here
 			
@@ -123,6 +149,22 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 	}	
 	return newAct;
 }
+//////////////////////////////////////////////////////////////////////
+// Responsible for colors
+Action* ApplicationManager::handleDrawingColorAction(color c) {
+	pGUI->setAppliedColor(c);
+
+	switch (DrawingActionType) {
+		case CHNG_DRAW_CLR:
+			return new ActionChngDrawClr(this);
+
+		case CHNG_BK_CLR:
+			return new ActionChngBgClr(this);;
+	}
+}
+
+
+
 //////////////////////////////////////////////////////////////////////
 //Executes the created Action
 void ApplicationManager::ExecuteAction(Action* &pAct) 

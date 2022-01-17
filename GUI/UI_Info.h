@@ -10,7 +10,8 @@
 enum GUI_MODE	//Graphical user interface mode
 {
 	MODE_DRAW,	//Drawing mode (startup mode)
-	MODE_PLAY	//Playing mode
+	MODE_PLAY,	//Playing mode
+	COLORS_MODE
 };
 
 enum DrawMenuItem //The items of the Draw menu (you should add more items)
@@ -27,11 +28,11 @@ enum DrawMenuItem //The items of the Draw menu (you should add more items)
 	ITM_Bg_CLR,
 	ITM_FILL_CLR,
 	ITM_DEL,
-	ITM_BLUE,
-	ITM_BLACK,
-	ITM_GREEN,
-	ITM_YELLOW,
-	ITM_RED,
+	//ITM_BLUE,
+	//ITM_BLACK,
+	//ITM_GREEN,
+	//ITM_YELLOW,
+	//ITM_RED,
 	ITM_DEFALT,
 	ITM_SELECT,
 	ITM_SEND_BACK,		//Send a figure to the back of all figures
@@ -63,6 +64,17 @@ enum PlayMenuItem //The items of the Play menu (you should add more items)
 	
 };
 
+enum ColorsMenuItem
+{
+	ITM_BLUE,
+	ITM_BLACK,
+	ITM_GREEN,
+	ITM_YELLOW,
+	ITM_RED,
+	ITM_BACK,
+
+	COLORS_ITM_COUNT,
+};
 
 
 

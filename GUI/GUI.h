@@ -11,6 +11,7 @@
 //No other class is allowed to perform direct i/o
 class GUI	
 {
+	color DrawingColor;
 public:	
 	window* pWind;	//Pointer to the Graphics Window
 public:
@@ -28,7 +29,8 @@ public:
 	void CreateDrawToolBar() const;	//creates Draw mode toolbar & menu
 	void CreatePlayToolBar() const;	//creates Play mode toolbar & menu
 	void CreateStatusBar() const;	//create the status bar
-	/******shop*******/
+	void GUI::CreateColorToolBar() const // creates Color Mode toolbar & menu
+	/******shop*******/;
 	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo, bool selected) const;
 	void ClearToolBar() const;
 
@@ -53,6 +55,9 @@ public:
 
 	bool getIsFilled() const;
 
+
+	color getAppliedColor();
+	void setAppliedColor(color c);
 
 };
 

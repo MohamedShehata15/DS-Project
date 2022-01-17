@@ -15,6 +15,7 @@ class ApplicationManager
 private:
 	int FigCount;		//Actual number of figures
 	CFigure* FigList[MaxFigCount];	//List of all figures (Array of pointers)
+	ActionType DrawingActionType;
 
 	//Pointers to Input and Output classes
 	GUI* pGUI;
@@ -53,7 +54,7 @@ public:
 
 
 
-
+	Action* ApplicationManager::handleDrawingColorAction(color c);
 
 };
 

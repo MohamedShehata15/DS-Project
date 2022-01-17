@@ -18,39 +18,41 @@ void ActionChngBgClr::Execute()
 	cout << "Action change Background color" << endl;
 
 	GUI* pGUI = pManager->GetGUI();
-	pGUI->PrintMessage("Select A color for Your backGround  and for selecting the default click restore icon ");
 
-	int test = 0;
-	int counter = 0;
+	pGUI->setnewBackgroundColor(pGUI->getAppliedColor());
 
-	do {
-		cout << "inside do while" << endl;
-		cout << counter++ << endl;
-		newColor = pManager->GetUserAction();
-		if (newColor == CLR_BLUE)
-		{
-			pGUI->setnewBackgroundColor(BLUE);
-		}
-		else if (newColor == CLR_BLACK) {
-			pGUI->setnewBackgroundColor(BLACK);
-		}
-		else if (newColor == CLR_GREEN) {
-			pGUI->setnewBackgroundColor(GREEN);
-		}
-		else if (newColor == CLR_YELLOW) {
-			pGUI->setnewBackgroundColor(YELLOW);
-		}
-		else if (newColor == CLR_RED) {
-			pGUI->setnewBackgroundColor(RED);
-			test = 1;
-		}
-		else if (newColor == default_setting) {
-			pGUI->PrintMessage("Now Your background color set to default");
-			pGUI->setnewBackgroundColor(LIGHTGOLDENRODYELLOW);
-		} else {
-			break;
-		}
-	} while (test == 1);
+
+	//int test = 0;
+	//int counter = 0;
+
+	//do {
+	//	cout << "inside do while" << endl;
+	//	cout << counter++ << endl;
+	//	newColor = pManager->GetUserAction();
+	//	if (newColor == CLR_BLUE)
+	//	{
+	//		pGUI->setnewBackgroundColor(BLUE);
+	//	}
+	//	else if (newColor == CLR_BLACK) {
+	//		pGUI->setnewBackgroundColor(BLACK);
+	//	}
+	//	else if (newColor == CLR_GREEN) {
+	//		pGUI->setnewBackgroundColor(GREEN);
+	//	}
+	//	else if (newColor == CLR_YELLOW) {
+	//		pGUI->setnewBackgroundColor(YELLOW);
+	//	}
+	//	else if (newColor == CLR_RED) {
+	//		pGUI->setnewBackgroundColor(RED);
+	//		test = 1;
+	//	}
+	//	else if (newColor == default_setting) {
+	//		pGUI->PrintMessage("Now Your background color set to default");
+	//		pGUI->setnewBackgroundColor(LIGHTGOLDENRODYELLOW);
+	//	} else {
+	//		break;
+	//	}
+	//} while (test == 1);
 
 
 	//do {
