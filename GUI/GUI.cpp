@@ -31,7 +31,6 @@ GUI::GUI()
 	
 	//Create the output window
 	pWind = CreateWind(UI.width, UI.height, UI.wx, UI.wy);
-	UI.BkGrndColor = RED;
 	//Change the title
 	pWind->ChangeTitle("Paint for Kids - Programming Techniques Project");
 	
@@ -102,12 +101,12 @@ ActionType GUI::MapInputToActionType() const
 			case ITM_RED: return  CLR_RED;
 			case ITM_DEFALT: return  default_setting;
 			case ITM_UPLOAD: return LOAD;
+			case PLAY: return TO_PLAY;
 			case ITM_SEND_BACK: return 	SEND_BACK;		
 			case ITM_BRNG_FRNT: return BRNG_FRNT;
 			case ITM_DEL: return DEL;
-			case PLAY: return TO_PLAY;
-			case ITM_EXIT: return EXIT;	
 			case ITM_SELECT: return SELECT;
+			case ITM_EXIT: return EXIT;	
 			
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
@@ -201,6 +200,7 @@ void GUI::CreateDrawToolBar() const
 	//To control the order of these images in the menu, 
 	//reoder them in UI_Info.h ==> enum DrawMenuItem
 	string MenuItemImages[DRAW_ITM_COUNT];
+	MenuItemImages[PLAY] = "images\\MenuItems\\Mode_Play.jpg";
 	MenuItemImages[ITM_SQUR] = "images\\MenuItems\\Menu_Sqr.jpg";
 	MenuItemImages[ITM_ELPS] = "images\\MenuItems\\Menu_Elps.jpg";
 	MenuItemImages[ITM_HEX] = "images\\MenuItems\\Menu_Hex.jpg";
@@ -213,13 +213,13 @@ void GUI::CreateDrawToolBar() const
 	MenuItemImages[ITM_YELLOW] = "images\\MenuItems\\yellow.jpg";
 	MenuItemImages[ITM_RED] = "images\\MenuItems\\red.jpg";
 	MenuItemImages[ITM_SELECT] = "images\\MenuItems\\Menu_Select.JPG";
-	MenuItemImages[ITM_UPLOAD] = "images\\MenuItems\\upload.JPG";
 	MenuItemImages[ITM_DEL] = "images\\MenuItems\\delete.jpg";
 	MenuItemImages[ITM_SEND_BACK] = "images\\MenuItems\\send_to_back.jpg";
 	MenuItemImages[ITM_BRNG_FRNT]= "images\\MenuItems\\bring_to_front.jpg";
+	MenuItemImages[ITM_UPLOAD] = "images\\MenuItems\\upload.JPG";
 	MenuItemImages[ITM_DEFALT]= "images\\MenuItems\\restore.JPG";
 	MenuItemImages[ITM_UPLOAD]= "images\\MenuItems\\upload.JPG";
-	MenuItemImages[PLAY] = "images\\MenuItems\\Mode_Play.jpg";
+	
 	MenuItemImages[ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
 
 	//TODO: Prepare images for each menu item and add it to the list

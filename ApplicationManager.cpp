@@ -176,10 +176,8 @@ void ApplicationManager::deSelectAllFigures()
 ////////////////////////////////////////////////////////////////////////////////////
 void ApplicationManager::deleteFigure(int figPosition) 
 {
-	cout << "delete figure action: ##" << figPosition << endl;
 	moveFigureThenShift(figPosition, FigCount - 1);
-	delete FigList[FigCount - 1];
-	FigList[--FigCount] = NULL;
+	delete[] FigList[--FigCount];
 }
 ////////////////////////////////////////////////////////////////////////////////////
 int ApplicationManager::getIndexOfSelectedFigure()

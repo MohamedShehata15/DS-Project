@@ -17,29 +17,31 @@ enum DrawMenuItem //The items of the Draw menu (you should add more items)
 {
 	//Note: Items are ordered here as they appear in menu
 	//If you want to change the menu items order, change the order here
+	PLAY,			//Switch to playmode
+
+	
 	ITM_SQUR,		//Square item in menu
 	ITM_ELPS,		//Ellipse item in menu
 	ITM_HEX,        //Hexagone item in menu
-
 	ITM_DRAW_CLR,
 	ITM_Bg_CLR,
 	ITM_FILL_CLR,
+	ITM_DEL,
 	ITM_BLUE,
 	ITM_BLACK,
 	ITM_GREEN,
 	ITM_YELLOW,
 	ITM_RED,
 	ITM_DEFALT,
-	//TODO: Add more items names here
 	ITM_SELECT,
-	ITM_UPLOAD,
 	ITM_SEND_BACK,		//Send a figure to the back of all figures
 	ITM_BRNG_FRNT,
-	ITM_DEL,
+	
+	ITM_UPLOAD,
+	//TODO: Add more items names here
 
 
-	PLAY,			//Switch to playmode
-
+	
 	ITM_EXIT,		//Exit item
 	
 	DRAW_ITM_COUNT		//no. of menu items ==> This should be the last line in this enum
