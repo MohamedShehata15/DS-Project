@@ -49,6 +49,8 @@ public:
 	void moveFigureThenShift(int oldPosition, int newPosition);
 	// delete Figure
 	void deleteFigure(int figPosition);
+	// Clear All Figures
+	void clearAllFigures();
 
 	// -- Interface Management Functions	
 	GUI *GetGUI() const; //Return pointer to the interface

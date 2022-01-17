@@ -16,6 +16,7 @@
 
 #include "Actions\SwitchToColorsMode.h";
 #include "Actions\ActionDefaultDrawing.h";
+#include "Actions\ActionclearAllFigures.h";
 
 
 //Constructor
@@ -138,7 +139,9 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			//newAct = handleDrawingColorAction();
 			pGUI->CreateDrawToolBar(); // Remove this later.
 			break;
-
+		case CLEAR:
+			newAct = new ActionclearAllFigures(this);
+			break;
 
 		case EXIT:
 			///create ExitAction here
@@ -212,6 +215,15 @@ CFigure *ApplicationManager::GetFigure(int x, int y) const
 	}
 	return NULL;
 }
+////////////////////////////////////////////////////////////////////////////////////
+// Clear All Figures
+void ApplicationManager::clearAllFigures() {
+	for (int i = 0; i < FigCount; i++) {
+		FigList[FigCount - 1] = NULL;
+		delete[] FigList[i];
+	}
+	FigCount = 0;
+}
 
 ////////////////////////////////////////////////////////////////////////////////////
 void ApplicationManager::deSelectAllFigures()
@@ -224,7 +236,7 @@ void ApplicationManager::deSelectAllFigures()
 ////////////////////////////////////////////////////////////////////////////////////
 void ApplicationManager::deleteFigure(int figPosition) 
 {
-	moveFigureThenShift(figPosition, FigCount - 1);
+	//moveFigureThenShift(figPosition, FigCount - 1);
 	delete[] FigList[--FigCount];
 }
 ////////////////////////////////////////////////////////////////////////////////////

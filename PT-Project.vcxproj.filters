@@ -181,6 +181,9 @@
     <ClCompile Include="Actions\ActionDefaultDrawing.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
+    <ClCompile Include="Actions\ActionclearAllFigures.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -302,6 +305,9 @@
       <Filter>Action Classes</Filter>
     </ClInclude>
     <ClInclude Include="Actions\ActionDefaultDrawing.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionclearAllFigures.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
   </ItemGroup>
