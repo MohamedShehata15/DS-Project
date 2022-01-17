@@ -84,8 +84,6 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			//newAct = new ActionAddHexagone(this);
 			break;
 
-
-
 		case CHNG_DRAW_CLR:
 			newAct = new ActionChngDrawClr(this);
 			break;
@@ -121,9 +119,6 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 		
 		case STATUS:	//a click on the status bar ==> no action
 			return NULL;
-			break;
-		case EMPTY:
-			cout << "Hello, Test"; 
 			break;
 	}	
 	return newAct;
