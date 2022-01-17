@@ -138,7 +138,6 @@ ActionType GUI::MapInputToActionType() const
 			case PICK_COLOR: return PICK_CLR;
 			case PICK_FILLED: return PICK_FILL;
 			case DRAW: return TO_DRAW;
-			case END: return EXIT;
 
 			default: return EMPTY;
 
@@ -278,7 +277,6 @@ void GUI::CreatePlayToolBar() const
 	MenuItemImagesPlayMode[PICK_COLOR] = "images\\MenuItems\\Pick_Color.jpg";
 	MenuItemImagesPlayMode[PICK_FILLED] = "images\\MenuItems\\Pick_Filled.jpg";
 	MenuItemImagesPlayMode[DRAW] = "images\\MenuItems\\Mode_Draw.jpg";
-	MenuItemImagesPlayMode[END] = "images\\MenuItems\\Menu_Exit.jpg";
 
 	//Draw menu item one image at a time
 	for (int i = 0; i < PLAY_ITM_COUNT; i++)
@@ -369,6 +367,20 @@ void GUI::PrintMessage(string msg) const	//Prints a message on status bar
 	pWind->SetPen(UI.MsgColor, 50);
 	pWind->SetFont(20, BOLD , BY_NAME, "Arial");   
 	pWind->DrawString(10, UI.height - (int)(UI.StatusBarHeight/1.5), msg);
+}
+
+void GUI::PlayModeMessage(string msg1, int msg) const //new style for status bar in playmode
+{
+	int x = 10, y = UI.height - (int)(UI.StatusBarHeight / 1.5);
+	ClearStatusBar();
+	PrintMessage(msg1);
+	pWind->GetStringSize(x, y, msg1);
+
+	pWind->SetPen(UI.MsgColor, 50);
+	pWind->SetFont(20, BOLD, BY_NAME, "Arial");
+
+
+	pWind->DrawInteger(x, UI.height - (int)(UI.StatusBarHeight / 1.5), msg);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 

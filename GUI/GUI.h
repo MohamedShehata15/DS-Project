@@ -44,6 +44,7 @@ public:
 	///TODO: Make similar functions for drawing all other figures.
 	
 	void PrintMessage(string msg) const;	//Print a message on Status bar
+	void PlayModeMessage(string msg1, int msg) const; //new style for message in status bar when on playmode
 
 	color getCrntDrawColor() const;	//get current drwawing color
 	void GUI::setnewDrawColor(color c) const; //set new drawing color

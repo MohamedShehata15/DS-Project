@@ -11,11 +11,15 @@ protected:
 	int ID;		//Each figure has an ID
 	bool Selected;	//true if the figure is selected.
 	GfxInfo FigGfxInfo;	//Figure graphis info
-	
+	static int squareNum, ellipseNum, hexNum;
 	/// Add more parameters if needed.
 
 public:
 	CFigure(GfxInfo FigureGfxInfo);
+	virtual void increase() = 0;
+	virtual void decrease() = 0;
+	virtual int GetNumber()const = 0;
+
 	void SetSelected(bool );	//select/unselect the figure
 	bool IsSelected() const;	//check whether fig is selected
 
@@ -24,6 +28,9 @@ public:
 	void ChngDrawClr(color Dclr);	//changes the figure's drawing color
 	void ChngFillClr(color Fclr);	//changes the figure's filling color
 
+	int GetNumOfSquares()const;
+	int GetNumOfEllipses()const;
+	int GetNumOfHexagons()const;
 
 	/// <summary>
 	/// a function that a takes a point and determine if it's within the shape area
@@ -39,7 +46,8 @@ public:
 	///It should be overridden by each inherited figure
 
 	///Decide the parameters that you should pass to each function	
-
+	virtual color GetCurrentColor()const;
+	bool IsFilled()const;
 
 	//virtual void Rotate() = 0;	//Rotate the figure
 	//virtual void Resize() = 0;	//Resize the figure

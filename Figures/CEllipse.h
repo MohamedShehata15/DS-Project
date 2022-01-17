@@ -16,6 +16,9 @@ public:
 	virtual bool isWithinArea(int, int);
 	virtual void PrintInfo(GUI* pGUI);
 	virtual CFigure* GetCopy();
+	virtual void increase();
+	virtual void decrease();
+	virtual int GetNumber()const; //to know how many shapes are drawn
 };
 
 #endif

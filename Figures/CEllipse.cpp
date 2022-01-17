@@ -42,3 +42,16 @@ CFigure* CEllipse::GetCopy()
 	CFigure* Copy = new CEllipse(*this);
 	return Copy;
 }
+
+int CEllipse::GetNumber()const
+{
+	return ellipseNum;
+}
+void CEllipse::increase()
+{
+	ellipseNum++;
+}
+void CEllipse::decrease()
+{
+	ellipseNum--;
+}
