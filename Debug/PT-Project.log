@@ -1,1 +1,3 @@
-﻿  PT-Project.vcxproj -> E:\Intake 42\DSA\final-project\DS Project\Project\Project Framework\Debug\PT Project.exe
+﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+  ActionChngFillClr.cpp
+  PT-Project.vcxproj -> E:\Intake 42\DSA\final-project\DS Project\Project\Project Framework\Debug\PT Project.exe

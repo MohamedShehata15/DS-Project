@@ -90,6 +90,7 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 
 		case CHNG_DRAW_CLR:
 		case CHNG_BK_CLR:
+		case CHNG_FILL_CLR:
 			DrawingActionType = ActType;
 			newAct = new SwitchToColorsMode(this);
 			break;
@@ -160,7 +161,11 @@ Action* ApplicationManager::handleDrawingColorAction(color c) {
 			return new ActionChngDrawClr(this);
 
 		case CHNG_BK_CLR:
-			return new ActionChngBgClr(this);;
+			return new ActionChngBgClr(this);
+		case CHNG_FILL_CLR:
+				return new ActionChngFillClr(this);
+		default:
+			return NULL;
 	}
 }
 
@@ -233,6 +238,12 @@ int ApplicationManager::getIndexOfSelectedFigure()
 	return -1;
 }
 
+////////////////////////////////////////////////////////////////////////////////////
+CFigure* ApplicationManager::getSelectedFigure(int index) {
+	if (index > -1)
+		return FigList[index];
+	return NULL;
+}
 ////////////////////////////////////////////////////////////////////////////////////
 
 // a function that takes two parameters the first parameter is the current figure index

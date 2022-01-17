@@ -41,6 +41,8 @@ public:
 	void AddFigure(CFigure* pFig); //Adds a new figure to the FigList
 	CFigure *GetFigure(int x, int y) const; //Search for a figure given a point inside the figure
 
+	CFigure* ApplicationManager::getSelectedFigure(int index); // Get Selected Figure by index
+
 	void deSelectAllFigures();
 	// send to front and bring to back functions
 	int getIndexOfSelectedFigure();
