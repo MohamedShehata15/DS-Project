@@ -286,7 +286,6 @@ void GUI::CreateDrawToolBar() const
 	MenuItemImages[ITM_SEND_BACK] = "images\\MenuItems\\send_to_back.jpg";
 	MenuItemImages[ITM_BRNG_FRNT]= "images\\MenuItems\\bring_to_front.jpg";
 	MenuItemImages[ITM_UPLOAD] = "images\\MenuItems\\upload.JPG";
-
 	MenuItemImages[ITM_CLEAR]= "images\\MenuItems\\clear_all.jpg";
 	MenuItemImages[PLAY] = "images\\MenuItems\\Mode_Play.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
