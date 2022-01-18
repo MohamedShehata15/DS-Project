@@ -52,7 +52,6 @@ enum PlayMenuItem //The items of the Play menu (you should add more items)
 	PICK_FIGURE,
 	PICK_FILLED,
 	DRAW,
-	PLAY_BACK,
 	END,
 	PLAY_ITM_COUNT		//no. of menu items ==> This should be the last line in this enum
 	

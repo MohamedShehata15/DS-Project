@@ -287,7 +287,7 @@ void ApplicationManager::deSelectAllFigures()
 ////////////////////////////////////////////////////////////////////////////////////
 void ApplicationManager::deleteFigure(int figPosition) 
 {
-	//moveFigureThenShift(figPosition, FigCount - 1);
+	moveFigureThenShift(figPosition, FigCount - 1);
 	delete[] FigList[--FigCount];
 }
 ////////////////////////////////////////////////////////////////////////////////////

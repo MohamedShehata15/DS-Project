@@ -142,7 +142,6 @@ ActionType GUI::MapInputToActionType() const
 			case PICK_COLOR: return PICK_CLR;
 			case PICK_FILLED: return PICK_FILL;
 			case DRAW: return TO_DRAW;
-			case PLAY_BACK: return BACK;
 			case END: return EXIT;
 
 			default: return EMPTY;
@@ -288,7 +287,6 @@ void GUI::CreateDrawToolBar() const
 	MenuItemImages[ITM_SEND_BACK] = "images\\MenuItems\\send_to_back.jpg";
 	MenuItemImages[ITM_BRNG_FRNT]= "images\\MenuItems\\bring_to_front.jpg";
 	MenuItemImages[ITM_UPLOAD] = "images\\MenuItems\\upload.JPG";
-
 	MenuItemImages[ITM_CLEAR]= "images\\MenuItems\\clear_all.jpg";
 	MenuItemImages[PLAY] = "images\\MenuItems\\Mode_Play.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
@@ -319,7 +317,6 @@ void GUI::CreatePlayToolBar() const
 	MenuItemImagesPlayMode[PICK_COLOR] = "images\\MenuItems\\Pick_Color.jpg";
 	MenuItemImagesPlayMode[PICK_FILLED] = "images\\MenuItems\\Pick_Filled.jpg";
 	MenuItemImagesPlayMode[DRAW] = "images\\MenuItems\\Mode_Draw.jpg";
-	MenuItemImagesPlayMode[PLAY_BACK] = "images\\MenuItems\\right_arrow.jpg";
 	MenuItemImagesPlayMode[END] = "images\\MenuItems\\Menu_Exit.jpg";
 
 	//Draw menu item one image at a time
