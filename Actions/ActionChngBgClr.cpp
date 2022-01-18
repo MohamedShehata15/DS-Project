@@ -15,9 +15,9 @@ ActionChngBgClr::ActionChngBgClr(ApplicationManager* pApp) :Action(pApp)
 void ActionChngBgClr::Execute()
 {
 
-	cout << "Action change Background color" << endl;
-
 	GUI* pGUI = pManager->GetGUI();
+	pGUI->PrintMessage("You selected a new color, for selecting the default click restore icon and to draw go back");
+
 
 	pGUI->setnewBackgroundColor(pGUI->getAppliedColor());
 }

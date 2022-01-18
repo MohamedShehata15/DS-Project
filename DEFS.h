@@ -13,6 +13,7 @@ enum ActionType //The actions supported (you can add more if needed)
 	CHNG_BK_CLR,	//Change background color
 	CLR_BLUE,
 	CLR_BLACK,
+	CLR_OFFWHITE,
 	CLR_GREEN,
 	CLR_YELLOW,
 	CLR_RED,

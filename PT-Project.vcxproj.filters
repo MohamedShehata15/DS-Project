@@ -178,9 +178,6 @@
     <ClCompile Include="Actions\SwitchToColorsMode.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
-    <ClCompile Include="Actions\ActionDefaultDrawing.cpp">
-      <Filter>Action Classes</Filter>
-    </ClCompile>
     <ClCompile Include="Actions\ActionclearAllFigures.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
@@ -308,9 +305,6 @@
       <Filter>Action Classes</Filter>
     </ClInclude>
     <ClInclude Include="Actions\SwitchToColorsMode.h">
-      <Filter>Action Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="Actions\ActionDefaultDrawing.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
     <ClInclude Include="Actions\ActionclearAllFigures.h">

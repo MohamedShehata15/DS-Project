@@ -14,7 +14,7 @@ ActionChngDrawClr::ActionChngDrawClr(ApplicationManager* pApp) :Action(pApp)
 void ActionChngDrawClr::Execute()
 {
 	GUI* pGUI = pManager->GetGUI();
-	pGUI->PrintMessage("Select A color for drawing and for selecting the default click restore icon ");
+	pGUI->PrintMessage("You selected a new color, for selecting the default click restore icon and to draw go back");
 
 	int selectedFigureIndex = pManager->getIndexOfSelectedFigure();
 	if (selectedFigureIndex > -1) {
@@ -26,5 +26,6 @@ void ActionChngDrawClr::Execute()
 	}
 
 	
+
 }
 

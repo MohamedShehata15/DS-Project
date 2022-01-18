@@ -59,7 +59,7 @@ public:
 
 
 	Action* ApplicationManager::handleDrawingColorAction(color c);
-
+	Action* ApplicationManager::handleDefault();
 };
 
 #endif

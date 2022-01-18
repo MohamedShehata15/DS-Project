@@ -62,6 +62,7 @@ enum ColorsMenuItem
 {
 	ITM_BLUE,
 	ITM_BLACK,
+	ITM_OFFWHITE,
 	ITM_GREEN,
 	ITM_YELLOW,
 	ITM_RED,

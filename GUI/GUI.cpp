@@ -210,6 +210,7 @@ ActionType GUI::MapInputToActionType() const
 			{
 			case ITM_BLUE: return CLR_BLUE;
 			case ITM_BLACK: return CLR_BLACK;
+			case ITM_OFFWHITE: return CLR_OFFWHITE;
 			case ITM_GREEN: return CLR_GREEN;
 			case ITM_YELLOW: return CLR_YELLOW;
 			case ITM_RED: return  CLR_RED;
@@ -338,6 +339,7 @@ void GUI::CreateColorToolBar() const {
 	string MenuItemColorsIcons[COLORS_ITM_COUNT];
 	MenuItemColorsIcons[ITM_BLUE] = "images\\MenuItems\\blue.jpg";
 	MenuItemColorsIcons[ITM_BLACK] = "images\\MenuItems\\black.jpg";
+	MenuItemColorsIcons[ITM_OFFWHITE]= "images\\MenuItems\\offwhite.jpg";
 	MenuItemColorsIcons[ITM_GREEN] = "images\\MenuItems\\green.jpg";
 	MenuItemColorsIcons[ITM_YELLOW] = "images\\MenuItems\\yellow.jpg";
 	MenuItemColorsIcons[ITM_RED] = "images\\MenuItems\\red.jpg";

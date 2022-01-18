@@ -17,7 +17,6 @@
 #include "Actions/ActionSendToBack.h"
 
 #include "Actions\SwitchToColorsMode.h";
-#include "Actions\ActionDefaultDrawing.h";
 #include "Actions\ActionclearAllFigures.h";
 
 
@@ -26,6 +25,7 @@ ApplicationManager::ApplicationManager()
 {
 	//Create Input and output
 	pGUI = new GUI;	
+	
 	
 	FigCount = 0;
 	DrawingActionType = EMPTY;
@@ -104,10 +104,11 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 		case BRNG_FRNT:
 			newAct = new ActionBringToFront(this);
 			break;
-
+/*
 		case default_setting:
 			newAct = new ActionDefaultDrawing(this);
 			break;
+			*/
 
 		case LOAD:
 			newAct = new ActionUploadFile(this);
@@ -134,6 +135,10 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 		case CLR_BLACK: 
 			newAct = handleDrawingColorAction(BLACK);
 			break;
+		case CLR_OFFWHITE:
+			newAct = handleDrawingColorAction(LIGHTGOLDENRODYELLOW);
+			break;
+
 		case CLR_GREEN: 
 			newAct = handleDrawingColorAction(GREEN);
 			break;
@@ -143,6 +148,11 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 		case CLR_RED: 
 			newAct = handleDrawingColorAction(RED);
 			break;
+
+		case default_setting:
+			newAct = handleDefault();
+			break;
+
 		case RESIZE:
 			newAct = new ActionSwitchToResizeMode(this);
 			break;
@@ -190,6 +200,29 @@ Action* ApplicationManager::handleDrawingColorAction(color c) {
 	}
 }
 
+Action* ApplicationManager::handleDefault()
+{
+
+	switch (DrawingActionType) {
+	case CHNG_DRAW_CLR:
+		pGUI->setnewDrawColor(BLACK);
+		break;
+		
+	case CHNG_BK_CLR:
+		pGUI->setnewBackgroundColor(LIGHTGOLDENRODYELLOW);
+		break;
+
+		
+	case CHNG_FILL_CLR:
+		pGUI->setIsFilled(false);
+		break;
+
+	default:
+		break;
+
+	}
+	return NULL;
+}
 
 
 //////////////////////////////////////////////////////////////////////
