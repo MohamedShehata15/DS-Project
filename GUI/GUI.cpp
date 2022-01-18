@@ -73,6 +73,129 @@ string GUI::GetSrting() const
 		PrintMessage(Label);
 	}
 }
+ActionType GUI::MapInputToActionType(int& X, int& Y) const
+{
+	int x, y;
+
+	pWind->WaitMouseClick(x, y);	//Get the coordinates of the user click
+	X = x;
+	Y = y;
+	if (UI.InterfaceMode == MODE_DRAW)	//GUI in the DRAW mode
+	{
+		//[1] If user clicks on the Toolbar
+		if (y >= 0 && y < UI.ToolBarHeight)
+		{
+			//Check whick Menu item was clicked
+			//==> This assumes that menu items are lined up horizontally <==
+			int ClickedItemOrder = (x / UI.MenuItemWidth);
+			//Divide x coord of the point clicked by the menu item width (int division)
+			//if division result is 0 ==> first item is clicked, if 1 ==> 2nd item and so on
+
+			switch (ClickedItemOrder)
+			{
+			case ITM_SQUR: return DRAW_SQUARE;
+			case ITM_ELPS: return DRAW_ELPS;
+			case ITM_HEX: return DRAW_HEX;
+			case ITM_DRAW_CLR: return CHNG_DRAW_CLR;
+			case ITM_Bg_CLR: return CHNG_BK_CLR;
+			case ITM_FILL_CLR:return CHNG_FILL_CLR;
+			case ITM_DEFALT: return  default_setting;
+			case ITM_UPLOAD: return LOAD;
+			case PLAY: return TO_PLAY;
+			case ITM_SEND_BACK: return 	SEND_BACK;
+			case ITM_BRNG_FRNT: return BRNG_FRNT;
+			case ITM_DEL: return DEL;
+			//case ITM_SELECT: return SELECT;
+			case ITM_CLEAR: return CLEAR;
+			case ITM_EXIT: return EXIT;
+
+			default: return EMPTY;	//A click on empty place in desgin toolbar
+			}
+		}
+
+		//[2] User clicks on the drawing area
+		if (y >= UI.ToolBarHeight && y < UI.height - UI.StatusBarHeight)
+		{
+			return DRAWING_AREA;
+		}
+
+		//[3] User clicks on the status bar
+		return STATUS;
+	}
+	else if (UI.InterfaceMode == MODE_PLAY)	//GUI is in PLAY mode
+	{
+		///TODO:
+		//perform checks similar to Draw mode checks above
+		//and return the correspoding action
+		if (y >= 0 && y < UI.ToolBarHeight)
+		{
+			//Check which Menu item was clicked
+			//==> This assumes that menu items are lined up horizontally <==
+			int ClickedItemOrder = (x / UI.MenuItemWidth);
+			//Divide x coord of the point clicked by the menu item width (int division)
+			//if division result is 0 ==> first item is clicked, if 1 ==> 2nd item and so on
+
+			switch (ClickedItemOrder)
+			{
+			case PICK_FIGURE: return PICK_FIG;
+			case PICK_COLOR: return PICK_CLR;
+			case PICK_FILLED: return PICK_FILL;
+			case DRAW: return TO_DRAW;
+			case END: return EXIT;
+
+			default: return EMPTY;
+
+			}
+		}
+
+		//[2] User clicks on the drawing area
+		if (y >= UI.ToolBarHeight && y < UI.height - UI.StatusBarHeight)
+		{
+			return DRAWING_AREA;
+		}
+
+		//[3] User clicks on the status bar
+
+		return STATUS;
+	}
+	else {
+
+
+		if (y >= 0 && y < UI.ToolBarHeight)
+		{
+			//Check which Menu item was clicked
+			//==> This assumes that menu items are lined up horizontally <==
+			int ClickedItemOrder = (x / UI.MenuItemWidth);
+			//Divide x coord of the point clicked by the menu item width (int division)
+			//if division result is 0 ==> first item is clicked, if 1 ==> 2nd item and so on
+
+			switch (ClickedItemOrder)
+			{
+			case ITM_BLUE: return CLR_BLUE;
+			case ITM_BLACK: return CLR_BLACK;
+			case ITM_GREEN: return CLR_GREEN;
+			case ITM_YELLOW: return CLR_YELLOW;
+			case ITM_RED: return  CLR_RED;
+			case ITM_BACK: return  BACK;
+
+			default: return EMPTY;
+
+			}
+		}
+
+		//[2] User clicks on the drawing area
+		if (y >= UI.ToolBarHeight && y < UI.height - UI.StatusBarHeight)
+		{
+			return DRAWING_AREA;
+		}
+
+		//[3] User clicks on the status bar
+
+		return STATUS;
+
+
+	}
+}
 
 //This function reads the position where the user clicks to determine the desired action
 ActionType GUI::MapInputToActionType() const

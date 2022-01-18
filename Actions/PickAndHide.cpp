@@ -193,31 +193,37 @@ void PickAndHide::Delete(CFigure* fig)
 
 void PickAndHide::Execute()
 {
+
 	ReadActionParameters();
 	bool flag = false;
 	do
 	{
+		//pGUI->GetPointClickekd(P.x, P.y);
 		Load();
 		pGUI->ClearStatusBar();
 		if (!flag)
-			actType = pGUI->MapInputToActionType();
+			actType = pGUI->MapInputToActionType(P.x, P.y);
 		flag = false;
 		switch (actType)
 		{
 		case PICK_CLR:
 		{
-			cout << "sdfjkl";
+			cout << "PICK_CLR\n";
+			cout << P.x << "," << P.y << endl;
+			/**********/
 			int Lifes = 3;
 			score = correct = uncorrect = 0;
 			do
 			{
+				cout << P.x << "," << P.y << endl;
 				CFigure* fig = Random();
 				Message(1, fig);
 				do
 				{
+					cout << P.x << "," << P.y << endl;
 					selected = NULL;
 
-					actType = pGUI->MapInputToActionType();
+					actType = pGUI->MapInputToActionType(P.x, P.y);
 
 					if (P.y >= 0 && P.y < UI.ToolBarHeight && P.x <= UI.MenuItemWidth * PLAY_ITM_COUNT)
 					{
@@ -272,11 +278,13 @@ void PickAndHide::Execute()
 				pGUI->GetPointClicked(P.x, P.y);
 				pGUI->ClearStatusBar();
 			}
+			/***********/
 			break;
 		}
-		/*case PICK_FIG:
+		case PICK_FIG:
 		{
-			cout << "pick figure";
+			cout << "PICK_FIG\n";
+			/***********/
 			int Lifes = 3;
 			score = correct = uncorrect = 0;
 			do
@@ -286,7 +294,7 @@ void PickAndHide::Execute()
 				Message(2, fig);
 				do
 				{
-					actType = pGUI->MapInputToActionType();
+					actType = pGUI->MapInputToActionType(P.x, P.y);
 					if (P.y >= 0 && P.y < UI.ToolBarHeight && P.x <= UI.MenuItemWidth * PLAY_ITM_COUNT)
 					{
 						flag = true;
@@ -335,11 +343,14 @@ void PickAndHide::Execute()
 				pGUI->GetPointClicked(P.x, P.y);
 				pGUI->ClearStatusBar();
 			}
+
+			/**********/
 			break;
 		}
 		case PICK_FILL:
 		{
-			cout << "pick filled";
+			cout << "PICK_FILL\n";
+			/***********/
 			Load();
 			int lifes = 3;
 			score = correct = uncorrect = 0;
@@ -348,13 +359,13 @@ void PickAndHide::Execute()
 			Message(3, rand);
 			do {
 
-				actType = pGUI->MapInputToActionType();
+				actType = pGUI->MapInputToActionType(P.x, P.y);
 				CFigure* sel = GetFigure(P);
 				if (sel != NULL)
 				{
 					do
 					{
-						while (sel == NULL) { actType = pGUI->MapInputToActionType(); sel = GetFigure(P); }
+						while (sel == NULL) { actType = pGUI->MapInputToActionType(P.x, P.y); sel = GetFigure(P); }
 						if (CheckFigure(sel, GetType(rand)))
 						{
 
@@ -458,18 +469,19 @@ void PickAndHide::Execute()
 				break;
 			}
 
-		}*/
 
-		case DRAWING_AREA:
+			/**********/
 			break;
-		case STATUS:
-			break;
-		case EMPTY:
-			break;
+		}
 		case TO_DRAW:
 		{
 			FigureList.clear();
 			pGUI->CreateDrawToolBar();
+			break;
+		}
+		case EXIT:
+		{
+			cout << "EXIT\n";
 			break;
 		}
 		}
