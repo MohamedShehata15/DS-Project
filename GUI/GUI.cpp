@@ -99,7 +99,7 @@ ActionType GUI::MapInputToActionType() const
 			case ITM_DRAW_CLR: return CHNG_DRAW_CLR;
 			case ITM_Bg_CLR: return CHNG_BK_CLR;
 			case ITM_FILL_CLR:return CHNG_FILL_CLR;
-			case ITM_DEFALT: return  default_setting;
+			
 			case ITM_UPLOAD: return LOAD;
 			case PLAY: return TO_PLAY;
 			case ITM_SEND_BACK: return 	SEND_BACK;		
@@ -213,10 +213,10 @@ ActionType GUI::MapInputToActionType() const
 			case ITM_GREEN: return CLR_GREEN;
 			case ITM_YELLOW: return CLR_YELLOW;
 			case ITM_RED: return  CLR_RED;
+			case ITM_DEFALT: return  default_setting;
+			case ITM_SLCT: return SELECT;
 			case ITM_BACK: return  BACK;
-
 			default: return EMPTY;
-
 			}
 		}
 
@@ -287,7 +287,7 @@ void GUI::CreateDrawToolBar() const
 	MenuItemImages[ITM_SEND_BACK] = "images\\MenuItems\\send_to_back.jpg";
 	MenuItemImages[ITM_BRNG_FRNT]= "images\\MenuItems\\bring_to_front.jpg";
 	MenuItemImages[ITM_UPLOAD] = "images\\MenuItems\\upload.JPG";
-	MenuItemImages[ITM_DEFALT]= "images\\MenuItems\\restore.JPG";
+
 	MenuItemImages[ITM_CLEAR]= "images\\MenuItems\\clear_all.jpg";
 	MenuItemImages[PLAY] = "images\\MenuItems\\Mode_Play.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
@@ -341,7 +341,10 @@ void GUI::CreateColorToolBar() const {
 	MenuItemColorsIcons[ITM_GREEN] = "images\\MenuItems\\green.jpg";
 	MenuItemColorsIcons[ITM_YELLOW] = "images\\MenuItems\\yellow.jpg";
 	MenuItemColorsIcons[ITM_RED] = "images\\MenuItems\\red.jpg";
+	MenuItemColorsIcons[ITM_DEFALT] = "images\\MenuItems\\restore.JPG";
+	MenuItemColorsIcons[ITM_SLCT]  = "images\\MenuItems\\Menu_Select.JPG";
 	MenuItemColorsIcons[ITM_BACK] = "images\\MenuItems\\right_arrow.jpg";
+
 
 	//Draw menu item one image at a time
 	for (int i = 0; i < COLORS_ITM_COUNT; i++)

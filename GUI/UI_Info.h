@@ -28,7 +28,6 @@ enum DrawMenuItem //The items of the Draw menu (you should add more items)
 	ITM_DRAW_CLR,
 	ITM_Bg_CLR,
 	ITM_FILL_CLR,
-	ITM_DEFALT,
 	ITM_SELECT,
 	ITM_RESIZE,
 	ITM_SEND_BACK,		//Send a figure to the back of all figures
@@ -66,6 +65,8 @@ enum ColorsMenuItem
 	ITM_GREEN,
 	ITM_YELLOW,
 	ITM_RED,
+	ITM_DEFALT,
+	ITM_SLCT,
 	ITM_BACK,
 
 	COLORS_ITM_COUNT,
