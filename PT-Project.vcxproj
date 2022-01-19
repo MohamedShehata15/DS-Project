@@ -131,6 +131,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Actions\ActionAddEllipse.cpp" />
+    <ClCompile Include="Actions\ActionAddHexagon.cpp" />
     <ClCompile Include="Actions\ActionBringToFront.cpp" />
     <ClCompile Include="Actions\ActionChngBgClr.cpp" />
     <ClCompile Include="Actions\ActionDeleteFigure.cpp" />
@@ -182,6 +183,7 @@
     <ClCompile Include="CMUgraphicsLib\jpeg\jutils.c" />
     <ClCompile Include="Figures\CEllipse.cpp" />
     <ClCompile Include="Figures\CFigure.cpp" />
+    <ClCompile Include="Figures\CHexagon.cpp" />
     <ClCompile Include="Figures\CSquare.cpp" />
     <ClCompile Include="Actions\ActionAddSquare.cpp" />
     <ClCompile Include="GUI\GUI.cpp" />
@@ -190,6 +192,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actions\ActionAddEllipse.h" />
+    <ClInclude Include="Actions\ActionAddHexagon.h" />
     <ClInclude Include="Actions\ActionBringToFront.h" />
     <ClInclude Include="Actions\ActionChngBgClr.h" />
     <ClInclude Include="Actions\ActionDeleteFigure.h" />
@@ -226,6 +229,7 @@
     <ClInclude Include="CMUgraphicsLib\jpeg\jversion.h" />
     <ClInclude Include="Figures\CEllipse.h" />
     <ClInclude Include="Figures\CFigure.h" />
+    <ClInclude Include="Figures\CHexagon.h" />
     <ClInclude Include="Figures\CSquare.h" />
     <ClInclude Include="Actions\Action.h" />
     <ClInclude Include="Actions\ActionAddSquare.h" />
