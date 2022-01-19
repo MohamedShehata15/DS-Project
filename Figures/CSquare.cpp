@@ -127,59 +127,33 @@ void CSquare::saveFigure(ofstream& file)
 
 	string Draw_Color;
 	string Fill_Color;
-	if (FigGfxInfo.DrawClr== BLUE)
-	{
-		Draw_Color = "BLUE";
-	}
-	else if (FigGfxInfo.DrawClr == BLACK)
-	{
+	if (int(FigGfxInfo.DrawClr.ucRed) == 0 && int(FigGfxInfo.DrawClr.ucGreen) == 0 && int(FigGfxInfo.DrawClr.ucBlue) == 0)
 		Draw_Color = "BLACK";
-	}
-	else if (FigGfxInfo.DrawClr == LIGHTGOLDENRODYELLOW)
-	{
-		Draw_Color = "OFFWHITE";
-	}
-	else if (FigGfxInfo.DrawClr == GREEN)
-	{
-		Draw_Color = "GREEN";
-	}
-	else if (FigGfxInfo.DrawClr == YELLOW)
-	{
-		Draw_Color = "YELLOW";
-	}
-	else if (FigGfxInfo.DrawClr == RED)
-	{
+	if (int(FigGfxInfo.DrawClr.ucRed) == 255 && int(FigGfxInfo.DrawClr.ucGreen) == 0 && int(FigGfxInfo.DrawClr.ucBlue) == 0)
 		Draw_Color = "RED";
-	}
+	if (int(FigGfxInfo.DrawClr.ucRed) == 0 && int(FigGfxInfo.DrawClr.ucGreen) == 255 && int(FigGfxInfo.DrawClr.ucBlue) == 0)
+		Draw_Color = "GREEN";
+	if (int(FigGfxInfo.DrawClr.ucRed) == 0 && int(FigGfxInfo.DrawClr.ucGreen) == 0 && int(FigGfxInfo.DrawClr.ucBlue) == 255)
+		Draw_Color = "BLUE";
+	if (int(FigGfxInfo.DrawClr.ucRed) == 255 && int(FigGfxInfo.DrawClr.ucGreen) == 255 && int(FigGfxInfo.DrawClr.ucBlue) == 0)
+		Draw_Color = "YELLOW";
+	if (int(FigGfxInfo.DrawClr.ucRed) == 250 && int(FigGfxInfo.DrawClr.ucGreen) == 250 && int(FigGfxInfo.DrawClr.ucBlue) == 210)
+		Draw_Color = "OFFWHITE";
 
-	//filling color
-	if (FigGfxInfo.isFilled)
-	{
-		if (FigGfxInfo.FillClr == BLUE)
-		{
-			Fill_Color = "BLUE";
-		}
-		else if (FigGfxInfo.FillClr == BLACK)
-		{
-			Fill_Color = "BLACK";
-		}
-		else if (FigGfxInfo.FillClr == GREEN)
-		{
-			Fill_Color = "GREEN";
-		}
-		else if (FigGfxInfo.FillClr == YELLOW)
-		{
-			Fill_Color = "YELLOW";
-		}
-		else if (FigGfxInfo.FillClr == RED)
-		{
-			Fill_Color = "RED";
-		}
-	}
-	else
-	{
+	//fill
+	if (int(FigGfxInfo.FillClr.ucRed) == 0 && int(FigGfxInfo.FillClr.ucGreen) == 0 && int(FigGfxInfo.FillClr.ucBlue) == 0)
+		Fill_Color = "BLACK";
+	if (int(FigGfxInfo.FillClr.ucRed) == 255 && int(FigGfxInfo.FillClr.ucGreen) == 0 && int(FigGfxInfo.FillClr.ucBlue) == 0)
+		Fill_Color = "RED";
+	if (int(FigGfxInfo.FillClr.ucRed) == 0 && int(FigGfxInfo.FillClr.ucGreen) == 255 && int(FigGfxInfo.FillClr.ucBlue) == 0)
+		Fill_Color = "GREEN";
+	if (int(FigGfxInfo.FillClr.ucRed) == 0 && int(FigGfxInfo.FillClr.ucGreen) == 0 && int(FigGfxInfo.FillClr.ucBlue) == 255)
+		Fill_Color = "BLUE";
+	if (int(FigGfxInfo.FillClr.ucRed) == 255 && int(FigGfxInfo.FillClr.ucGreen) == 255 && int(FigGfxInfo.FillClr.ucBlue) == 0)
+		Fill_Color = "YELLOW";
+	if (int(FigGfxInfo.FillClr.ucRed) == 250 && int(FigGfxInfo.FillClr.ucGreen) == 250 && int(FigGfxInfo.FillClr.ucBlue) == 210)
 		Fill_Color = "NO_FILL";
-	}
+
 
 	file << "SQR" << " " << ID << " " << TopLeftCorner.x << " " << TopLeftCorner.y << " " << length << " "
 		 << Draw_Color << " " << Fill_Color << endl;

@@ -13,9 +13,6 @@ ActionSaveFile::ActionSaveFile(ApplicationManager* pApp) :Action(pApp)
 void ActionSaveFile::Execute()
 {
 	GUI* pGUI = pManager->GetGUI();
-	color currentDrawColor = UI.DrawColor;
-	color currentFillColor = UI.FillColor;
-	color currentBgColor = UI.BkGrndColor;
 
 	pGUI->PrintMessage("Enter name to save the file ,please");
 	//take filename from user input
@@ -24,102 +21,56 @@ void ActionSaveFile::Execute()
 	//open TheFile
 	FileToSave.open(FileName);
 
-
 	if (FileToSave.is_open())
 	{
 		string Draw_Color; // variable for drawing color
 		string Fill_Color; //variable for filling color
 		string bgColor; //variable for bgcolor
+		
 
-		if (currentDrawColor == BLUE)
-		{
-			Draw_Color= "BLUE";
-		}
-		else if (currentDrawColor == BLACK)
-		{
+		if (int(UI.DrawColor.ucRed) == 0 && int(UI.DrawColor.ucGreen) == 0 && int(UI.DrawColor.ucBlue) == 0)
 			Draw_Color = "BLACK";
-		}
-
-		else if (currentDrawColor == LIGHTGOLDENRODYELLOW)
-		{
-		   Draw_Color= "OFFWHITE";
-		}
-
-		else if (currentDrawColor == GREEN)
-		{
-			Draw_Color = "GREEN";
-		}
-
-		else if (currentDrawColor == YELLOW)
-		{
-			Draw_Color = "YELLOW";
-		}
-
-		else if (currentDrawColor == RED)
-		{
+		if (int(UI.DrawColor.ucRed) == 255 && int(UI.DrawColor.ucGreen) == 0 && int(UI.DrawColor.ucBlue) == 0)
 			Draw_Color = "RED";
-		}
+		if (int(UI.DrawColor.ucRed) == 0 && int(UI.DrawColor.ucGreen) == 255 && int(UI.DrawColor.ucBlue) == 0)
+			Draw_Color = "GREEN";
+		if (int(UI.DrawColor.ucRed) == 0 && int(UI.DrawColor.ucGreen) == 0 && int(UI.DrawColor.ucBlue) == 255)
+			Draw_Color = "BLUE";
+		if (int(UI.DrawColor.ucRed) == 255 && int(UI.DrawColor.ucGreen) == 255 && int(UI.DrawColor.ucBlue) == 0)
+			Draw_Color = "YELLOW";
+		if (int(UI.DrawColor.ucRed) == 250 && int(UI.DrawColor.ucGreen) == 250 && int(UI.DrawColor.ucBlue) == 210)
+			Draw_Color = "OFFWHITE";
 
 		//filling color
-		if (currentFillColor == BLUE)
-		{
-			Fill_Color = "BLUE";
-		}
-		else if (currentFillColor == BLACK)
-		{
+		if (int(UI.FillColor.ucRed) == 0 && int(UI.FillColor.ucGreen) == 0 && int(UI.FillColor.ucBlue) == 0)
 			Fill_Color = "BLACK";
-		}
-
-		else if (currentFillColor == LIGHTGOLDENRODYELLOW)
-		{
-			Fill_Color = "OFFWHITE";
-		}
-
-		else if (currentFillColor == GREEN)
-		{
-			Fill_Color = "GREEN";
-		}
-
-		else if (currentFillColor == YELLOW)
-		{
-			Fill_Color = "YELLOW";
-		}
-
-		else if (currentFillColor == RED)
-		{
+		if (int(UI.FillColor.ucRed) == 255 && int(UI.FillColor.ucGreen) == 0 && int(UI.FillColor.ucBlue) == 0)
 			Fill_Color = "RED";
-		}
+		if (int(UI.FillColor.ucRed) == 0 && int(UI.FillColor.ucGreen) == 255 && int(UI.FillColor.ucBlue) == 0)
+			Fill_Color = "GREEN";
+		if (int(UI.FillColor.ucRed) == 0 && int(UI.FillColor.ucGreen) == 0 && int(UI.FillColor.ucBlue) == 255)
+			Fill_Color = "BLUE";
+		if (int(UI.FillColor.ucRed) == 255 && int(UI.FillColor.ucGreen) == 255 && int(UI.FillColor.ucBlue) == 0)
+			Fill_Color = "YELLOW";
+		if (int(UI.FillColor.ucRed) == 250 && int(UI.FillColor.ucGreen) == 250 && int(UI.FillColor.ucBlue) == 210)
+			Fill_Color = "NO_FILL";
 
 		//background color
 
-		if (currentBgColor == BLUE)
-		{
-			bgColor = "BLUE";
-		}
-		else if (currentBgColor == BLACK)
-		{
+		if (int(UI.BkGrndColor.ucRed) == 0 && int(UI.BkGrndColor.ucGreen) == 0 && int(UI.BkGrndColor.ucBlue) == 0)
 			bgColor = "BLACK";
-		}
-
-		else if (currentBgColor == LIGHTGOLDENRODYELLOW)
-		{
-			bgColor = "OFFWHITE";
-		}
-
-		else if (currentBgColor == GREEN)
-		{
-			bgColor = "GREEN";
-		}
-
-		else if (currentBgColor == YELLOW)
-		{
-			bgColor = "YELLOW";
-		}
-
-		else if (currentBgColor == RED)
-		{
+		if (int(UI.BkGrndColor.ucRed) == 255 && int(UI.BkGrndColor.ucGreen) == 0 && int(UI.BkGrndColor.ucBlue) == 0)
 			bgColor = "RED";
-		}
+		if (int(UI.BkGrndColor.ucRed) == 0 && int(UI.BkGrndColor.ucGreen) == 255 && int(UI.BkGrndColor.ucBlue) == 0)
+			bgColor = "GREEN";
+		if (int(UI.BkGrndColor.ucRed) == 0 && int(UI.BkGrndColor.ucGreen) == 0 && int(UI.BkGrndColor.ucBlue) == 255)
+			bgColor = "BLUE";
+		if (int(UI.BkGrndColor.ucRed) == 255 && int(UI.BkGrndColor.ucGreen) == 255 && int(UI.BkGrndColor.ucBlue) == 0)
+			bgColor = "YELLOW";
+		if (int(UI.DrawColor.ucRed) == 250 && int(UI.DrawColor.ucGreen) == 250 && int(UI.DrawColor.ucBlue) == 210)
+			bgColor = "OFFWHITE";
+
+
 
 
 		FileToSave << Draw_Color << " " << Fill_Color <<" "<<bgColor<< endl; //write drawcolor  &  fillcolor in the file
