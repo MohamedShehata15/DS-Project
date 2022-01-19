@@ -1,6 +1,10 @@
 #include "CEllipse.h"
+#include "..\ApplicationManager.h"
+#include "..\GUI\GUI.h"
+
 #include <iostream>
 #include <fstream>
+
 
 CEllipse::CEllipse(Point P1, int yr,int xr, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
 {
@@ -127,6 +131,50 @@ void CEllipse::upload(ifstream &file)
 	}
 
 }//end of upload
+
+
+
+
+
+void CEllipse::saveFigure(ofstream& file)
+{
+	string Draw_Color;
+	string Fill_Color;
+	if (int(FigGfxInfo.DrawClr.ucRed) == 0 && int(FigGfxInfo.DrawClr.ucGreen) == 0 && int(FigGfxInfo.DrawClr.ucBlue) == 0)
+		Draw_Color = "BLACK";
+	if (int(FigGfxInfo.DrawClr.ucRed) == 255 && int(FigGfxInfo.DrawClr.ucGreen) == 0 && int(FigGfxInfo.DrawClr.ucBlue) == 0)
+		Draw_Color = "RED";
+	if (int(FigGfxInfo.DrawClr.ucRed) == 0 && int(FigGfxInfo.DrawClr.ucGreen) == 255 && int(FigGfxInfo.DrawClr.ucBlue) == 0)
+		Draw_Color = "GREEN";
+	if (int(FigGfxInfo.DrawClr.ucRed) == 0 && int(FigGfxInfo.DrawClr.ucGreen) == 0 && int(FigGfxInfo.DrawClr.ucBlue) == 255)
+		Draw_Color = "BLUE";
+	if (int(FigGfxInfo.DrawClr.ucRed) == 255 && int(FigGfxInfo.DrawClr.ucGreen) == 255 && int(FigGfxInfo.DrawClr.ucBlue) == 0)
+		Draw_Color = "YELLOW";
+	if (int(FigGfxInfo.DrawClr.ucRed) == 250 && int(FigGfxInfo.DrawClr.ucGreen) == 250 && int(FigGfxInfo.DrawClr.ucBlue) == 210)
+		Draw_Color = "OFFWHITE";
+
+	//fill
+	if (int(FigGfxInfo.FillClr.ucRed) == 0 && int(FigGfxInfo.FillClr.ucGreen) == 0 && int(FigGfxInfo.FillClr.ucBlue) == 0)
+		Fill_Color = "BLACK";
+	if (int(FigGfxInfo.FillClr.ucRed) == 255 && int(FigGfxInfo.FillClr.ucGreen) == 0 && int(FigGfxInfo.FillClr.ucBlue) == 0)
+		Fill_Color = "RED";
+	if (int(FigGfxInfo.FillClr.ucRed) == 0 && int(FigGfxInfo.FillClr.ucGreen) == 255 && int(FigGfxInfo.FillClr.ucBlue) == 0)
+		Fill_Color = "GREEN";
+	if (int(FigGfxInfo.FillClr.ucRed) == 0 && int(FigGfxInfo.FillClr.ucGreen) == 0 && int(FigGfxInfo.FillClr.ucBlue) == 255)
+		Fill_Color = "BLUE";
+	if (int(FigGfxInfo.FillClr.ucRed) == 255 && int(FigGfxInfo.FillClr.ucGreen) == 255 && int(FigGfxInfo.FillClr.ucBlue) == 0)
+		Fill_Color = "YELLOW";
+	if (int(FigGfxInfo.FillClr.ucRed) == 250 && int(FigGfxInfo.FillClr.ucGreen) == 250 && int(FigGfxInfo.FillClr.ucBlue) == 210)
+		Fill_Color = "NO_FILL";
+
+	file << "ELPS" << " " << ID<< " "<< center.x<< " " << center.y<< " " << yradius <<" "
+		<< xradius << " "<< Draw_Color <<" "<<Fill_Color<<endl;
+
+}//end of save
+
+
+
+
 
 
 

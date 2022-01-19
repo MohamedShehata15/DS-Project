@@ -20,6 +20,7 @@ public:
 	virtual void decrease() = 0;
 	virtual int GetNumber()const = 0;
 	virtual void upload(ifstream &file) = 0;
+	virtual void saveFigure(ofstream &file) = 0;
 
 
 	void SetSelected(bool );	//select/unselect the figure

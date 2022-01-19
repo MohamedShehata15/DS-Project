@@ -1,4 +1,38 @@
 ﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+  main.cpp
+  ApplicationManager.cpp
+D:\yara\iti\9 months\Data structure\project\DS-Project\ApplicationManager.cpp(20,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\yara\iti\9 months\Data structure\project\DS-Project\ApplicationManager.cpp(21,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  GUI.cpp
+  ActionAddSquare.cpp
+  CSquare.cpp
+  CFigure.cpp
+  CEllipse.cpp
+  SwitchToColorsMode.cpp
+  PickAndHide.cpp
+D:\yara\iti\9 months\Data structure\project\DS-Project\Actions\PickAndHide.cpp(20,20): warning C4018: '<': signed/unsigned mismatch
+D:\yara\iti\9 months\Data structure\project\DS-Project\Actions\PickAndHide.cpp(40,20): warning C4018: '<': signed/unsigned mismatch
+D:\yara\iti\9 months\Data structure\project\DS-Project\Actions\PickAndHide.cpp(58,20): warning C4018: '<': signed/unsigned mismatch
+D:\yara\iti\9 months\Data structure\project\DS-Project\Actions\PickAndHide.cpp(105,20): warning C4018: '<': signed/unsigned mismatch
+D:\yara\iti\9 months\Data structure\project\DS-Project\Actions\PickAndHide.cpp(185,20): warning C4018: '<': signed/unsigned mismatch
+  ActionclearAllFigures.cpp
   ActionUploadFile.cpp
+  ActionSendToBack.cpp
+D:\yara\iti\9 months\Data structure\project\DS-Project\Actions\ActionSendToBack.cpp(17,8): warning C4101: 'P1': unreferenced local variable
+  ActionChngDrawClr.cpp
+  ActionSelect.cpp
+  ActionSwitchToResizeMode.cpp
+  ActionSaveFile.cpp
+  ActionResizeFigure.cpp
+  ActionChngFillClr.cpp
+  ActionDeleteFigure.cpp
+  ActionChngBgClr.cpp
+  Generating Code...
+D:\yara\iti\9 months\Data structure\project\DS-Project\Actions\PickAndHide.cpp(54): warning C4715: 'PickAndHide::GetType': not all control paths return a value
+  Compiling...
+  ActionBringToFront.cpp
+  ActionAddEllipse.cpp
+  Generating Code...
+  LINK : .\Debug\PT Project.exe not found or not built by the last incremental link; performing full link
 ActionAddEllipse.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
   PT-Project.vcxproj -> D:\yara\iti\9 months\Data structure\project\DS-Project\Debug\PT Project.exe
