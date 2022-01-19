@@ -51,6 +51,8 @@ public:
 	void deleteFigure(int figPosition);
 	// Clear All Figures
 	void clearAllFigures();
+	void SaveAllFigures(ofstream &file); //save all figures
+
 
 	// -- Interface Management Functions	
 	GUI *GetGUI() const; //Return pointer to the interface

@@ -120,6 +120,73 @@ void CSquare::upload(ifstream& file)
 
 }
 
+
+
+void CSquare::saveFigure(ofstream& file)
+{
+
+	string Draw_Color;
+	string Fill_Color;
+	if (FigGfxInfo.DrawClr== BLUE)
+	{
+		Draw_Color = "BLUE";
+	}
+	else if (FigGfxInfo.DrawClr == BLACK)
+	{
+		Draw_Color = "BLACK";
+	}
+	else if (FigGfxInfo.DrawClr == LIGHTGOLDENRODYELLOW)
+	{
+		Draw_Color = "OFFWHITE";
+	}
+	else if (FigGfxInfo.DrawClr == GREEN)
+	{
+		Draw_Color = "GREEN";
+	}
+	else if (FigGfxInfo.DrawClr == YELLOW)
+	{
+		Draw_Color = "YELLOW";
+	}
+	else if (FigGfxInfo.DrawClr == RED)
+	{
+		Draw_Color = "RED";
+	}
+
+	//filling color
+	if (FigGfxInfo.isFilled)
+	{
+		if (FigGfxInfo.FillClr == BLUE)
+		{
+			Fill_Color = "BLUE";
+		}
+		else if (FigGfxInfo.FillClr == BLACK)
+		{
+			Fill_Color = "BLACK";
+		}
+		else if (FigGfxInfo.FillClr == GREEN)
+		{
+			Fill_Color = "GREEN";
+		}
+		else if (FigGfxInfo.FillClr == YELLOW)
+		{
+			Fill_Color = "YELLOW";
+		}
+		else if (FigGfxInfo.FillClr == RED)
+		{
+			Fill_Color = "RED";
+		}
+	}
+	else
+	{
+		Fill_Color = "NO_FILL";
+	}
+
+	file << "SQR" << " " << ID << " " << TopLeftCorner.x << " " << TopLeftCorner.y << " " << length << " "
+		 << Draw_Color << " " << Fill_Color << endl;
+
+}//end of save
+
+
 int CSquare::GetNumber()const
 {
 	return squareNum;

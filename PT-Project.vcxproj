@@ -78,7 +78,7 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>odbc32.lib;odbccp32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;odbccp32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>.\Release/graphics_prj.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ProgramDatabaseFile>.\Release/graphics_prj.pdb</ProgramDatabaseFile>
@@ -115,13 +115,14 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>odbc32.lib;odbccp32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;shell32.lib;odbccp32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>.\Debug/$(TargetName).exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Debug/$(TargetName).pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalLibraryDirectories>fstream.lib</AdditionalLibraryDirectories>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -135,6 +136,7 @@
     <ClCompile Include="Actions\ActionDeleteFigure.cpp" />
     <ClCompile Include="Actions\ActionChngFillClr.cpp" />
     <ClCompile Include="Actions\ActionResizeFigure.cpp" />
+    <ClCompile Include="Actions\ActionSaveFile.cpp" />
     <ClCompile Include="Actions\ActionSwitchToResizeMode.cpp" />
     <ClCompile Include="Actions\ActionSelect.cpp" />
     <ClCompile Include="Actions\ActionChngDrawClr.cpp" />
@@ -193,6 +195,7 @@
     <ClInclude Include="Actions\ActionDeleteFigure.h" />
     <ClInclude Include="Actions\ActionChngFillClr.h" />
     <ClInclude Include="Actions\ActionResizeFigure.h" />
+    <ClInclude Include="Actions\ActionSaveFile.h" />
     <ClInclude Include="Actions\ActionSwitchToResizeMode.h" />
     <ClInclude Include="Actions\ActionSelect.h" />
     <ClInclude Include="Actions\ActionChngDrawClr.h" />

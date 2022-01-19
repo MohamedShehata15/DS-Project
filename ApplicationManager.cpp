@@ -7,6 +7,7 @@
 #include "Actions/ActionChngFillClr.h"
 #include "Actions/PickAndHide.h"
 #include "Actions/ActionUploadFile.h"
+#include "Actions/ActionSaveFile.h"
 #include "Actions/ActionSwitchToResizeMode.h"
 #include <iostream>
 #include "GUI/GUI.h"
@@ -114,6 +115,9 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			newAct = new ActionUploadFile(this);
 			break;
 
+		case SAVE:
+			newAct = new ActionSaveFile(this);
+			break;
 		case SELECT:
 			newAct =  new ActionSelect(this);
 			break;
@@ -267,6 +271,16 @@ CFigure *ApplicationManager::GetFigure(int x, int y) const
 	return NULL;
 }
 ////////////////////////////////////////////////////////////////////////////////////
+//save all figures
+void ApplicationManager::SaveAllFigures(ofstream &file)
+{
+	for (int i = 0; i < FigCount; i++)
+	{
+		FigList[i]->saveFigure(file);
+	}
+}
+
+
 // Clear All Figures
 void ApplicationManager::clearAllFigures() {
 	for (int i = 0; i < FigCount; i++) {
