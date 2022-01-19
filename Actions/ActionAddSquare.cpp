@@ -22,12 +22,12 @@ void ActionAddSquare::Execute()
 
 
 	GfxInfo SqrGfxInfo;
-	SqrGfxInfo.isFilled = UI.isFilled; 	//default is not filled
-
+	SqrGfxInfo.isFilled = UI.isFilled;	//default is not filled
 	//get drawing, filling colors and pen width from the interface
 	SqrGfxInfo.DrawClr = pGUI->getCrntDrawColor();
 	SqrGfxInfo.FillClr = pGUI->getCrntFillColor();
 	SqrGfxInfo.BorderWdth = pGUI->getCrntPenWidth();
+
 
 
 	// this do while to prevent the user from drawing out side the drawing area
@@ -67,8 +67,7 @@ void ActionAddSquare::Execute()
 
 	pGUI->ClearStatusBar();
 
-	SqrGfxInfo.isFilled = true;
-	SqrGfxInfo.FillClr = UI.BkGrndColor;
+
 	//Step 3 - Create a Square with the parameters read from the user
 	CSquare* R = new CSquare(topLeft, SideLength, SqrGfxInfo);
 
