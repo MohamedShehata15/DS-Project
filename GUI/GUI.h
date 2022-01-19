@@ -43,7 +43,11 @@ public:
 	// -- Figures Drawing functions
 	void DrawSquare(Point P1, int length, GfxInfo RectGfxInfo, bool selected=false) const;  //Draw a Square
 	void DrawEllipse(Point P1, int yr,int xr, GfxInfo EllGfxInfo, bool selected) const; //Draw Ellipse
-	void DrawHexagone(Point points[], GfxInfo RectGfxInfo, bool selected) const; // Draw hexgone
+
+	/*hexagon */
+	//void GUI::GetHexagonDrawingInfo(HexagonInfo& hexagon);
+	//void GUI::DrawHexagon(Point center, float rotation, int radius, GfxInfo RectGfxInfo, bool selected);
+	/*end of haxagon*/
 	///TODO: Make similar functions for drawing all other figures.
 	
 	void PrintMessage(string msg) const;	//Print a message on Status bar

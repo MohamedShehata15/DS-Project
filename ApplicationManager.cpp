@@ -10,6 +10,8 @@
 #include "Actions/ActionSaveFile.h"
 #include "Actions/ActionSwitchToResizeMode.h"
 #include <iostream>
+
+#include "Actions/ActionAddHexagon.h"
 #include "GUI/GUI.h"
 
 #include "Actions/ActionBringToFront.h"
@@ -89,7 +91,7 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			break;
 
 		case DRAW_HEX:
-			//newAct = new ActionAddHexagone(this);
+			//newAct = new ActionAddHexagon(this);
 			break;
 
 		case CHNG_DRAW_CLR:

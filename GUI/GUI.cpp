@@ -649,6 +649,84 @@ void GUI::DrawSquare(Point P1, int length, GfxInfo RectGfxInfo, bool selected) c
 	//pWind->DrawLine(P1.x, P1.y, P1.x + length, P1.y + length, style);
 
 }
+//
+//void GUI::GetHexagonDrawingInfo(HexagonInfo& hexagon)
+//{
+//	if (hexagon.radius == NULL) {
+//		// Calculate the radius of the hexagon
+//		hexagon.radius = sqrt(pow(hexagon.center.x - hexagon.firstVertex.x, 2)
+//			+ pow(hexagon.center.y - hexagon.firstVertex.y, 2));
+//	}
+//
+//	float angle = hexagon.rotation;
+//
+//	if (angle == NULL) {
+//		// Get the rotation angle of the first point
+//		angle = atan2((float)hexagon.firstVertex.y - (float)hexagon.center.y,
+//			(float)hexagon.firstVertex.x - (float)hexagon.center.x);
+//		hexagon.rotation = angle;
+//	}
+//
+//	// Find the hexagon vertex
+//	for (int i = 0; i < 6; i++) {
+//		hexagon.ipX[i] = (float)hexagon.center.x + (hexagon.radius * cos(angle));
+//		hexagon.ipY[i] = (float)hexagon.center.y + (hexagon.radius * sin(angle));
+//
+//		angle += (3.14159265 / 3);
+//	}
+
+	// Check if the hexagon is within the drawing area bounds
+	//if (!pGUI->isInsideDrawingArea(hexagon.ipX, hexagon.ipY, 6)) {
+	//	hexagon.inBounds = false;
+	//}
+//	else {
+//		hexagon.inBounds = true;
+//	}
+//}
+	
+
+
+
+
+//void GUI::DrawHexagon(Point center, float rotation, int radius, GfxInfo RectGfxInfo, bool selected)
+//{
+//	//drawstyle style = setupStyle(RectGfxInfo, selected);
+//
+//	HexagonInfo hexagon;
+//	hexagon.center = center;
+//	hexagon.rotation = rotation;
+//	hexagon.radius = radius;
+//
+//	// Get the drawing info
+//	GetHexagonDrawingInfo(hexagon);
+//
+//	if (hexagon.inBounds) {
+//		//pWind->DrawPolygon(hexagon.ipX, hexagon.ipY, 6, style);
+//	}
+//	else {
+//		PrintMessage("Can't draw outsite the drawing area!");
+//	}
+//}
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 void GUI::DrawEllipse(Point P1, int yr,int xr, GfxInfo EllGfxInfo, bool selected) const
 {
 	color DrawingClr;
@@ -676,30 +754,30 @@ void GUI::DrawEllipse(Point P1, int yr,int xr, GfxInfo EllGfxInfo, bool selected
 
 
 }
-
-void GUI::DrawHexagone(Point points[], GfxInfo RectGfxInfo, bool selected) const
-{
-	color DrawingClr;
-	if (selected)
-		DrawingClr = UI.HighlightColor; //Figure should be drawn highlighted
-	else
-		DrawingClr = RectGfxInfo.DrawClr;
-
-	pWind->SetPen(DrawingClr, RectGfxInfo.BorderWdth);	//Set Drawing color & width
-
-	drawstyle style;
-	if (RectGfxInfo.isFilled)
-	{
-		style = FILLED;
-		pWind->SetBrush(RectGfxInfo.FillClr);
-	}
-	else
-		style = FRAME;
-
-	int XPoints2[] = { points[0].x, points[1].x, points[2].x, points[3].x, points[4].x, points[5].x };
-	int YPoints2[] = { points[0].y, points[1].y, points[2].y, points[3].y, points[4].y, points[5].y };
-	pWind->DrawPolygon(XPoints2, YPoints2, 6, style);
-}
+//
+//void GUI::DrawHexagone(Point points[], GfxInfo RectGfxInfo, bool selected) const
+//{
+//	color DrawingClr;
+//	if (selected)
+//		DrawingClr = UI.HighlightColor; //Figure should be drawn highlighted
+//	else
+//		DrawingClr = RectGfxInfo.DrawClr;
+//
+//	pWind->SetPen(DrawingClr, RectGfxInfo.BorderWdth);	//Set Drawing color & width
+//
+//	drawstyle style;
+//	if (RectGfxInfo.isFilled)
+//	{
+//		style = FILLED;
+//		pWind->SetBrush(RectGfxInfo.FillClr);
+//	}
+//	else
+//		style = FRAME;
+//
+//	int XPoints2[] = { points[0].x, points[1].x, points[2].x, points[3].x, points[4].x, points[5].x };
+//	int YPoints2[] = { points[0].y, points[1].y, points[2].y, points[3].y, points[4].y, points[5].y };
+//	pWind->DrawPolygon(XPoints2, YPoints2, 6, style);
+//}
 
 //////////////////////////////////////////////////////////////////////////////////////////
 GUI::~GUI()

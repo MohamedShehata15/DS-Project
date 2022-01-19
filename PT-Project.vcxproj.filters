@@ -190,6 +190,12 @@
     <ClCompile Include="Actions\ActionSaveFile.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
+    <ClCompile Include="Actions\ActionAddHexagon.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Figures\CHexagon.cpp">
+      <Filter>Figures Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -321,6 +327,12 @@
     </ClInclude>
     <ClInclude Include="Actions\ActionSaveFile.h">
       <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionAddHexagon.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Figures\CHexagon.h">
+      <Filter>Figures Classes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

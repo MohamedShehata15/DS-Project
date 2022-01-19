@@ -67,8 +67,6 @@ void ActionAddSquare::Execute()
 
 	pGUI->ClearStatusBar();
 
-	SqrGfxInfo.isFilled = true;
-	SqrGfxInfo.FillClr = UI.BkGrndColor;
 	//Step 3 - Create a Square with the parameters read from the user
 	CSquare* R = new CSquare(topLeft, SideLength, SqrGfxInfo);
 
