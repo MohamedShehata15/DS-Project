@@ -12,9 +12,27 @@ bool CSquare::isWithinArea(int x, int y)
 {
 	return (x >= TopLeftCorner.x && x <= TopLeftCorner.x + length && y >= TopLeftCorner.y && y <= TopLeftCorner.y + length);
 }
-void CSquare::Resize(float resizeFactor)
+void CSquare::Resize(GUI* pGUI,float resizeFactor)
 {
-	//todo;
+	int oldLength = length;
+	length *= resizeFactor;
+	checkSize(pGUI, oldLength); 
+
+}
+void CSquare::checkSize(GUI* pGUI, int oldLength)
+{
+	// check if the size of the square became bigger than the drawing area
+	if (!(TopLeftCorner.x + length <= UI.width && TopLeftCorner.y + length <= UI.height - UI.StatusBarHeight))
+	{
+		length = oldLength;
+		pGUI->PrintMessage("I can't be bigger than this :(");
+	}
+	// check if the square size smaller than normal
+	else if (length <= 20)
+	{
+		length = oldLength;
+		pGUI->PrintMessage("I can't be smaller than this :(");
+	}
 }
 void CSquare::PrintInfo(GUI* pGUI)
 {

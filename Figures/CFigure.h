@@ -43,8 +43,7 @@ public:
 	/// <returns>true if the point within the area and false if not</returns>
 	virtual bool isWithinArea(int, int) = 0; 
 
-	virtual void Resize(float) = 0;	//Resize the figure
-
+	virtual void Resize(GUI*, float) = 0;	//Resize the figure
 	virtual CFigure* GetCopy() = 0;
 	///The following functions should be supported by the figure class
 	///It should be overridden by each inherited figure

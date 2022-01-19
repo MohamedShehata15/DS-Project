@@ -70,6 +70,7 @@ void ActionAddEllipse::Execute()
 		//x radius
 		yr = max(abs(P2.x - center.x), abs(P2.y - center.y));
 
+
 	} while (!(center.y + yr <= (UI.height - UI.StatusBarHeight) && center.y - yr >= UI.StatusBarHeight && center.x + xr <= UI.width && center.x - xr >= 0));
 
 	pGUI->ClearStatusBar();

@@ -37,7 +37,7 @@ void ActionResizeFigure::Execute()
 			resizeFactor = 4;
 			break;
 		}
-		selectedFigure->Resize(resizeFactor);
+		selectedFigure->Resize(pGUI, resizeFactor);
 	}
 
 	pGUI->ClearDrawArea();

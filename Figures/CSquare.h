@@ -15,7 +15,8 @@ public:
 	virtual void DrawMe(GUI* pOut) const;
 	virtual bool isWithinArea(int, int);
 	virtual void PrintInfo(GUI* pGUI);
-	virtual void Resize(float);
+	virtual void Resize(GUI* pGUI, float resizeFactor);
+	void checkSize(GUI* pGUI, int oldLength);
 	virtual CFigure* GetCopy();
 	virtual void upload(ifstream& file); //for upload the shape
 	virtual void saveFigure(ofstream& file); //save the shape

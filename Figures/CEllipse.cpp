@@ -6,11 +6,11 @@
 #include <fstream>
 
 
-CEllipse::CEllipse(Point P1, int yr,int xr, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
+CEllipse::CEllipse(Point P1, int xr,int yr, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
 {
 	center = P1;
-	yradius = yr;
 	xradius = xr;
+	yradius = yr;
 }
 
 
@@ -19,9 +19,31 @@ bool CEllipse::isWithinArea(int x ,int y)
 
 	return ((((pow((x - center.x), 2)) / (yradius * yradius)) + ((pow((y - center.y), 2)) / (xradius * xradius))) <= 1);
 }
-void CEllipse::Resize(float resizeFactor)
+void CEllipse::Resize(GUI* pGUI,float resizeFactor)
 {
-	//todo;
+	int oldXRadius = xradius;
+	int oldYRadius = yradius;
+	xradius *= resizeFactor;
+	yradius *= resizeFactor;
+	checkSize(pGUI, oldXRadius ,oldYRadius);
+}
+
+void CEllipse::checkSize(GUI* pGUI, int oldXRadius, int oldYRadius)
+{
+	// check if the size of the square became bigger than the drawing area
+	if (!(center.y + yradius <= (UI.height - UI.StatusBarHeight) && center.y - yradius >= UI.StatusBarHeight && center.x + xradius <= UI.width && center.x - xradius >= 0))
+	{
+		xradius = oldXRadius;
+		yradius = oldYRadius;
+		pGUI->PrintMessage("I can't be bigger than this :(");
+	}
+	// check if the square size smaller than normal
+	else if (xradius <= 20 || yradius <= 20)
+	{
+		xradius = oldXRadius;
+		yradius = oldYRadius;
+		pGUI->PrintMessage("I can't be smaller than this :(");
+	}
 }
 void CEllipse::PrintInfo(GUI* pGUI)
 {
@@ -40,7 +62,7 @@ void CEllipse::DrawMe(GUI* pGUI) const
 {
 	//void GUI::DrawEllipse(Point center, int xCord, int yCord, GfxInfo EllGfxInfo, bool selected) const
 	//Call Output::DrawRect to draw a Square on the screen	
-	pGUI->DrawEllipse(center, yradius,xradius, FigGfxInfo, Selected);
+	pGUI->DrawEllipse(center, xradius, yradius, FigGfxInfo, Selected);
 
 
 }
