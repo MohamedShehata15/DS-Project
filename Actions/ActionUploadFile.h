@@ -5,7 +5,6 @@
 #include <fstream>
 using namespace std;
 
-//Add Ellipse Action class
 class ActionUploadFile : public Action
 {
 	ifstream TheFile;

@@ -1,7 +1,9 @@
+#pragma once
 #ifndef CSQUARE_H
 #define CSQUARE_H
 
 #include "CFigure.h"
+
 
 class CSquare : public CFigure
 {
@@ -15,7 +17,9 @@ public:
 	virtual void PrintInfo(GUI* pGUI);
 	virtual void Resize(float);
 	virtual CFigure* GetCopy();
-	void upload(ifstream& file); //for upload the shape
+	virtual void upload(ifstream& file); //for upload the shape
+	virtual void saveFigure(ofstream& file); //save the shape
+
 	virtual void increase();
 	virtual void decrease();
 	virtual int GetNumber()const; //to know how many shapes are drawn

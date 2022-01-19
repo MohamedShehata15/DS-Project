@@ -189,25 +189,6 @@ void ActionUploadFile::Execute()
 			loadedFigure = NULL; //reset pointer
 		}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	} //end of case(file oppened)
 	// wrong name for file
 	else
