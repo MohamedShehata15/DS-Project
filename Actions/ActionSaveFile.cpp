@@ -13,9 +13,9 @@ ActionSaveFile::ActionSaveFile(ApplicationManager* pApp) :Action(pApp)
 void ActionSaveFile::Execute()
 {
 	GUI* pGUI = pManager->GetGUI();
-	color currentDrawColor = pGUI->getCrntDrawColor();
-	color currentFillColor = pGUI->getCrntFillColor();
-	color currentBgColor = pGUI->getCrntBgColor();
+	color currentDrawColor = UI.DrawColor;
+	color currentFillColor = UI.FillColor;
+	color currentBgColor = UI.BkGrndColor;
 
 	pGUI->PrintMessage("Enter name to save the file ,please");
 	//take filename from user input
