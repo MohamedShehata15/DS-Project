@@ -270,8 +270,8 @@ CFigure *ApplicationManager::GetFigure(int x, int y) const
 // Clear All Figures
 void ApplicationManager::clearAllFigures() {
 	for (int i = 0; i < FigCount; i++) {
-		FigList[FigCount - 1] = NULL;
 		delete[] FigList[i];
+		FigList[i] = NULL;
 	}
 	FigCount = 0;
 }

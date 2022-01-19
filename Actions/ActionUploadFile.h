@@ -2,10 +2,16 @@
 #define ACTION_UPLOAD_FILE_H
 
 #include "Action.h"
+#include <fstream>
+using namespace std;
 
 //Add Ellipse Action class
 class ActionUploadFile : public Action
 {
+	ifstream TheFile;
+	string FileName;
+
+
 public:
 	ActionUploadFile(ApplicationManager* pApp);
 

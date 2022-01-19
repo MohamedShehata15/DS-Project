@@ -50,6 +50,8 @@ public:
 	void PlayModeMessage(string msg1, int msg) const; //new style for message in status bar when on playmode
 
 	color getCrntDrawColor() const;	//get current drwawing color
+	color getCrntBgColor() const;//get current background color
+
 	void GUI::setnewDrawColor(color c) const; //set new drawing color
 	void GUI::setnewBackgroundColor(color bg) const;//set new bg color
 	void GUI::setnewFillColor(color bg) const; // set new fill color

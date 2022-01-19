@@ -19,6 +19,8 @@ public:
 	virtual void increase() = 0;
 	virtual void decrease() = 0;
 	virtual int GetNumber()const = 0;
+	virtual void upload(ifstream &file) = 0;
+
 
 	void SetSelected(bool );	//select/unselect the figure
 	bool IsSelected() const;	//check whether fig is selected

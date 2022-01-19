@@ -101,6 +101,8 @@ ActionType GUI::MapInputToActionType() const
 			case ITM_FILL_CLR:return CHNG_FILL_CLR;
 			
 			case ITM_UPLOAD: return LOAD;
+			case ITM_SAVE: return SAVE;
+
 			case PLAY: return TO_PLAY;
 			case ITM_SEND_BACK: return 	SEND_BACK;		
 			case ITM_BRNG_FRNT: return BRNG_FRNT;
@@ -287,6 +289,7 @@ void GUI::CreateDrawToolBar() const
 	MenuItemImages[ITM_SEND_BACK] = "images\\MenuItems\\send_to_back.jpg";
 	MenuItemImages[ITM_BRNG_FRNT]= "images\\MenuItems\\bring_to_front.jpg";
 	MenuItemImages[ITM_UPLOAD] = "images\\MenuItems\\upload.JPG";
+	MenuItemImages[ITM_SAVE]= "images\\MenuItems\\save.JPG";
 	MenuItemImages[ITM_CLEAR]= "images\\MenuItems\\clear_all.jpg";
 	MenuItemImages[PLAY] = "images\\MenuItems\\Mode_Play.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
@@ -457,6 +460,11 @@ color GUI::getCrntDrawColor() const	//get current drwawing color
 void GUI::setnewDrawColor(color c) const  //set new draw color
 {
 	UI.DrawColor = c;
+}
+
+color GUI::getCrntBgColor() const	//get current background color
+{
+	return UI.BkGrndColor;
 }
 
 void GUI::setnewBackgroundColor(color bg) const //set new bg color
