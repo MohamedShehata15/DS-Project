@@ -124,26 +124,6 @@ void PickAndHide::Message(int mode, CFigure* fig) const
 	string Figure;
 	string Color;
 
-	if (mode == 1) //check modes
-	{
-		Mode = "Pick by color, ";
-		pGUI->PrintMessage(Mode + Color);
-		return;
-
-	}
-	else if (mode == 2)
-	{
-		Mode = "Pick by figure, ";
-		pGUI->PrintMessage(Mode + Figure);
-		return;
-	}
-	else if (mode == 3)
-	{
-		Mode = "Pick by Figure & color ";
-		pGUI->PrintMessage(Mode + Figure + Color);
-	}
-
-
 	int type = GetType(fig); //check figures
 	switch (type)
 	{
@@ -170,6 +150,25 @@ void PickAndHide::Message(int mode, CFigure* fig) const
 		Color = "Black ";
 	else if (SameColor(fig->GetCurrentColor(), BLUE))
 		Color = "Blue ";
+	
+	if (mode == 1) //check modes
+	{
+		Mode = "Pick by color, ";
+		pGUI->PrintMessage(Mode + Color);
+		return;
+
+	}
+	else if (mode == 2)
+	{
+		Mode = "Pick by figure, ";
+		pGUI->PrintMessage(Mode + Figure);
+		return;
+	}
+	else if (mode == 3)
+	{
+		Mode = "Pick by Figure & color ";
+		pGUI->PrintMessage(Mode + Figure + Color);
+	}
 
 }
 
