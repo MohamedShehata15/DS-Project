@@ -1,4 +1,6 @@
 #include "CHexagon.h"
+#include "..\ApplicationManager.h"
+#include "..\GUI\GUI.h"
 
 #include <iostream>
 #include <fstream>
@@ -81,46 +83,50 @@ void CHexagon::upload(ifstream& Infile)
 	//todo
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+int CHexagon::GetNumber()const
+{
+	return hexNum;
+}
 
 void CHexagon::increase()
 {
-	 //todo
-}
-void CHexagon::decrease()
-{
-	//todo
+	hexNum++;
 }
 
-int CHexagon::GetNumber() const
+void CHexagon::decrease()
 {
-	return 0;
+	hexNum--;
 }
+
 CFigure* CHexagon::GetCopy()
 {
-	CFigure* m = nullptr;
-	return m;
+	CFigure* Copy = new CHexagon(*this);
+	return Copy;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
