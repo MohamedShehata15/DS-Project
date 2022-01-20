@@ -15,6 +15,7 @@ enum GUI_MODE	//Graphical user interface mode
 	RESIZE_MODE
 };
 
+
 enum DrawMenuItem //The items of the Draw menu (you should add more items)
 {
 	//Note: Items are ordered here as they appear in menu

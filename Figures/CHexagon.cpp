@@ -48,15 +48,19 @@ void CHexagon::saveFigure(ofstream& OutFile) {
 		// FigureType
 		//OutFile << TYPE_HEXAGON << "\t";
 		// center.x		center.y
-		OutFile << center.x << "\t" << center.y << "\t";
+		OutFile << "Ellipse ";
+		OutFile << center.x << " " << center.y << " ";
 		// rotation		radius
-		OutFile << rotation << "\t" << radius << "\t";
+
+		OutFile << rotation << " " << radius << " ";
 		// drawColor
-		OutFile << FigGfxInfo.DrawClr.ucRed << "," << FigGfxInfo.DrawClr.ucBlue << "," << FigGfxInfo.DrawClr.ucGreen;
+		OutFile << (int)FigGfxInfo.DrawClr.ucRed << "," << (int)FigGfxInfo.DrawClr.ucBlue << "," << (int)FigGfxInfo.DrawClr.ucGreen;
+
 		// isFilled, fillColor
 		if (FigGfxInfo.isFilled) {
-			OutFile << "\t" << FigGfxInfo.FillClr.ucRed << "," << FigGfxInfo.FillClr.ucBlue << "," << FigGfxInfo.FillClr.ucGreen;
+			OutFile << " " << (int)FigGfxInfo.FillClr.ucRed << "," << (int)FigGfxInfo.FillClr.ucBlue << "," << (int)FigGfxInfo.FillClr.ucGreen;
 		}
+		OutFile << "\n";
 	}
 }
 
