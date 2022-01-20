@@ -14,16 +14,16 @@ CHexagon::CHexagon(Point _center, float _rotation, int _radius, GfxInfo FigureGf
 void CHexagon::DrawMe(GUI* pGUI) const
 {
 	//Call Output::DrawRect to draw a Square on the screen	
-	//pGUI->figureDrawer->DrawHexagon(center, rotation, radius, FigGfxInfo, Selected);
+	pGUI->DrawHexagon(center, rotation, radius, FigGfxInfo, Selected);
 }
 
-bool CHexagon::isPointIn(int x, int y) const
+bool CHexagon::isWithinArea(int x, int y)
 {
 	int length = sqrt(pow(center.x - x, 2) + pow(center.y - y, 2));
 	return length <= radius;
 }
 
-bool CHexagon::Resize(float factor, GUI* pGUI)
+void CHexagon::Resize(GUI* pGUI, float factor)
 {
 	HexagonInfo hexagon;
 	hexagon.inBounds = false;
@@ -32,17 +32,15 @@ bool CHexagon::Resize(float factor, GUI* pGUI)
 	hexagon.radius = radius * factor;
 
 	// Get the drawing info
-	//pGUI->figureDrawer->GetHexagonDrawingInfo(hexagon);
+	pGUI->GetHexagonDrawingInfo(hexagon);
 
 	if (hexagon.inBounds) {
 		radius *= factor;
-		return true;
 	}
 
-	return false;
 }
 
-void CHexagon::Save(ofstream& OutFile) {
+void CHexagon::saveFigure(ofstream& OutFile) {
 	// Figure	ID	center.x	center.y	rotation	radius		drawColor	fillColor
 	// HXGN		
 
@@ -62,6 +60,63 @@ void CHexagon::Save(ofstream& OutFile) {
 	}
 }
 
-void CHexagon::Load(ifstream& Infile) {
 
+void CHexagon::PrintInfo(GUI* pGUI)
+{
+	pGUI->PrintMessage(
+		"Hexagon Id: " + to_string(ID) +
+		", center: (" + to_string(center.x) + ", " + to_string(center.y) + ")" +
+		", radius: " + to_string(radius) +
+		", border-color: (" + to_string(FigGfxInfo.DrawClr.ucRed) + ", " + to_string(FigGfxInfo.DrawClr.ucGreen) + ", " + to_string(FigGfxInfo.DrawClr.ucBlue) + ")" +
+		", fill-color: (" + to_string(FigGfxInfo.FillClr.ucRed) + ", " + to_string(FigGfxInfo.FillClr.ucGreen) + ", " + to_string(FigGfxInfo.FillClr.ucBlue) + ")" +
+		", Border-Width: " + to_string(FigGfxInfo.BorderWdth));
+}
+
+void CHexagon::upload(ifstream& Infile)
+{
+	//todo
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void CHexagon::increase()
+{
+	 //todo
+}
+void CHexagon::decrease()
+{
+	//todo
+}
+
+int CHexagon::GetNumber() const
+{
+	return 0;
+}
+CFigure* CHexagon::GetCopy()
+{
+	CFigure* m = nullptr;
+	return m;
 }

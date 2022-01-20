@@ -17,7 +17,7 @@ public:
 	virtual bool isWithinArea(int, int);
 	virtual void PrintInfo(GUI* pGUI);
 	virtual void Resize(GUI*,float);
-	void CEllipse::checkSize(GUI*, int, int);
+	void checkSize(GUI*, int, int);
 	virtual CFigure* GetCopy();
 	virtual void upload(ifstream &file); //for upload the shape
 	virtual void saveFigure(ofstream& file);//save the shape

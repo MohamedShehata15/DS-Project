@@ -39,15 +39,16 @@ public:
 	void ClearDrawArea() const;	//Clears the drawing area
 
 	bool isWithinDrawingArea(int y);
-
+	bool isInsideDrawingArea(int* xs, int* ys, int count) const;
+	bool isInsideDrawingArea(int x, int y) const;
 	// -- Figures Drawing functions
 	void DrawSquare(Point P1, int length, GfxInfo RectGfxInfo, bool selected=false) const;  //Draw a Square
 	void DrawEllipse(Point P1, int yr,int xr, GfxInfo EllGfxInfo, bool selected) const; //Draw Ellipse
 
-	/*hexagon */
-	//void GUI::GetHexagonDrawingInfo(HexagonInfo& hexagon);
-	//void GUI::DrawHexagon(Point center, float rotation, int radius, GfxInfo RectGfxInfo, bool selected);
-	/*end of haxagon*/
+
+	void GUI::GetHexagonDrawingInfo(HexagonInfo& hexagon);
+	void GUI::DrawHexagon(Point center, float rotation, int radius, GfxInfo RectGfxInfo, bool selected);
+	drawstyle setupStyle(GfxInfo RectGfxInfo, bool selected) const;
 	///TODO: Make similar functions for drawing all other figures.
 	
 	void PrintMessage(string msg) const;	//Print a message on Status bar

@@ -85,7 +85,7 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			break;
 
 		case DRAW_HEX:
-			//newAct = new ActionAddHexagon(this);
+			newAct = new ActionAddHexagon(this);
 			break;
 
 		case CHNG_DRAW_CLR:

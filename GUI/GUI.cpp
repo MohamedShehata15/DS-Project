@@ -45,6 +45,20 @@ GUI::GUI()
 //								Input Functions										    //
 //======================================================================================//
 
+bool GUI::isInsideDrawingArea(int x, int y) const
+{
+	return x > 0 && x < UI.width
+		&& y > UI.ToolBarHeight && y < UI.height - UI.StatusBarHeight;
+}
+
+bool GUI::isInsideDrawingArea(int* xs, int* ys, int count) const
+{
+	for (int i = 0; i < count; i++) {
+		if (!isInsideDrawingArea(xs[i], ys[i]))
+			return false;
+	}
+	return true;
+}
 bool GUI::isWithinDrawingArea(int y)
 {
 	return y >= UI.StatusBarHeight && y <= UI.height - UI.StatusBarHeight;
@@ -649,65 +663,87 @@ void GUI::DrawSquare(Point P1, int length, GfxInfo RectGfxInfo, bool selected) c
 	//pWind->DrawLine(P1.x, P1.y, P1.x + length, P1.y + length, style);
 
 }
-//
-//void GUI::GetHexagonDrawingInfo(HexagonInfo& hexagon)
-//{
-//	if (hexagon.radius == NULL) {
-//		// Calculate the radius of the hexagon
-//		hexagon.radius = sqrt(pow(hexagon.center.x - hexagon.firstVertex.x, 2)
-//			+ pow(hexagon.center.y - hexagon.firstVertex.y, 2));
-//	}
-//
-//	float angle = hexagon.rotation;
-//
-//	if (angle == NULL) {
-//		// Get the rotation angle of the first point
-//		angle = atan2((float)hexagon.firstVertex.y - (float)hexagon.center.y,
-//			(float)hexagon.firstVertex.x - (float)hexagon.center.x);
-//		hexagon.rotation = angle;
-//	}
-//
-//	// Find the hexagon vertex
-//	for (int i = 0; i < 6; i++) {
-//		hexagon.ipX[i] = (float)hexagon.center.x + (hexagon.radius * cos(angle));
-//		hexagon.ipY[i] = (float)hexagon.center.y + (hexagon.radius * sin(angle));
-//
-//		angle += (3.14159265 / 3);
-//	}
+
+void GUI::GetHexagonDrawingInfo(HexagonInfo& hexagon)
+{
+	if (hexagon.radius == NULL) {
+		// Calculate the radius of the hexagon
+		hexagon.radius = sqrt(pow(hexagon.center.x - hexagon.firstVertex.x, 2)
+			+ pow(hexagon.center.y - hexagon.firstVertex.y, 2));
+	}
+
+	float angle = hexagon.rotation;
+
+	if (angle == NULL) {
+		// Get the rotation angle of the first point
+		angle = atan2((float)hexagon.firstVertex.y - (float)hexagon.center.y,
+			(float)hexagon.firstVertex.x - (float)hexagon.center.x);
+		hexagon.rotation = angle;
+	}
+
+	// Find the hexagon vertex
+	for (int i = 0; i < 6; i++) {
+		hexagon.ipX[i] = (float)hexagon.center.x + (hexagon.radius * cos(angle));
+		hexagon.ipY[i] = (float)hexagon.center.y + (hexagon.radius * sin(angle));
+
+		angle += (3.14159265 / 3);
+	}
 
 	// Check if the hexagon is within the drawing area bounds
-	//if (!pGUI->isInsideDrawingArea(hexagon.ipX, hexagon.ipY, 6)) {
-	//	hexagon.inBounds = false;
-	//}
-//	else {
-//		hexagon.inBounds = true;
-//	}
-//}
+	if (!isInsideDrawingArea(hexagon.ipX, hexagon.ipY, 6)) {
+		hexagon.inBounds = false;
+	}
+	else {
+		hexagon.inBounds = true;
+	}
+}
+
+void GUI::DrawHexagon(Point center, float rotation, int radius, GfxInfo RectGfxInfo, bool selected)
+{
+	drawstyle style = setupStyle(RectGfxInfo, selected);
+
+	HexagonInfo hexagon;
+	hexagon.center = center;
+	hexagon.rotation = rotation;
+	hexagon.radius = radius;
+
+	// Get the drawing info
+	GetHexagonDrawingInfo(hexagon);
+
+	if (hexagon.inBounds) {
+		pWind->DrawPolygon(hexagon.ipX, hexagon.ipY, 6, style);
+	}
+	else {
+		PrintMessage("Can't draw outsite the drawing area!");
+	}
+}
+drawstyle GUI::setupStyle(GfxInfo RectGfxInfo, bool selected) const
+{
+	color DrawingClr;
+	if (selected)
+		DrawingClr = UI.HighlightColor; //Figure should be drawn highlighted
+	else
+		DrawingClr = RectGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, RectGfxInfo.BorderWdth);	//Set Drawing color & width
+	//pWind->SetBrush(RectGfxInfo.FillClr);
+
+	drawstyle style;
+	if (RectGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(RectGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+
+	return style;
+}
 	
 
 
 
 
-//void GUI::DrawHexagon(Point center, float rotation, int radius, GfxInfo RectGfxInfo, bool selected)
-//{
-//	//drawstyle style = setupStyle(RectGfxInfo, selected);
-//
-//	HexagonInfo hexagon;
-//	hexagon.center = center;
-//	hexagon.rotation = rotation;
-//	hexagon.radius = radius;
-//
-//	// Get the drawing info
-//	GetHexagonDrawingInfo(hexagon);
-//
-//	if (hexagon.inBounds) {
-//		//pWind->DrawPolygon(hexagon.ipX, hexagon.ipY, 6, style);
-//	}
-//	else {
-//		PrintMessage("Can't draw outsite the drawing area!");
-//	}
-//}
-//
 
 
 
