@@ -51,8 +51,7 @@ int PickAndHide::GetType(CFigure* fig) const
 {
 	if (dynamic_cast<CSquare*>(fig)) return 1;
 	if (dynamic_cast<CEllipse*>(fig)) return 2;
-
-	//waiting for Hex
+	if (dynamic_cast<CHexagon*>(fig)) return 3;
 }
 
 bool PickAndHide::checkColor_Figure(int f, color c, CFigure* rand) const
@@ -82,7 +81,17 @@ bool PickAndHide::checkColor_Figure(int f, color c, CFigure* rand) const
 				}
 			}
 		}
-		// add one for hex if implemented
+		else if (dynamic_cast<CHexagon*>(FigureList[i]))
+		{
+			if (f == 3)
+			{
+				if (FigureList[i]->IsFilled() && rand->IsFilled())
+				{
+					if (SameColor(FigureList[i]->GetCurrentColor(), c))
+						return true;
+				}
+			}
+		}
 	}
 	return false;
 }
@@ -97,7 +106,10 @@ bool PickAndHide::CheckFigure(CFigure* fig, int m) const
 	{
 		if (dynamic_cast<CEllipse*>(fig)) return true;
 	}
-	//waiting for hex
+	else if (m == 3)
+	{
+		if (dynamic_cast<CHexagon*>(fig)) return true;
+	}
 
 	return false;
 }
