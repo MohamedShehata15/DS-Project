@@ -35,8 +35,7 @@ void ActionUploadFile::Execute()
 
 		string Draw_Color; // variable for drawing color
 		TheFile >> Draw_Color;
-		cout<<Draw_Color;
-		if (Draw_Color=="BLUE")
+		if (Draw_Color == "BLUE")
 		{
 			pGUI->setnewDrawColor(BLUE);
 		}
@@ -70,10 +69,9 @@ void ActionUploadFile::Execute()
 		string Fill_Color; // variable for filling color
 
 		TheFile >> Fill_Color;
-		cout << Fill_Color;
 		if (Fill_Color == "NO_FILL")   //if no fill make fill color=backgroundcolor
 		{
-			pGUI->setnewFillColor(pGUI->getCrntBgColor());
+			pGUI->setIsFilled(false);
 
 		}
         //there is fill color
