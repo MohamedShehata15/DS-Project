@@ -7,6 +7,7 @@
 #include "..\Figures\CFigure.h"
 #include "..\Figures\CSquare.h"
 #include "..\Figures\CEllipse.h"
+#include "..\Figures\CHexagon.h"
 
 //TODO: add the remaining cfigures.h files
 
