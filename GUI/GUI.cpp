@@ -648,7 +648,7 @@ void GUI::DrawSquare(Point P1, int length, GfxInfo RectGfxInfo, bool selected) c
 	else			
 		DrawingClr = RectGfxInfo.DrawClr;
 	
-	pWind->SetPen(DrawingClr, RectGfxInfo.BorderWdth);	//Set Drawing color & width
+	pWind->SetPen(DrawingClr, 3);	//Set Drawing color & width
 	
 	drawstyle style;
 	if (RectGfxInfo.isFilled)	
