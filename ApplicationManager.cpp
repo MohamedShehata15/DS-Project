@@ -9,16 +9,14 @@
 #include "Actions/ActionUploadFile.h"
 #include "Actions/ActionSaveFile.h"
 #include "Actions/ActionSwitchToResizeMode.h"
+#include "Actions/ActionExit.h"
 #include <iostream>
-
 #include "Actions/ActionAddHexagon.h"
 #include "GUI/GUI.h"
-
 #include "Actions/ActionBringToFront.h"
 #include "Actions/ActionDeleteFigure.h"
 #include "Actions/ActionResizeFigure.h"
 #include "Actions/ActionSendToBack.h"
-
 #include "Actions\SwitchToColorsMode.h";
 #include "Actions\ActionclearAllFigures.h";
 
@@ -43,7 +41,6 @@ void ApplicationManager::Run()
 	ActionType ActType;
 	do
 	{
-
 		//1- Read user action
 		ActType = pGUI->MapInputToActionType();
 
@@ -55,10 +52,7 @@ void ApplicationManager::Run()
 
 		//4- Update the interface
 		UpdateInterface();
-		
-
-
-	}while(ActType != EXIT);
+	}while(true);
 	
 }
 
@@ -179,6 +173,7 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			break;
 		case EXIT:
 			///create ExitAction here
+			newAct = new ActionExit(this);
 			
 			break;
 		

@@ -136,6 +136,7 @@
     <ClCompile Include="Actions\ActionChngBgClr.cpp" />
     <ClCompile Include="Actions\ActionDeleteFigure.cpp" />
     <ClCompile Include="Actions\ActionChngFillClr.cpp" />
+    <ClCompile Include="Actions\ActionExit.cpp" />
     <ClCompile Include="Actions\ActionResizeFigure.cpp" />
     <ClCompile Include="Actions\ActionSaveFile.cpp" />
     <ClCompile Include="Actions\ActionSwitchToResizeMode.cpp" />
@@ -197,6 +198,7 @@
     <ClInclude Include="Actions\ActionChngBgClr.h" />
     <ClInclude Include="Actions\ActionDeleteFigure.h" />
     <ClInclude Include="Actions\ActionChngFillClr.h" />
+    <ClInclude Include="Actions\ActionExit.h" />
     <ClInclude Include="Actions\ActionResizeFigure.h" />
     <ClInclude Include="Actions\ActionSaveFile.h" />
     <ClInclude Include="Actions\ActionSwitchToResizeMode.h" />

@@ -1,6 +1,8 @@
 #include "PickAndHide.h"
 #include <iostream>
 
+#include "ActionExit.h"
+
 PickAndHide::PickAndHide(ApplicationManager* pApp) :Action(pApp)
 {
 	score = correct = uncorrect = 0;
@@ -480,7 +482,8 @@ void PickAndHide::Execute()
 		}
 		case EXIT:
 		{
-			cout << "EXIT\n";
+			Action* exitAction = new ActionExit(pManager);
+			pManager->ExecuteAction(exitAction);
 			break;
 		}
 		}
