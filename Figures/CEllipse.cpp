@@ -8,10 +8,13 @@
 
 CEllipse::CEllipse(Point P1, int xr,int yr, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
 {
+	ID = ++ellipseNum;
 	center = P1;
 	xradius = xr;
 	yradius = yr;
 }
+
+int CEllipse::ellipseNum = 0;
 
 
 bool CEllipse::isWithinArea(int x ,int y)
@@ -206,11 +209,11 @@ int CEllipse::GetNumber()const
 {
 	return ellipseNum;
 }
-void CEllipse::increase()
-{
-	ellipseNum++;
-}
-void CEllipse::decrease()
-{
-	ellipseNum--;
-}
+//void CEllipse::increase()
+//{
+//	ellipseNum++;
+//}
+//void CEllipse::decrease()
+//{
+//	ellipseNum--;
+//}

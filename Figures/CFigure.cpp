@@ -6,10 +6,6 @@ CFigure::CFigure(GfxInfo FigureGfxInfo)
 	Selected = false;
 }
 
-int CFigure::squareNum = 0;
-int CFigure::ellipseNum = 0;
-int CFigure::hexNum = 0;
-
 void CFigure::SetSelected(bool s)
 {	Selected = s; }
 

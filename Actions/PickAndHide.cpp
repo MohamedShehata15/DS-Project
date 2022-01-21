@@ -307,13 +307,13 @@ void PickAndHide::Execute()
 				Message(2, fig);
 				do
 				{
+					selected = NULL;
 					actType = pGUI->MapInputToActionType(P.x, P.y);
 					if (P.y >= 0 && P.y < UI.ToolBarHeight && P.x <= UI.MenuItemWidth * PLAY_ITM_COUNT)
 					{
 						flag = true;
 						break;
 					}
-					selected = NULL;
 					selected = GetFigure(P);
 					if (selected != NULL && CheckFigure(selected, GetType(fig)))
 					{
@@ -332,7 +332,7 @@ void PickAndHide::Execute()
 						pGUI->PlayModeMessage("Wrong selection Be careful, Your score :   ", score);
 					}
 
-				} while (n != 0 && Lifes != 0);
+				} while (n != 0 && CheckFigure(fig, GetType(fig)) && Lifes != 0);
 
 			} while (FigureList.size() != 0 && Lifes != 0 && !flag);
 

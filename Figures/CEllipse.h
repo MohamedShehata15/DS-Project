@@ -21,8 +21,8 @@ public:
 	virtual CFigure* GetCopy();
 	virtual void upload(ifstream &file); //for upload the shape
 	virtual void saveFigure(ofstream& file);//save the shape
-	virtual void increase();
-	virtual void decrease();
+	/*virtual void increase();
+	virtual void decrease();*/
 	virtual int GetNumber()const; //to know how many shapes are drawn
 };
 

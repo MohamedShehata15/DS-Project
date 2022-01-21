@@ -7,10 +7,13 @@
 
 CHexagon::CHexagon(Point _center, float _rotation, int _radius, GfxInfo FigureGfxInfo) :CFigure(FigureGfxInfo)
 {
+	ID = ++hexNum;
 	center = _center;
 	rotation = _rotation;
 	radius = _radius;
 }
+
+int CHexagon::hexNum = 0;
 
 
 void CHexagon::DrawMe(GUI* pGUI) const
@@ -88,15 +91,15 @@ int CHexagon::GetNumber()const
 	return hexNum;
 }
 
-void CHexagon::increase()
-{
-	hexNum++;
-}
-
-void CHexagon::decrease()
-{
-	hexNum--;
-}
+//void CHexagon::increase()
+//{
+//	hexNum++;
+//}
+//
+//void CHexagon::decrease()
+//{
+//	hexNum--;
+//}
 
 CFigure* CHexagon::GetCopy()
 {

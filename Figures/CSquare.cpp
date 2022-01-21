@@ -4,9 +4,12 @@
 
 CSquare::CSquare(Point P1, int len, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
 {
+	ID = ++squareNum;
 	TopLeftCorner = P1;
 	length = len;
 }
+
+int CSquare::squareNum = 0;
 	
 bool CSquare::isWithinArea(int x, int y)
 {
@@ -188,11 +191,11 @@ int CSquare::GetNumber()const
 {
 	return squareNum;
 }
-void CSquare::increase()
-{
-	squareNum++;
-}
-void CSquare::decrease()
-{
-	squareNum--;
-}
+//void CSquare::increase()
+//{
+//	squareNum++;
+//}
+//void CSquare::decrease()
+//{
+//	squareNum--;
+//}

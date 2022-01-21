@@ -18,8 +18,8 @@ public:
 	virtual void PrintInfo(GUI* pGUI);
 	virtual void saveFigure(ofstream& file);//save the shape
 	virtual void upload(ifstream& Infile);
-	virtual void increase();
-	virtual void decrease();
+	/*virtual void increase();
+	virtual void decrease();*/
 	virtual int GetNumber() const; //to know how many shapes are drawn
 	virtual CFigure* GetCopy();
 

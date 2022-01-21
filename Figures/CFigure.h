@@ -16,8 +16,8 @@ protected:
 
 public:
 	CFigure(GfxInfo FigureGfxInfo);
-	virtual void increase() = 0;
-	virtual void decrease() = 0;
+	/*virtual void increase() = 0;
+	virtual void decrease() = 0;*/
 	virtual int GetNumber()const = 0;
 	virtual void upload(ifstream &file) = 0;
 	virtual void saveFigure(ofstream &file) = 0;
