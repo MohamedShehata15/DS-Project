@@ -21,7 +21,7 @@ void ActionAddHexagon::Execute()
 
 	//get drawing, filling colors and pen width from the interface
 	GfxInfo SqrGfxInfo;
-	SqrGfxInfo.isFilled = pGUI->getIsFilled();
+	SqrGfxInfo.isFilled = UI.isFilled;
 	SqrGfxInfo.DrawClr = pGUI->getCrntDrawColor();
 	SqrGfxInfo.FillClr = pGUI->getCrntFillColor();
 	SqrGfxInfo.BorderWdth = pGUI->getCrntPenWidth();
@@ -54,21 +54,14 @@ void ActionAddHexagon::Execute()
 	pGUI->GetHexagonDrawingInfo(hexagon);
 
 	if (hexagon.inBounds) {
-		CreateFigure(hexagon.center, hexagon.rotation, hexagon.radius, SqrGfxInfo);
+		CHexagon* R = new CHexagon(Center, hexagon.rotation, hexagon.radius, SqrGfxInfo);
+		pManager->AddFigure(R);
+
 	}
 	else {
 		pGUI->PrintMessage("Can't draw outside the drawing area!");
 	}
 
-}
-
-void ActionAddHexagon::CreateFigure(Point Center, float Rotation, int Radius, GfxInfo SqrGfxInfo)
-{
-	//Step 3 - Create a Hexagon with the parameters read from the user
-	CHexagon* R = new CHexagon(Center, Rotation, Radius, SqrGfxInfo);
-
-	//Step 4 - Add the Square to the list of figures
-	pManager->AddFigure(R);
 }
 
 

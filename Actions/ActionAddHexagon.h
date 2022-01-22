@@ -13,7 +13,6 @@ public:
 
 	//Add Hexagon to the ApplicationManager
 	virtual void Execute();
-	void CreateFigure(Point Center, float Rotation, int Radius, GfxInfo SqrGfxInfo);
 };
 
 #endif

@@ -3,6 +3,7 @@
 
 #include "..\Figures\CEllipse.h"
 #include "..\Figures\CSquare.h"
+#include "..\Figures\CHexagon.h"
 #include "..\GUI\GUI.h"
 #include <fstream>
 #include <iostream>
@@ -35,6 +36,7 @@ void ActionUploadFile::Execute()
 
 		string Draw_Color; // variable for drawing color
 		TheFile >> Draw_Color;
+		cout << Draw_Color;
 		if (Draw_Color == "BLUE")
 		{
 			pGUI->setnewDrawColor(BLUE);
@@ -173,6 +175,13 @@ void ActionUploadFile::Execute()
 				center.x = 0; 
 				center.y = 0;
 				loadedFigure = new CEllipse(center, yradius, xradius, FigGfxInfo);
+			}
+			else if (shape_type == "HEXA")
+			{
+				Point center;
+				center.x = 0;
+				center.y = 0;
+				loadedFigure = new CHexagon(center, NULL, NULL, FigGfxInfo);
 			}
 
 

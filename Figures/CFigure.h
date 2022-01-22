@@ -35,6 +35,7 @@ public:
 	int GetNumOfEllipses()const;
 	int GetNumOfHexagons()const;
 
+
 	/// <summary>
 	/// a function that a takes a point and determine if it's within the shape area
 	/// </summary>

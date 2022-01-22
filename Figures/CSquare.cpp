@@ -70,10 +70,8 @@ void CSquare::upload(ifstream& file)
 	file >> ID;
 	file >> TopLeftCorner.x >> TopLeftCorner.y >> length;
 	file >> DrawColor >> FillColor;
-	string a = "102,50,30";
-
-	//FigGfxInfo.DrawClr = color((int)'102', (int)'50', (int)'30');
 	//which color for draw
+	
 	if (DrawColor == "BLUE")
 	{
 		FigGfxInfo.DrawClr = BLUE;
@@ -138,7 +136,8 @@ void CSquare::upload(ifstream& file)
 		{
 			FigGfxInfo.FillClr = RED;
 		}
-	}
+		
+}
 
 }
 

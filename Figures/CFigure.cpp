@@ -46,3 +46,4 @@ int CFigure::GetNumOfHexagons() const
 	return hexNum;
 }
 
+

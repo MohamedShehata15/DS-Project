@@ -45,28 +45,41 @@ void CHexagon::Resize(GUI* pGUI, float factor)
 
 }
 
-void CHexagon::saveFigure(ofstream& OutFile) {
-	// Figure	ID	center.x	center.y	rotation	radius		drawColor	fillColor
-	// HXGN		
+void CHexagon::saveFigure(ofstream& file) {
+	string Draw_Color;
+	string Fill_Color;
+	if (int(FigGfxInfo.DrawClr.ucRed) == 0 && int(FigGfxInfo.DrawClr.ucGreen) == 0 && int(FigGfxInfo.DrawClr.ucBlue) == 0)
+		Draw_Color = "BLACK";
+	if (int(FigGfxInfo.DrawClr.ucRed) == 255 && int(FigGfxInfo.DrawClr.ucGreen) == 0 && int(FigGfxInfo.DrawClr.ucBlue) == 0)
+		Draw_Color = "RED";
+	if (int(FigGfxInfo.DrawClr.ucRed) == 0 && int(FigGfxInfo.DrawClr.ucGreen) == 255 && int(FigGfxInfo.DrawClr.ucBlue) == 0)
+		Draw_Color = "GREEN";
+	if (int(FigGfxInfo.DrawClr.ucRed) == 0 && int(FigGfxInfo.DrawClr.ucGreen) == 0 && int(FigGfxInfo.DrawClr.ucBlue) == 255)
+		Draw_Color = "BLUE";
+	if (int(FigGfxInfo.DrawClr.ucRed) == 255 && int(FigGfxInfo.DrawClr.ucGreen) == 255 && int(FigGfxInfo.DrawClr.ucBlue) == 0)
+		Draw_Color = "YELLOW";
+	if (int(FigGfxInfo.DrawClr.ucRed) == 250 && int(FigGfxInfo.DrawClr.ucGreen) == 250 && int(FigGfxInfo.DrawClr.ucBlue) == 210)
+		Draw_Color = "OFFWHITE";
 
-	if (OutFile.is_open()) {
-		// FigureType
-		//OutFile << TYPE_HEXAGON << "\t";
-		// center.x		center.y
-		OutFile << "Ellipse ";
-		OutFile << center.x << " " << center.y << " ";
-		// rotation		radius
-
-		OutFile << rotation << " " << radius << " ";
-		// drawColor
-		OutFile << (int)FigGfxInfo.DrawClr.ucRed << "," << (int)FigGfxInfo.DrawClr.ucBlue << "," << (int)FigGfxInfo.DrawClr.ucGreen;
-
-		// isFilled, fillColor
-		if (FigGfxInfo.isFilled) {
-			OutFile << " " << (int)FigGfxInfo.FillClr.ucRed << "," << (int)FigGfxInfo.FillClr.ucBlue << "," << (int)FigGfxInfo.FillClr.ucGreen;
-		}
-		OutFile << "\n";
+	if (FigGfxInfo.isFilled)
+	{
+		//fill
+		if (int(FigGfxInfo.FillClr.ucRed) == 0 && int(FigGfxInfo.FillClr.ucGreen) == 0 && int(FigGfxInfo.FillClr.ucBlue) == 0)
+			Fill_Color = "BLACK";
+		if (int(FigGfxInfo.FillClr.ucRed) == 255 && int(FigGfxInfo.FillClr.ucGreen) == 0 && int(FigGfxInfo.FillClr.ucBlue) == 0)
+			Fill_Color = "RED";
+		if (int(FigGfxInfo.FillClr.ucRed) == 0 && int(FigGfxInfo.FillClr.ucGreen) == 255 && int(FigGfxInfo.FillClr.ucBlue) == 0)
+			Fill_Color = "GREEN";
+		if (int(FigGfxInfo.FillClr.ucRed) == 0 && int(FigGfxInfo.FillClr.ucGreen) == 0 && int(FigGfxInfo.FillClr.ucBlue) == 255)
+			Fill_Color = "BLUE";
+		if (int(FigGfxInfo.FillClr.ucRed) == 255 && int(FigGfxInfo.FillClr.ucGreen) == 255 && int(FigGfxInfo.FillClr.ucBlue) == 0)
+			Fill_Color = "YELLOW";
 	}
+	else
+		Fill_Color = "NO_FILL";
+
+	file << "HEXA" << "  " << ID << "  " << center.x << "  " << center.y << "  " << rotation << "  " << radius << "  " << Draw_Color << "  " << Fill_Color << "  " << endl;
+
 }
 
 
@@ -75,15 +88,91 @@ void CHexagon::PrintInfo(GUI* pGUI)
 	pGUI->PrintMessage(
 		"Hexagon Id: " + to_string(ID) +
 		", center: (" + to_string(center.x) + ", " + to_string(center.y) + ")" +
+		",rotation:" + to_string(rotation)+
 		", radius: " + to_string(radius) +
 		", border-color: (" + to_string(FigGfxInfo.DrawClr.ucRed) + ", " + to_string(FigGfxInfo.DrawClr.ucGreen) + ", " + to_string(FigGfxInfo.DrawClr.ucBlue) + ")" +
 		", fill-color: (" + to_string(FigGfxInfo.FillClr.ucRed) + ", " + to_string(FigGfxInfo.FillClr.ucGreen) + ", " + to_string(FigGfxInfo.FillClr.ucBlue) + ")" +
 		", Border-Width: " + to_string(FigGfxInfo.BorderWdth));
 }
 
-void CHexagon::upload(ifstream& Infile)
+void CHexagon::upload(ifstream& file)
 {
-	//todo
+	Selected = false;
+	string DrawColor;
+	string FillColor;
+	file >> ID;
+	file >> center.x;
+	file >> center.y;
+	file >> rotation;
+	file >> radius;
+	file >> DrawColor >> FillColor;
+
+	if (DrawColor == "BLUE")
+	{
+		FigGfxInfo.DrawClr = BLUE;
+	}
+	else if (DrawColor == "BLACK")
+	{
+		FigGfxInfo.DrawClr = BLACK;
+	}
+
+	else if (DrawColor == "OFFWHITE")
+	{
+		FigGfxInfo.DrawClr = LIGHTGOLDENRODYELLOW;
+	}
+
+	else if (DrawColor == "GREEN")
+	{
+		FigGfxInfo.DrawClr = GREEN;
+	}
+
+	else if (DrawColor == "YELLOW")
+	{
+		FigGfxInfo.DrawClr = YELLOW;
+	}
+
+	else if (DrawColor == "RED")
+	{
+		FigGfxInfo.DrawClr = RED;
+	}//end of drawing color
+
+
+
+	//which color for filling
+	if (FillColor == "NO_FILL")
+	{
+		FigGfxInfo.isFilled = false;
+		FigGfxInfo.FillClr = LIGHTGOLDENRODYELLOW;
+	}
+	else
+	{
+		FigGfxInfo.isFilled = true;
+
+		if (FillColor == "BLUE")
+		{
+			FigGfxInfo.FillClr = BLUE;
+		}
+		else if (FillColor == "BLACK")
+		{
+			FigGfxInfo.FillClr = BLACK;
+		}
+
+		else if (FillColor == "GREEN")
+		{
+			FigGfxInfo.FillClr = GREEN;
+		}
+
+		else if (FillColor == "YELLOW")
+		{
+			FigGfxInfo.FillClr = YELLOW;
+		}
+
+		else if (FillColor == "RED")
+		{
+			FigGfxInfo.FillClr = RED;
+		}
+
+	}
 }
 
 int CHexagon::GetNumber()const
