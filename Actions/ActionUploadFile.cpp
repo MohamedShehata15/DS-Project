@@ -156,6 +156,7 @@ void ActionUploadFile::Execute()
 			CFigure* loadedFigure = NULL; //pointer to loaded figure
 			string shape_type; //variable for type of shape
 			GfxInfo FigGfxInfo; //style for the shape
+			FigGfxInfo.BorderWdth = UI.PenWidth;
 
 
 			TheFile >> shape_type;
