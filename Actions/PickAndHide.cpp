@@ -205,8 +205,6 @@ void PickAndHide::Delete(CFigure* fig)
 }
 
 
-
-
 void PickAndHide::Execute()
 {
 

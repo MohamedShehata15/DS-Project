@@ -122,7 +122,12 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			break;
 		case TO_PLAY:
 			cout << "welcome to play mode!\n";
-			newAct = new PickAndHide(this);
+			if (FigCount <= 0) {
+				pGUI->PrintMessage("You must draw at least one shape in order to enter Play Mode!");
+			}
+			else {
+				newAct = new PickAndHide(this);
+			}
 			break;
 		case TO_DRAW:
 			cout << "welcome to draw mode again!\n";
