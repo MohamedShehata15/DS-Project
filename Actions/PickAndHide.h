@@ -36,6 +36,10 @@ public:
 	bool IfColorExisting(CFigure*)const;
 	bool checkColor_Figure(int f, color c, CFigure* rand) const;
 
+	void pickColor(bool);
+	void pickFigure(bool);
+	void pickFill(bool);
+
 	~PickAndHide(void);
 };
 #endif
