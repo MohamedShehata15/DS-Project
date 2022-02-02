@@ -146,6 +146,7 @@
     <ClCompile Include="Actions\ActionUploadFile.cpp" />
     <ClCompile Include="Actions\ActionclearAllFigures.cpp" />
     <ClCompile Include="Actions\PickAndHide.cpp" />
+    <ClCompile Include="Actions\PickAndHideActions.cpp" />
     <ClCompile Include="Actions\SwitchToColorsMode.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp" />
     <ClCompile Include="CMUgraphicsLib\CMUgraphics.cpp" />
