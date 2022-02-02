@@ -223,7 +223,7 @@ void PickAndHide::pickFill(bool flag) {
 		}
 	} while ((actType == DRAWING_AREA || actType == EMPTY) && (FigureList.size() != 0 && lifes != 0));
 
-	if (actType == PICK_COLOR || actType == PICK_FIGURE || actType == PICK_FILLED)
+	if (actType == PICK_COLOR || actType == PICK_FIGURE || actType == PICK_FIGURE_COLOR)
 		return;
 
 	else if (actType == TO_DRAW)

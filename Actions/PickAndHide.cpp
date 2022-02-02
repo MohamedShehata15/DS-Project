@@ -240,7 +240,7 @@ void PickAndHide::Execute()
 			/**********/
 			break;
 		}
-		case PICK_FILL:
+		case PICK_FIG_CLR:
 		{
 			cout << "PICK_FILL\n";
 			/***********/

@@ -30,7 +30,7 @@ enum ActionType //The actions supported (you can add more if needed)
 	EXIT,			//Exit the application
 	PICK_CLR,
 	PICK_FIG,
-	PICK_FILL,
+	PICK_FIG_CLR,
 
 	DRAWING_AREA,	//A click on the drawing area
 	STATUS,			//A click on the status bar

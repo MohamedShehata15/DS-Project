@@ -153,7 +153,7 @@ ActionType GUI::MapInputToActionType(int& X, int& Y) const
 			{
 			case PICK_FIGURE: return PICK_FIG;
 			case PICK_COLOR: return PICK_CLR;
-			case PICK_FILLED: return PICK_FILL;
+			case PICK_FIGURE_COLOR: return PICK_FIG_CLR;
 			case DRAW: return TO_DRAW;
 			case END: return EXIT;
 
@@ -279,7 +279,7 @@ ActionType GUI::MapInputToActionType() const
 			{
 			case PICK_FIGURE: return PICK_FIG;
 			case PICK_COLOR: return PICK_CLR;
-			case PICK_FILLED: return PICK_FILL;
+			case PICK_FIGURE_COLOR: return PICK_FIG_CLR;
 			case DRAW: return TO_DRAW;
 			case END: return EXIT;
 
@@ -455,7 +455,7 @@ void GUI::CreatePlayToolBar() const
 	string MenuItemImagesPlayMode[PLAY_ITM_COUNT];
 	MenuItemImagesPlayMode[PICK_FIGURE] = "images\\MenuItems\\Pick_Figure.jpg";
 	MenuItemImagesPlayMode[PICK_COLOR] = "images\\MenuItems\\Pick_Color.jpg";
-	MenuItemImagesPlayMode[PICK_FILLED] = "images\\MenuItems\\Pick_Filled.jpg";
+	MenuItemImagesPlayMode[PICK_FIGURE_COLOR] = "images\\MenuItems\\Pick_Filled.jpg";
 	MenuItemImagesPlayMode[DRAW] = "images\\MenuItems\\Mode_Draw.jpg";
 	MenuItemImagesPlayMode[END] = "images\\MenuItems\\Menu_Exit.jpg";
 
