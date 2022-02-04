@@ -719,31 +719,7 @@ void GUI::DrawHexagon(Point center, float angle, int radius, GfxInfo RectGfxInfo
 	{
 		PrintMessage("Can't draw outsite the drawing area!");
 	}
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 void GUI::DrawEllipse(Point P1, int yr,int xr, GfxInfo EllGfxInfo, bool selected) const
 {
@@ -766,36 +742,7 @@ void GUI::DrawEllipse(Point P1, int yr,int xr, GfxInfo EllGfxInfo, bool selected
 
 							
 	pWind->DrawEllipse(P1.x - yr, P1.y + xr, P1.x + yr, P1.y - xr, style);
-
-
-
-
-
 }
-//
-//void GUI::DrawHexagone(Point points[], GfxInfo RectGfxInfo, bool selected) const
-//{
-//	color DrawingClr;
-//	if (selected)
-//		DrawingClr = UI.HighlightColor; //Figure should be drawn highlighted
-//	else
-//		DrawingClr = RectGfxInfo.DrawClr;
-//
-//	pWind->SetPen(DrawingClr, RectGfxInfo.BorderWdth);	//Set Drawing color & width
-//
-//	drawstyle style;
-//	if (RectGfxInfo.isFilled)
-//	{
-//		style = FILLED;
-//		pWind->SetBrush(RectGfxInfo.FillClr);
-//	}
-//	else
-//		style = FRAME;
-//
-//	int XPoints2[] = { points[0].x, points[1].x, points[2].x, points[3].x, points[4].x, points[5].x };
-//	int YPoints2[] = { points[0].y, points[1].y, points[2].y, points[3].y, points[4].y, points[5].y };
-//	pWind->DrawPolygon(XPoints2, YPoints2, 6, style);
-//}
 
 //////////////////////////////////////////////////////////////////////////////////////////
 GUI::~GUI()

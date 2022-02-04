@@ -54,9 +54,8 @@ public:
 	float GetHexagonRadius(Point center, Point vertex);
 
 	void GUI::DrawHexagon(Point center, float angle, int radius, GfxInfo RectGfxInfo, bool selected);
-	/*_____ End of Ayman Functions _____ */
 
-	///TODO: Make similar functions for drawing all other figures.
+
 	
 	void PrintMessage(string msg) const;	//Print a message on Status bar
 	void PlayModeMessage(string msg1, int msg) const; //new style for message in status bar when on playmode
