@@ -46,9 +46,16 @@ public:
 	void DrawEllipse(Point P1, int yr,int xr, GfxInfo EllGfxInfo, bool selected) const; //Draw Ellipse
 
 
-	void GUI::GetHexagonDrawingInfo(HexagonInfo& hexagon);
-	void GUI::DrawHexagon(Point center, float rotation, int radius, GfxInfo RectGfxInfo, bool selected);
-	drawstyle setupStyle(GfxInfo RectGfxInfo, bool selected) const;
+	
+
+	/*_____ Hexagon Functions _____ */
+	void GetHexagonCoordinates(Point center, float radius, float angle, int* xCoordinates, int* yCoordinates);
+	float GetHexagonAngle(Point, Point);
+	float GetHexagonRadius(Point center, Point vertex);
+
+	void GUI::DrawHexagon(Point center, float angle, int radius, GfxInfo RectGfxInfo, bool selected);
+	/*_____ End of Ayman Functions _____ */
+
 	///TODO: Make similar functions for drawing all other figures.
 	
 	void PrintMessage(string msg) const;	//Print a message on Status bar

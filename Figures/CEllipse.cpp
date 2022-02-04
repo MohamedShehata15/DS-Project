@@ -52,7 +52,7 @@ void CEllipse::PrintInfo(GUI* pGUI)
 {
 	pGUI->PrintMessage(
 		"Ellipse Id: " + to_string(ID) +
-		", Center: (" + to_string(center.x) + ", " + to_string(center.y) + ")" +
+		", center: (" + to_string(center.x) + ", " + to_string(center.y) + ")" +
 		", Y Radius: " + to_string(yradius) +
 		", X Radius: " + to_string(xradius) +
 		", area: " + to_string(3.14* yradius * xradius) +

@@ -1473,9 +1473,9 @@ void window::Print() {
       
     if((GetDeviceCaps(dcPrinter, RASTERCAPS) & RC_STRETCHBLT) != RC_STRETCHBLT) {
     
-        // Center the image horizontally
+        // center the image horizontally
         iXPos = (GetDeviceCaps(dcPrinter, HORZRES) - iWindowWidth) >> 1;
-        // Center the image vertically
+        // center the image vertically
         iYPos = (GetDeviceCaps(dcPrinter, VERTRES) - iWindowHeight) >> 1;
 
 
@@ -1487,7 +1487,7 @@ void window::Print() {
         iPrinterWidth = GetDeviceCaps(dcPrinter, HORZRES);
         iPrinterHeight = int(double(iPrinterWidth) * double(iWindowHeight) / double(iWindowWidth));
 
-        // Center the image vertically
+        // center the image vertically
         iYPos = (GetDeviceCaps(dcPrinter, VERTRES) - iPrinterHeight) >> 1;
 
         if(StretchBlt(dcPrinter, 0, iYPos, iPrinterWidth, iPrinterHeight, dcActive, 0, 0, iWindowWidth, iWindowHeight, SRCCOPY) != TRUE) {

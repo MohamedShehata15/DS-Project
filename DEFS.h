@@ -62,14 +62,5 @@ struct GfxInfo	//Graphical info of each figure (you may add more members)
 	int BorderWdth;	//Width of figure borders
 
 };
-struct HexagonInfo
-{
-	bool inBounds;
-	Point center;
-	Point firstVertex;
-	float rotation;
-	int radius;
-	int ipX[6];
-	int ipY[6];
-};
+
 #endif

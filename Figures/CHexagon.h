@@ -7,10 +7,12 @@ class CHexagon : public CFigure
 {
 private:
 	Point center;
-	float rotation;
+	float angle;
 	int radius;
+	int xCoordinates[6];
+	int yCoordinates[6];
 public:
-	CHexagon(Point _center, float _rotation, int _radius, GfxInfo FigureGfxInfo);
+	CHexagon(Point _center, float _angle, int _radius, GfxInfo FigureGfxInfo);
 	virtual void DrawMe(GUI* pOut) const;
 	virtual bool isWithinArea(int x, int y);
 	virtual void Resize(GUI* pGUI, float factor);
@@ -18,6 +20,8 @@ public:
 	virtual void PrintInfo(GUI* pGUI);
 	virtual void saveFigure(ofstream& file);//save the shape
 	virtual void upload(ifstream& Infile);
+	void GetHexagonCoordinates(Point center, float radius, float angle, int* xCoordinates, int* yCoordinates);
+	void checkSize(GUI* pGUI, int oldRadius);
 	/*virtual void increase();
 	virtual void decrease();*/
 	virtual int GetNumber() const; //to know how many shapes are drawn

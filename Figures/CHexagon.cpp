@@ -5,21 +5,33 @@
 #include <iostream>
 #include <fstream>
 
-CHexagon::CHexagon(Point _center, float _rotation, int _radius, GfxInfo FigureGfxInfo) :CFigure(FigureGfxInfo)
+CHexagon::CHexagon(Point _center, float _angle, int _radius, GfxInfo FigureGfxInfo) :CFigure(FigureGfxInfo)
 {
 	ID = ++hexNum;
 	center = _center;
-	rotation = _rotation;
+	angle = _angle;
 	radius = _radius;
+	GetHexagonCoordinates(center, radius, angle, xCoordinates, yCoordinates);
+
 }
 
 int CHexagon::hexNum = 0;
+
+void CHexagon::GetHexagonCoordinates(Point center, float radius, float angle, int* xCoordinates, int* yCoordinates)
+{
+	for (int i = 0; i < 6; i++) {
+		xCoordinates[i] = (float)center.x + (radius * cos(angle));
+		yCoordinates[i] = (float)center.y + (radius * sin(angle));
+
+		angle += (3.14159265 / 3);
+	}
+}
 
 
 void CHexagon::DrawMe(GUI* pGUI) const
 {
 	//Call Output::DrawRect to draw a Square on the screen	
-	pGUI->DrawHexagon(center, rotation, radius, FigGfxInfo, Selected);
+	pGUI->DrawHexagon(center, angle, radius, FigGfxInfo, Selected);
 }
 
 bool CHexagon::isWithinArea(int x, int y)
@@ -30,21 +42,27 @@ bool CHexagon::isWithinArea(int x, int y)
 
 void CHexagon::Resize(GUI* pGUI, float factor)
 {
-	HexagonInfo hexagon;
-	hexagon.inBounds = false;
-	hexagon.center = center;
-	hexagon.rotation = rotation;
-	hexagon.radius = radius * factor;
 
-	// Get the drawing info
-	pGUI->GetHexagonDrawingInfo(hexagon);
-
-	if (hexagon.inBounds) {
-		radius *= factor;
-	}
+	float oldRadius = radius;
+	radius *= factor;
+	checkSize(pGUI, oldRadius);
 
 }
 
+void CHexagon::checkSize(GUI* pGUI, int oldRadius)
+{
+	if (!(center.x + radius <= UI.width && center.y + radius <= UI.height - UI.StatusBarHeight &&  center.y - radius >=  UI.StatusBarHeight && center.x - radius >= 0))
+	{
+		radius = oldRadius;
+		pGUI->PrintMessage("I can't be bigger than this :(");
+	}
+	// check if the square size smaller than normal
+	else if (radius <= 10)
+	{
+		radius = oldRadius;
+		pGUI->PrintMessage("I can't be smaller than this :(");
+	}
+}
 void CHexagon::saveFigure(ofstream& file) {
 	string Draw_Color;
 	string Fill_Color;
@@ -78,7 +96,7 @@ void CHexagon::saveFigure(ofstream& file) {
 	else
 		Fill_Color = "NO_FILL";
 
-	file << "HEXA" << "  " << ID << "  " << center.x << "  " << center.y << "  " << rotation << "  " << radius << "  " << Draw_Color << "  " << Fill_Color << "  " << endl;
+	file << "HEXA" << "  " << ID << "  " << center.x << "  " << center.y << "  " << angle << "  " << radius << "  " << Draw_Color << "  " << Fill_Color << "  " << endl;
 
 }
 
@@ -88,7 +106,7 @@ void CHexagon::PrintInfo(GUI* pGUI)
 	pGUI->PrintMessage(
 		"Hexagon Id: " + to_string(ID) +
 		", center: (" + to_string(center.x) + ", " + to_string(center.y) + ")" +
-		",rotation:" + to_string(rotation)+
+		",angle:" + to_string(angle)+
 		", radius: " + to_string(radius) +
 		", border-color: (" + to_string(FigGfxInfo.DrawClr.ucRed) + ", " + to_string(FigGfxInfo.DrawClr.ucGreen) + ", " + to_string(FigGfxInfo.DrawClr.ucBlue) + ")" +
 		", fill-color: (" + to_string(FigGfxInfo.FillClr.ucRed) + ", " + to_string(FigGfxInfo.FillClr.ucGreen) + ", " + to_string(FigGfxInfo.FillClr.ucBlue) + ")" +
@@ -103,7 +121,7 @@ void CHexagon::upload(ifstream& file)
 	file >> ID;
 	file >> center.x;
 	file >> center.y;
-	file >> rotation;
+	file >> angle;
 	file >> radius;
 	file >> DrawColor >> FillColor;
 

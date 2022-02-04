@@ -38,7 +38,7 @@ void ActionAddEllipse::Execute()
 		do
 		{
 			//Step 1 - Read Ellipse data from the user
-			pGUI->PrintMessage("New Ellipse: Click on the Center and please consider the canvas area");
+			pGUI->PrintMessage("New Ellipse: Click on the center and please consider the canvas area");
 
 			//Read the center point of ellipse
 			pGUI->GetPointClicked(center.x, center.y);

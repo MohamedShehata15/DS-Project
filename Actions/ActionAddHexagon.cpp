@@ -13,50 +13,45 @@ ActionAddHexagon::ActionAddHexagon(ApplicationManager* pApp) :Action(pApp)
 //Execute the action
 void ActionAddHexagon::Execute()
 {
-	Point Center, FirstVertex;
+	Point center, vertex;
 
 	//Get a Pointer to the Interface
 	
 
 
 	//get drawing, filling colors and pen width from the interface
-	GfxInfo SqrGfxInfo;
-	SqrGfxInfo.isFilled = UI.isFilled;
-	SqrGfxInfo.DrawClr = pGUI->getCrntDrawColor();
-	SqrGfxInfo.FillClr = pGUI->getCrntFillColor();
-	SqrGfxInfo.BorderWdth = pGUI->getCrntPenWidth();
+	GfxInfo HexGfxInfo;
+	HexGfxInfo.isFilled = UI.isFilled;
+	HexGfxInfo.DrawClr = pGUI->getCrntDrawColor();
+	HexGfxInfo.FillClr = pGUI->getCrntFillColor();
+	HexGfxInfo.BorderWdth = pGUI->getCrntPenWidth();
 
 
 	//Step 1 - Read Hexagon data from the user
 
 	pGUI->PrintMessage("New Hexagon: Click at center point");
-	//Read 1st point and store in point Center
+	//Read 1st point and store in point center
 	do {
-		pGUI->GetPointClicked(Center.x, Center.y);
-	} while (!pGUI->isInsideDrawingArea(Center.x, Center.y));
+		pGUI->GetPointClicked(center.x, center.y);
+	} while (!pGUI->isInsideDrawingArea(center.x, center.y));
 
 
-	pGUI->PrintMessage("New Hexagon: Click at first point");
-	//Read 2nd point and store in point FirstVertex
+	pGUI->PrintMessage("New Hexagon: Click at vertex point");
+	//Read 2nd point and store in point vertex
 	do {
-		pGUI->GetPointClicked(FirstVertex.x, FirstVertex.y);
-	} while (!pGUI->isInsideDrawingArea(FirstVertex.x, FirstVertex.y));
+		pGUI->GetPointClicked(vertex.x, vertex.y);
+	} while (!pGUI->isInsideDrawingArea(vertex.x, vertex.y));
 
 	pGUI->ClearStatusBar();
 
-	HexagonInfo hexagon;
-	hexagon.rotation = NULL;
-	hexagon.radius = NULL;
-	hexagon.center = Center;
-	hexagon.firstVertex = FirstVertex;
-
-	// Get the drawing info
-	pGUI->GetHexagonDrawingInfo(hexagon);
-
-	if (hexagon.inBounds) {
-		CHexagon* R = new CHexagon(Center, hexagon.rotation, hexagon.radius, SqrGfxInfo);
-		pManager->AddFigure(R);
-
+	float angle = pGUI->GetHexagonAngle(center, vertex);
+	float radius = pGUI->GetHexagonRadius(center, vertex);
+	int xCoordinates[6];
+	int yCoordinates[6];
+	pGUI->GetHexagonCoordinates(center, radius, angle, xCoordinates, yCoordinates);
+	if (pGUI->isInsideDrawingArea(xCoordinates, yCoordinates, 6)) {
+		CHexagon* hexagon = new CHexagon(center, angle, radius, HexGfxInfo);
+		pManager->AddFigure(hexagon);
 	}
 	else {
 		pGUI->PrintMessage("Can't draw outside the drawing area!");
