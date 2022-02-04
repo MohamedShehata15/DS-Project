@@ -60,7 +60,7 @@ This project was part of the
       <img src="https://avatars.githubusercontent.com/u/97316532?v=4"></img>
     </td>
     <td>
-      <img src="https://avatars.githubusercontent.com/u/33490779?v=4"></img>
+      <img src="https://avatars.githubusercontent.com/u/97365136?v=4"></img>
     </td>
   </tr>
   <tr>
@@ -71,7 +71,7 @@ This project was part of the
       <a href="https://github.com/YaraMohammed98"> Yara Mohamed </a>
     </td>
      <td>
-      <a href="#"> Mai Emad </a>
+      <a href="https://github.com/MaiiEmad"> Mai Emad </a>
     </td>
   </tr>
 </table>
