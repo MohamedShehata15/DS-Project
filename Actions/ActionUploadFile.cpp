@@ -24,7 +24,7 @@ void ActionUploadFile::Execute()
 	FileName = pGUI->GetSrting() + ".txt";
 	pGUI->ClearStatusBar();
 	//open TheFile
-	TheFile.open(FileName);
+	TheFile.open("./FiguresFiles/"+FileName);
 	//check if the file doesn't exists
 	if (TheFile.is_open())
 	{
@@ -32,40 +32,12 @@ void ActionUploadFile::Execute()
 		pGUI->ClearDrawArea();
 		pGUI->PrintMessage("The file was loaded successfully");
 
-		//Read from file
-
-		string Draw_Color; // variable for drawing color
+// drawing color
+		string Draw_Color; 
 		TheFile >> Draw_Color;
-		cout << Draw_Color;
-		if (Draw_Color == "BLUE")
-		{
-			pGUI->setnewDrawColor(BLUE);
-		}
-		else if (Draw_Color == "BLACK")
-		{
-			pGUI->setnewDrawColor(BLACK);
-		}
-
-		else if (Draw_Color == "OFFWHITE")
-		{
-			pGUI->setnewDrawColor(LIGHTGOLDENRODYELLOW);
-		}
-
-		else if (Draw_Color == "GREEN")
-		{
-			pGUI->setnewDrawColor(GREEN);
-		}
-
-		else if (Draw_Color == "YELLOW")
-		{
-			pGUI->setnewDrawColor(YELLOW);
-		}
-
-		else if (Draw_Color == "RED")
-		{
-			pGUI->setnewDrawColor(RED);
-		}//end of drawing color
-
+		color CurrentDrawColor = pGUI->ChangeColor(Draw_Color);
+		pGUI->setnewDrawColor(CurrentDrawColor);
+	
 
 //filling color
 		string Fill_Color; // variable for filling color
@@ -74,76 +46,21 @@ void ActionUploadFile::Execute()
 		if (Fill_Color == "NO_FILL")   //if no fill make fill color=backgroundcolor
 		{
 			pGUI->setIsFilled(false);
-
 		}
         //there is fill color
 		else {
 			pGUI->setIsFilled(true);
-			if (Fill_Color == "BLUE")
-			{
-				pGUI->setnewFillColor(BLUE);
-			}
-			else if (Fill_Color == "BLACK")
-			{
-				pGUI->setnewFillColor(BLACK);
-			}
-
-			else if (Fill_Color == "OFFWHITE")
-			{
-				pGUI->setnewFillColor(LIGHTGOLDENRODYELLOW);
-			}
-
-			else if (Fill_Color == "GREEN")
-			{
-				pGUI->setnewFillColor(GREEN);
-			}
-
-			else if (Fill_Color == "YELLOW")
-			{
-				pGUI->setnewFillColor(YELLOW);
-			}
-
-			else if (Fill_Color == "RED")
-			{
-				pGUI->setnewFillColor(RED);
-			}
-		}// end of filling color
-
-
+			color CurrentFillColor = pGUI->ChangeColor(Fill_Color);
+			pGUI->setnewFillColor(CurrentFillColor);
+		     }
 
 //Background color
 
 		string BG_Color; // variable for BG color
 		TheFile >> BG_Color;
 		cout << BG_Color;
-		if (BG_Color == "BLUE")
-		{
-			pGUI->setnewBackgroundColor(BLUE);
-		}
-		else if (BG_Color == "BLACK")
-		{
-			pGUI->setnewBackgroundColor(BLACK);
-		}
-
-		else if (BG_Color == "OFFWHITE")
-		{
-			pGUI->setnewBackgroundColor(LIGHTGOLDENRODYELLOW);
-		}
-
-		else if (BG_Color == "GREEN")
-		{
-			pGUI->setnewBackgroundColor(GREEN);
-		}
-
-		else if (BG_Color == "YELLOW")
-		{
-			pGUI->setnewBackgroundColor(YELLOW);
-		}
-
-		else if (BG_Color == "RED")
-		{
-			pGUI->setnewBackgroundColor(RED);
-		}//end of Background color
+		color CurrentbgColor = pGUI->ChangeColor(BG_Color);
+		pGUI->setnewBackgroundColor(CurrentbgColor);
 
 //get shapes
 		int Number_of_Figures; //variable for num of figures
@@ -189,7 +106,7 @@ void ActionUploadFile::Execute()
 			//whie there are shapes
 			if (loadedFigure != NULL) 
 			{
-				loadedFigure->upload(TheFile); //upload them
+				loadedFigure->upload(pGUI,TheFile); //upload them
 				pManager->AddFigure(loadedFigure);//add them to drawing area
 			}
 

@@ -19,7 +19,7 @@ void ActionSaveFile::Execute()
 	FileName = pGUI->GetSrting() + ".txt";
 	pGUI->ClearStatusBar();
 	//open TheFile
-	FileToSave.open(FileName);
+	FileToSave.open("./FiguresFiles/"+FileName);
 
 	if (FileToSave.is_open())
 	{
@@ -53,6 +53,8 @@ void ActionSaveFile::Execute()
 				Fill_Color = "BLUE";
 			if (int(UI.FillColor.ucRed) == 255 && int(UI.FillColor.ucGreen) == 255 && int(UI.FillColor.ucBlue) == 0)
 				Fill_Color = "YELLOW";
+			if (int(UI.FillColor.ucRed) == 250 &&int(UI.FillColor.ucGreen) == 250&& int(UI.FillColor.ucBlue) ==210)
+				Fill_Color = "OFFWHITE";
 		}
 		else {
 			Fill_Color = "NO_FILL";
@@ -72,7 +74,8 @@ void ActionSaveFile::Execute()
 			bgColor = "YELLOW";
 		if (int(UI.BkGrndColor.ucRed) == 250 && int(UI.BkGrndColor.ucGreen) == 250 && int(UI.BkGrndColor.ucBlue) == 210)
 			bgColor = "OFFWHITE";
-
+		if (int(UI.BkGrndColor.ucRed) == 255 && int(UI.BkGrndColor.ucGreen) == 255 && int(UI.BkGrndColor.ucBlue) == 255)
+			bgColor = "WHITE";
 
 
 

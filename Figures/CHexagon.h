@@ -19,7 +19,7 @@ public:
 	void checkSize(GUI*, int, int);
 	virtual void PrintInfo(GUI* pGUI);
 	virtual void saveFigure(ofstream& file);//save the shape
-	virtual void upload(ifstream& Infile);
+	virtual void upload(GUI* pGUI, ifstream& file);
 	void GetHexagonCoordinates(Point center, float radius, float angle, int* xCoordinates, int* yCoordinates);
 	void checkSize(GUI* pGUI, int oldRadius);
 	/*virtual void increase();

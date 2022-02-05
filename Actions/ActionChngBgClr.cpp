@@ -16,6 +16,7 @@ void ActionChngBgClr::Execute()
 {
 
 	GUI* pGUI = pManager->GetGUI();
+	pGUI->ClearStatusBar();
 	pGUI->PrintMessage("You selected a new color, for selecting the default click restore icon and to draw go back");
 
 

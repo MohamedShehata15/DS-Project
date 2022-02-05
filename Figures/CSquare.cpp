@@ -62,7 +62,7 @@ CFigure* CSquare::GetCopy()
 	CFigure* Copy = new CSquare(*this);
 	return Copy;
 }
-void CSquare::upload(ifstream& file)
+void CSquare::upload(GUI* pGUI, ifstream& file)
 {
 	//variables for colors
 	string DrawColor;
@@ -71,71 +71,22 @@ void CSquare::upload(ifstream& file)
 	file >> TopLeftCorner.x >> TopLeftCorner.y >> length;
 	file >> DrawColor >> FillColor;
 	//which color for draw
+	color CurrentDrawColor = pGUI->ChangeColor(DrawColor);
+	FigGfxInfo.DrawClr = CurrentDrawColor;
 	
-	if (DrawColor == "BLUE")
-	{
-		FigGfxInfo.DrawClr = BLUE;
-	}
-	else if (DrawColor == "BLACK")
-	{
-		FigGfxInfo.DrawClr = BLACK;
-	}
-
-	else if (DrawColor == "OFFWHITE")
-	{
-		FigGfxInfo.DrawClr = LIGHTGOLDENRODYELLOW;
-	}
-
-	else if (DrawColor == "GREEN")
-	{
-		FigGfxInfo.DrawClr = GREEN;
-	}
-
-	else if (DrawColor == "YELLOW")
-	{
-		FigGfxInfo.DrawClr = YELLOW;
-	}
-
-	else if (DrawColor == "RED")
-	{
-		FigGfxInfo.DrawClr = RED;
-	}//end of drawing color
-
 
 
 	//which color for filling
 	if (FillColor == "NO_FILL")
 	{
 		FigGfxInfo.isFilled = false;
-		FigGfxInfo.FillClr = LIGHTGOLDENRODYELLOW;
+		FigGfxInfo.FillClr = WHITE;
 	}
 	else
 	{
 		FigGfxInfo.isFilled = true;
-
-		if (FillColor == "BLUE")
-		{
-			FigGfxInfo.FillClr = BLUE;
-		}
-		else if (FillColor == "BLACK")
-		{
-			FigGfxInfo.FillClr = BLACK;
-		}
-
-		else if (FillColor == "GREEN")
-		{
-			FigGfxInfo.FillClr = GREEN;
-		}
-
-		else if (FillColor == "YELLOW")
-		{
-			FigGfxInfo.FillClr = YELLOW;
-		}
-
-		else if (FillColor == "RED")
-		{
-			FigGfxInfo.FillClr = RED;
-		}
+		color CurrentFillColor = pGUI->ChangeColor(FillColor);
+		FigGfxInfo.FillClr = CurrentFillColor;
 		
 }
 
@@ -175,6 +126,9 @@ void CSquare::saveFigure(ofstream &file)
 			Fill_Color = "BLUE";
 		if (int(FigGfxInfo.FillClr.ucRed) == 255 && int(FigGfxInfo.FillClr.ucGreen) == 255 && int(FigGfxInfo.FillClr.ucBlue) == 0)
 			Fill_Color = "YELLOW";
+		if (int(FigGfxInfo.FillClr.ucRed) == 250 && int(FigGfxInfo.FillClr.ucGreen) == 250 && int(FigGfxInfo.FillClr.ucBlue) == 210)
+			Fill_Color = "OFFWHITE";
+
 	}
 	else 
 	{

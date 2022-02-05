@@ -41,6 +41,7 @@ public:
 	bool isWithinDrawingArea(int y);
 	bool isInsideDrawingArea(int* xs, int* ys, int count) const;
 	bool isInsideDrawingArea(int x, int y) const;
+	color  GUI::ChangeColor(string color);
 	// -- Figures Drawing functions
 	void DrawSquare(Point P1, int length, GfxInfo RectGfxInfo, bool selected=false) const;  //Draw a Square
 	void DrawEllipse(Point P1, int yr,int xr, GfxInfo EllGfxInfo, bool selected) const; //Draw Ellipse

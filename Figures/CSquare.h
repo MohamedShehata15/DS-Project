@@ -18,7 +18,7 @@ public:
 	virtual void Resize(GUI* pGUI, float resizeFactor);
 	void checkSize(GUI* pGUI, int oldLength);
 	virtual CFigure* GetCopy();
-	virtual void upload(ifstream& file); //for upload the shape
+	virtual void upload(GUI* pGUI, ifstream& file); //for upload the shape
 	virtual void saveFigure(ofstream& file); //save the shape
 
 	/*virtual void increase();

@@ -69,6 +69,25 @@ void GUI::GetPointClicked(int &x, int &y) const
 	pWind->WaitMouseClick(x, y);	//Wait for mouse click
 }
 
+color  GUI::ChangeColor(string color)
+{
+	if (color == "BLACK")
+		return BLACK;
+	if (color == "BLUE")
+		return BLUE;
+	if (color == "YELLOW")
+		return YELLOW;
+	if (color == "GREEN")
+		return GREEN;
+	if (color == "RED")
+		return RED;
+	if (color == "WHITE")
+		return WHITE;
+	if (color == "OFFWHITE")
+		return LIGHTGOLDENRODYELLOW;
+}
+
+
 string GUI::GetSrting() const 
 {
 	string Label;

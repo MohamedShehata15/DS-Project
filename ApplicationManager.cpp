@@ -191,6 +191,7 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 //////////////////////////////////////////////////////////////////////
 // Responsible for Drawing colors
 Action* ApplicationManager::handleDrawingColorAction(color c) {
+	
 	pGUI->setAppliedColor(c);
 
 	switch (DrawingActionType) {
@@ -205,17 +206,17 @@ Action* ApplicationManager::handleDrawingColorAction(color c) {
 			return NULL;
 	}
 }
-
 Action* ApplicationManager::handleDefault()
 {
-
+	pGUI->ClearStatusBar();
+	pGUI->PrintMessage("You selected the default");
 	switch (DrawingActionType) {
 	case CHNG_DRAW_CLR:
 		pGUI->setnewDrawColor(BLACK);
 		break;
 		
 	case CHNG_BK_CLR:
-		pGUI->setnewBackgroundColor(LIGHTGOLDENRODYELLOW);
+		pGUI->setnewBackgroundColor(WHITE);
 		break;
 
 		

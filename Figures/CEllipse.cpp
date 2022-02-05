@@ -77,8 +77,9 @@ CFigure* CEllipse::GetCopy()
 }
 
 //Upload Ellipse
-void CEllipse::upload(ifstream &file)
+void CEllipse::upload(GUI* pGUI,ifstream &file)
 {
+
 	//variables for colors
 	string DrawColor;
 	string FillColor;
@@ -90,71 +91,22 @@ void CEllipse::upload(ifstream &file)
 	file >> DrawColor;
 	file >> FillColor;
 	//which color for draw
-	if (DrawColor == "BLUE")
-	{
-		FigGfxInfo.DrawClr = BLUE;
-	}
-	else if (DrawColor == "BLACK")
-	{
-		FigGfxInfo.DrawClr = BLACK;
-	}
-
-	else if (DrawColor == "OFFWHITE")
-	{
-		FigGfxInfo.DrawClr =LIGHTGOLDENRODYELLOW;
-	}
-
-	else if (DrawColor == "GREEN")
-	{
-		FigGfxInfo.DrawClr=GREEN;
-	}
-
-	else if (DrawColor == "YELLOW")
-	{
-		FigGfxInfo.DrawClr=YELLOW;
-	}
-
-	else if (DrawColor == "RED")
-	{
-		FigGfxInfo.DrawClr=RED;
-	}//end of drawing color
-
+	    color CurrentDrawColor = pGUI->ChangeColor(DrawColor);
+		FigGfxInfo.DrawClr = CurrentDrawColor;
+	
 	//which color for filling
 	if (FillColor == "NO_FILL")
 	{
 		FigGfxInfo.isFilled = false;
-		FigGfxInfo.FillClr = LIGHTGOLDENRODYELLOW;
+		FigGfxInfo.FillClr = WHITE;
 	}
 	else
 	{
 		FigGfxInfo.isFilled = true;
-
-		if (FillColor == "BLUE")
-		{
-			FigGfxInfo.FillClr = BLUE;
-		}
-		else if (FillColor == "BLACK")
-		{
-			FigGfxInfo.FillClr = BLACK;
-		}
-
-		else if (FillColor == "GREEN")
-		{
-			FigGfxInfo.FillClr = GREEN;
-		}
-
-		else if (FillColor == "YELLOW")
-		{
-			FigGfxInfo.FillClr = YELLOW;
-		}
-
-		else if (FillColor == "RED")
-		{
-			FigGfxInfo.FillClr = RED;
-		}
+		color CurrentFillColor = pGUI->ChangeColor(FillColor);
+		FigGfxInfo.FillClr = CurrentFillColor;
 
 	}
-
 }//end of upload
 
 
@@ -191,6 +143,8 @@ void CEllipse::saveFigure(ofstream& file)
 			Fill_Color = "BLUE";
 		if (int(FigGfxInfo.FillClr.ucRed) == 255 && int(FigGfxInfo.FillClr.ucGreen) == 255 && int(FigGfxInfo.FillClr.ucBlue) == 0)
 			Fill_Color = "YELLOW";
+		if (int(FigGfxInfo.FillClr.ucRed) == 250 && int(FigGfxInfo.FillClr.ucGreen) == 250 && int(FigGfxInfo.FillClr.ucBlue) == 210)
+			Fill_Color = "OFFWHITE";
 	}
 	else
 		Fill_Color = "NO_FILL";
